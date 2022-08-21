@@ -27,6 +27,14 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(249, 3, 3);
+}
+
+a:active {
+  color:rgb(13, 32, 201);
+}
+
 .du {
   display: inline-block;
   width: 25%;

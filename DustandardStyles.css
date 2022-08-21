@@ -1,3 +1,21 @@
 body {
-  background-image: url("https://commons.wikimedia.org/wiki/File:Curzon_Hall_Panorama.jpg#/media/File:Curzon_Hall_Panorama.jpg");
+  background-color: rgba(250, 245, 150, 0.792);
+}
+
+legend {
+  font-family: Georgia;
+  font-size: 150%;
+}
+
+fieldset {
+  margin: 5% 10%;
+}
+
+.option {
+  width: 100px;
+  /* margin-right: 0; */
+}
+
+label {
+  margin-left: -1%;
 }
