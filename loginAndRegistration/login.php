@@ -8,7 +8,7 @@ if(isset($_POST['submit'])) {
   $id = $_POST['id'];
   $password = md5($_POST['password']);
 
-  $query = "SELECT id, password FROM user_registration WHERE id = '$id'";
+  $query = "SELECT id, password FROM userID WHERE id = '$id'";
   $result = mysqli_query($conn, $query);
 
   if(mysqli_num_rows($result) == 0)

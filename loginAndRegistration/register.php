@@ -3,20 +3,22 @@
 require 'config.php';
 
 if(isset($_POST['submit'])) {
-  $id = $_POST['id'];
-  $email = $_POST['email'];
-  $password = md5($_POST['password']);
-  $confirm_password = md5($_POST['confirm_password']);
+  $id = filter_input(INPUT_POST, 'id');
+  $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+  $password = md5(filter_input(INPUT_POST, 'password'));
+  $confirm_password = md5(filter_input(INPUT_POST, 'confirm_password'));
 
-  $query = "SELECT id, email FROM user_registration WHERE id = '$id' OR email = '$email'";
+  $query = "SELECT id, email FROM userID WHERE id = '$id' OR email = '$email'";
   $result = mysqli_query($conn, $query);
 
-  if(mysqli_num_rows($result) > 0)
+  if(mysqli_num_rows($result) > 0) {
     $error[] = "User with this username or email already exists!";
-  elseif($password != $confirm_password)
+  } elseif(!$email) {
+    $error[] = "Invalid email!";
+  } elseif($password != $confirm_password) {
     $error[] = "Passwords don't match!";
-  else {
-    $insert = "insert into user_registration values('$id', '$email', '$password')";
+  } else {
+    $insert = "insert into userID values('$id', '$email', '$password')";
     mysqli_query($conn, $insert);
     header('location:login.php');
   }  
@@ -45,8 +47,8 @@ if(isset($_POST['submit'])) {
       if(isset($error)) {
         foreach($error as $error) {
           echo '<span class="error-msg">'.$error.'</span>';
-        };
-      };
+        }
+      }
 
       ?>
 
