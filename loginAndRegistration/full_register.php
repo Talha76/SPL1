@@ -2,6 +2,10 @@
 
 require 'config.php';
 
+if(isset($_POST['submit'])) {
+  
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +15,7 @@ require 'config.php';
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Complete Registration</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -21,17 +25,18 @@ require 'config.php';
     <form action="" method="POST">
       <h3>Complete Your Account</h3>
 
-      <input type="text" id="name" name="name" placeholder="Your Name">
+      <input type="text" id="first_name" name="first_name" placeholder="Your First Name" required>
+      <input type="text" name="last_name" id="last_name" placeholder="Your Last Name">
 
-      <select name="gender" id="gender">
-        <option value="none" disabled selected>Select Your Gender</option>
+      <select name="gender" id="gender" required>
+        <option value="-1" disabled selected>Select Your Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="others">Others</option>
       </select>
 
-      <select name="skill" id="skill">
-        <option value="-1" selected disabled>Select</option>
+      <select name="skill" id="skill" required>
+        <option value="-1" selected disabled>Select Your Skill</option>
         <option value="1">Accounting/Finance</option>
         <option value="2">Bank/Non-Bank Fin. Institution</option>
         <option value="3">Commercial/Supply Chain</option>
@@ -60,7 +65,49 @@ require 'config.php';
         <option value="26">Agro (Plant/Animal/Fisheries)</option>
       </select>
 
-      <input type="text" name="contact" id="contact" placeholder="Enter Your Mobile Number">
+      <input type="text" name="primary_mobile" id="primary_mobile" placeholder="Enter Your Mobile Number" required>
+      <input type="text" name="secondary_mobile" id="secondary_mobile" placeholder="Secondary Mobile Number">
+      <input type="date" name="date_of_birth" id="date_of_birth" required>
+      <input type="text" name="father_name" id="father_name" placeholder="Father's Name">
+      <input type="text" name="mother_name" id="mother_name" placeholder="Mother's Name">
+
+      <select name="religion" id="religion" required>
+        <option value="-1" selected disabled>Select Your Religion</option>
+        <option value="Buddhism">Buddhism</option>
+        <option value="Christianity">Christianity</option>
+        <option value="Hinduism">Hinduism</option>
+        <option value="Islam">Islam</option>
+        <option value="Jainism">Jainism</option>
+        <option value="Judaism">Judaism</option>
+        <option value="Sikhism">Sikhism</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <select name="marital_status" id="marital_status" required>
+        <option value="-1" selected disabled>Select Your Marital Status</option>
+        <option value="married">Married</option>
+        <option value="single">Single</option>
+        <option value="divorced">Divorced</option>
+      </select>
+
+      <input type="text" name="nationality" id="nationality" placeholder="Nationality" required>
+      <input type="text" name="nid" id="nid" placeholder="National ID">
+      <input type="email" name="secondary_mail" id="secondary_mail" placeholder="Secondary Mail">
+
+      <select name="blood_group" id="blood_group">
+        <option value="-1" selected disabled>Select Your Blood Group</option>
+        <option value="A+">A(+ve)</option>
+        <option value="A-">A(-ve)</option>
+        <option value="B+">B(+ve)</option>
+        <option value="B-">B(-ve)</option>
+        <option value="O+">O(+ve)</option>
+        <option value="O-">O(-ve)</option>
+        <option value="AB+">AB(+ve)</option>
+        <option value="AB-">AB(-ve)</option>
+      </select>
+
+      <button type="submit" name="submit" class="form-btn">Complete Your Registration</button>
+
     </form>
   </div>
 

@@ -5,8 +5,8 @@ require 'config.php';
 session_start();
 
 if(isset($_POST['submit'])) {
-  $id = $_POST['id'];
-  $password = md5($_POST['password']);
+  $id = filter_input(INPUT_POST, 'id');
+  $password = md5(filter_input(INPUT_POST, 'password'));
 
   $query = "SELECT id, password FROM userID WHERE id = '$id'";
   $result = mysqli_query($conn, $query);
@@ -19,8 +19,7 @@ if(isset($_POST['submit'])) {
     if($row['password'] == $password) {
       $_SESSION['id'] = $row['id'];
       header('location:user_page.php');
-    }
-    else
+    } else
       $error[] = "Wrong password!";
   }
 }
@@ -53,8 +52,8 @@ if(isset($_POST['submit'])) {
 
       ?>
 
-      <input type="text" name="id" placeholder="Enter User ID" required>
-      <input type="password" name="password" placeholder="Enter password" required>
+      <input type="text" name="id" id="id" placeholder="Enter User ID" required>
+      <input type="password" name="password" id="password" placeholder="Enter password" required>
       <button type="submit" name="submit" class="form-btn">Log in</button>
 
       <p>Don't have an account? <a href="register.php">Register now</a></p>

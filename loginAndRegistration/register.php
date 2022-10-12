@@ -20,7 +20,8 @@ if(isset($_POST['submit'])) {
   } else {
     $insert = "insert into userID values('$id', '$email', '$password')";
     mysqli_query($conn, $insert);
-    header('location:login.php');
+    $_SESSION['id'] = $id;
+    header('location:full_register.php');
   }  
 }
 

@@ -1,0 +1,15 @@
+CREATE TABLE `user_db`.`user_info` (
+  `id` VARCHAR(255) NOT NULL,
+  `first_name` VARCHAR(255) NOT NULL,
+  `last_name` VARCHAR(255),
+  `gender` VARCHAR(255) NOT NULL,
+  `skill` VARCHAR(255) NOT NULL,
+  `date_of_birth` DATE NOT NULL,
+  `father_name` VARCHAR(255),
+  `mother_name` VARCHAR(255),
+  `religion` VARCHAR(255) NOT NULL,
+  `marital_status` VARCHAR(255) NOT NULL,
+  `nationality` VARCHAR(255) NOT NULL,
+  `nid` INT(50),
+  `blood_group` VARCHAR(3),
+);

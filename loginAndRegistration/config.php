@@ -1,5 +1,9 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'admin', 'admin', 'user_db');
+$conn = mysqli_connect('localhost', 'root', '', 'user_db');
+
+if(!$conn) {
+  echo 'Database Connection Error!';
+}
 
 ?>
