@@ -1,0 +1,230 @@
+:root {
+  --primarycolor: #0076de;
+  --whitecolor: #fff;
+  --blackcolor: #333;
+  --greycolor: #f6f8fa;
+  --labelcolor: #64b1f5;
+  --yellocolor: #ffd723;
+  --greencolor: #024643;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  line-height: 1.5;
+}
+
+.navbar {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem 2.5rem;
+  z-index: 10;
+  color: var(--yellocolor);
+  background-color: rgb(27, 41, 16);
+}
+
+.navbar-logo > a {
+  margin-left: 29px;
+  letter-spacing: 3.5;
+  text-decoration: none;
+  color: var(--whitecolor);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 40px;
+}
+
+.navbar-logo > a:hover {
+  color: rgb(89, 91, 236);
+}
+
+.navbar-menu {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-menu > a {
+  color: var(--whitecolor);
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-toggle.bar {
+  width: 15px;
+  height: 2px;
+  margin: 3px auto;
+  transition: all 0.3 ease-in-out;
+  background-color: var(--whitecolor);
+  cursor: pointer;
+}
+
+header {
+  width: 100%;
+  height: 60vh;
+  margin-top: 1%;
+  background-color: #d00c0c;
+  background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80");
+  background-position: center;
+  /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.disclaimer {
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: justify;
+}
+.disclaimer-title{
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
+	text-align: center;
+}
+.disclaimer-info, .resumedisplay-info {
+	margin-left: 15%;
+	margin-right: 15%;
+ /* align-items: center; */
+	text-align: justify;
+	background-color:aliceblue;
+	border-radius: 0.3rem;
+	border-color: black;
+	border-width: 0.05rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding: 1%;
+	border-style: solid;
+}
+.resumedisplay-title {
+	/* background-color: antiquewhite; */
+	margin-top: -1.5%;
+	margin-bottom: 1.5%;
+	margin-left: 15%;
+	margin-right: 15%;
+	padding-bottom: 1%;
+	border-bottom: #333;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+	font-size: larger;
+	font-weight: bolder;
+	
+}
+.resumedisplay {
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
+	text-align: justify;
+}
+
+/* css for footer starts */
+.footer{
+  background-color: #021a26;
+  height: 400px;
+  margin-top: 55%;
+  display: flex;
+}
+
+
+/* css for about us starts */
+.about-us{
+  margin-top: 3%;
+  /* background-color: #e20930; */
+  width: 33%;
+  height: 70%;
+}
+
+.links>a{
+text-decoration: none;
+display: flow-root;
+color: #f3fcf6;
+margin-left: 20%;
+margin-top: 3%;
+/* background-color: #e20930; */
+
+}
+.heading-about-us>h2{
+  color: #f3fcf6;
+  margin-left: 20%;
+  padding-top: .5rem;
+  /* margin-bottom: 5%; */
+  /* margin-top: 5%; */
+  /* background-color: #0076de; */
+}
+/* css for about us ends */
+
+
+
+/* css for job seekers starts */
+.Job-Seekers{
+  margin-top: 3%;
+  /* background-color: #e20930; */
+  width: 33%;
+  height: 70%;
+}
+
+.links-of-jobseekers>a{
+text-decoration: none;
+display: flow-root;
+color: #f3fcf6;
+margin-left: 20%;
+margin-top: 3%;
+/* background-color: #e20930; */
+
+}
+.heading-job-seekers>h2{
+  color: #f3fcf6;
+  margin-left: 20%;
+  padding-top: .5rem;
+  /* margin-bottom: 5%; */
+  /* margin-top: 5%; */
+  /* background-color: #0076de; */
+}
+/* css for job seekers ends */
+  
+
+/* css for employers starts */
+.employers{
+  margin-top: 3%;
+  /* background-color: #e20930; */
+  width: 33%;
+  height: 70%;
+}
+
+.links-of-employers>a{
+text-decoration: none;
+display: flow-root;
+color: #f3fcf6;
+margin-left: 20%;
+margin-top: 3%;
+/* background-color: #e20930; */
+
+}
+.heading-employers>h2{
+  color: #f3fcf6;
+  margin-left: 20%;
+  padding-top: .5rem;
+  /* margin-bottom: 5%; */
+  /* margin-top: 5%; */
+  /* background-color: #0076de; */
+}
+/* css for employers ends */
+/* css for footer ends */
