@@ -115,6 +115,9 @@ header {
 	padding: 1%;
 	border-style: solid;
 }
+.terms-and-conditions-page {
+  margin-bottom: -50%;
+}
 .resumedisplay-title {
 	/* background-color: antiquewhite; */
 	margin-top: -1.5%;
