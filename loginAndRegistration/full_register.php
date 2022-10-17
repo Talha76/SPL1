@@ -2,8 +2,22 @@
 
 require 'config.php';
 
-if(isset($_POST['submit'])) {
-  
+if (isset($_POST['submit'])) {
+  $first_name = filter_input(INPUT_POST, 'first_name');
+  $last_name  = filter_input(INPUT_POST, 'last_name');
+  $gender     = filter_input(INPUT_POST, 'gender');
+  $skill      = filter_input(INPUT_POST, 'skill');
+  $primary_mobile   = filter_input(INPUT_POST, 'primary_mobile');
+  $secondary_mobile = filter_input(INPUT_POST, 'secondary_mobile');
+  $date_of_birth    = filter_input(INPUT_POST, 'date_of_birth');
+  $father_name      = filter_input(INPUT_POST, 'father_name');
+  $mother_name      = filter_input(INPUT_POST, 'mother_name');
+  $religion   = filter_input(INPUT_POST, 'religion');
+  $marital_status   = filter_input(INPUT_POST, 'marital_status');
+  $nationality      = filter_input(INPUT_POST, 'nationality');
+  $nid        = filter_input(INPUT_POST, 'nid');
+  $email      = filter_input(INPUT_POST, 'email');
+  $blood_group      = filter_input(INPUT_POST, 'blood_group');
 }
 
 ?>
@@ -105,6 +119,149 @@ if(isset($_POST['submit'])) {
         <option value="AB+">AB(+ve)</option>
         <option value="AB-">AB(-ve)</option>
       </select>
+
+      <h2>Address</h2>
+      <h4>Present Address</h4>
+      <select id="present_district" name="present_district" required>
+        <option value="-1" selected disabled>Select District</option>
+        <option value="1">Brahmanbaria</option>
+        <option value="2">Bagerhat</option>
+        <option value="3">Bandarban</option>
+        <option value="4">Barishal</option>
+        <option value="5">Bhola</option>
+        <option value="6">Bogura</option>
+        <option value="7">Barguna</option>
+        <option value="8">Chandpur</option>
+        <option value="9">Chapainawabganj</option>
+        <option value="10">Chattogram</option>
+        <option value="11">Chuadanga</option>
+        <option value="12">Cumilla</option>
+        <option value="13">Cox's Bazar</option>
+        <option value="14">Dhaka</option>
+        <option value="15">Dinajpur</option>
+        <option value="16">Faridpur</option>
+        <option value="17">Feni</option>
+        <option value="18">Gaibandha</option>
+        <option value="19">Gazipur</option>
+        <option value="20">Gopalganj</option>
+        <option value="21">Habiganj</option>
+        <option value="22">Jamalpur</option>
+        <option value="23">Jashore</option>
+        <option value="24">Jhalakathi</option>
+        <option value="25">Jhenaidah</option>
+        <option value="26">Joypurhat</option>
+        <option value="27">Khagrachhari</option>
+        <option value="28">Khulna</option>
+        <option value="29">Kishoreganj</option>
+        <option value="30">Kurigram</option>
+        <option value="31">Kushtia</option>
+        <option value="32">Lalmonirhat</option>
+        <option value="33">Laksmipur</option>
+        <option value="34">Madaripur</option>
+        <option value="35">Magura</option>
+        <option value="36">Manikganj</option>
+        <option value="37">Meherpur</option>
+        <option value="38">Moulvibazar</option>
+        <option value="39">Munshiganj</option>
+        <option value="40">Mymensingh</option>
+        <option value="41">Naogaon</option>
+        <option value="42">Narail</option>
+        <option value="43">Narayanganj</option>
+        <option value="44">Narsingdi</option>
+        <option value="45">Natore</option>
+        <option value="46">Netrokona</option>
+        <option value="47">Nilphamari</option>
+        <option value="48">Noakhali</option>
+        <option value="49">Pabna</option>
+        <option value="50">Panchagarh</option>
+        <option value="51">Patuakhali</option>
+        <option value="52">Pirojpur</option>
+        <option value="53">Rajbari</option>
+        <option value="54">Rajshahi</option>
+        <option value="55">Rangamati</option>
+        <option value="56">Rangpur</option>
+        <option value="57">Satkhira</option>
+        <option value="58">Shariatpur</option>
+        <option value="59">Sherpur</option>
+        <option value="60">Sirajganj</option>
+        <option value="61">Sunamganj</option>
+        <option value="62">Sylhet</option>
+        <option value="63">Tangail</option>
+        <option value="64">Thakurgaon</option>
+      </select>
+
+      <input type="text" name="present_address" id="present_address" placeholder="Enter your full present address">
+      
+      <h4>Permanent Address</h4>
+      <select id="permanent_district" name="permanent_district" required>
+        <option value="-1" selected disabled>Select District</option>
+        <option value="1">Brahmanbaria</option>
+        <option value="2">Bagerhat</option>
+        <option value="3">Bandarban</option>
+        <option value="4">Barishal</option>
+        <option value="5">Bhola</option>
+        <option value="6">Bogura</option>
+        <option value="7">Barguna</option>
+        <option value="8">Chandpur</option>
+        <option value="9">Chapainawabganj</option>
+        <option value="10">Chattogram</option>
+        <option value="11">Chuadanga</option>
+        <option value="12">Cumilla</option>
+        <option value="13">Cox's Bazar</option>
+        <option value="14">Dhaka</option>
+        <option value="15">Dinajpur</option>
+        <option value="16">Faridpur</option>
+        <option value="17">Feni</option>
+        <option value="18">Gaibandha</option>
+        <option value="19">Gazipur</option>
+        <option value="20">Gopalganj</option>
+        <option value="21">Habiganj</option>
+        <option value="22">Jamalpur</option>
+        <option value="23">Jashore</option>
+        <option value="24">Jhalakathi</option>
+        <option value="25">Jhenaidah</option>
+        <option value="26">Joypurhat</option>
+        <option value="27">Khagrachhari</option>
+        <option value="28">Khulna</option>
+        <option value="29">Kishoreganj</option>
+        <option value="30">Kurigram</option>
+        <option value="31">Kushtia</option>
+        <option value="32">Lalmonirhat</option>
+        <option value="33">Laksmipur</option>
+        <option value="34">Madaripur</option>
+        <option value="35">Magura</option>
+        <option value="36">Manikganj</option>
+        <option value="37">Meherpur</option>
+        <option value="38">Moulvibazar</option>
+        <option value="39">Munshiganj</option>
+        <option value="40">Mymensingh</option>
+        <option value="41">Naogaon</option>
+        <option value="42">Narail</option>
+        <option value="43">Narayanganj</option>
+        <option value="44">Narsingdi</option>
+        <option value="45">Natore</option>
+        <option value="46">Netrokona</option>
+        <option value="47">Nilphamari</option>
+        <option value="48">Noakhali</option>
+        <option value="49">Pabna</option>
+        <option value="50">Panchagarh</option>
+        <option value="51">Patuakhali</option>
+        <option value="52">Pirojpur</option>
+        <option value="53">Rajbari</option>
+        <option value="54">Rajshahi</option>
+        <option value="55">Rangamati</option>
+        <option value="56">Rangpur</option>
+        <option value="57">Satkhira</option>
+        <option value="58">Shariatpur</option>
+        <option value="59">Sherpur</option>
+        <option value="60">Sirajganj</option>
+        <option value="61">Sunamganj</option>
+        <option value="62">Sylhet</option>
+        <option value="63">Tangail</option>
+        <option value="64">Thakurgaon</option>
+      </select>
+
+      <input type="text" name="permanent_address" id="permanent_address" placeholder="Enter your full permanent address">
 
       <button type="submit" name="submit" class="form-btn">Complete Your Registration</button>
 
