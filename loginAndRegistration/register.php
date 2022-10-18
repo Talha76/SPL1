@@ -35,6 +35,7 @@ if(isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration</title>
   <link rel="stylesheet" href="css\style.css">
+  <script src="app/app.js"></script>
 </head>
 <body>
   
@@ -57,7 +58,7 @@ if(isset($_POST['submit'])) {
       <input type="email" name="email" placeholder="Enter user email" required>
       <input type="password" name="password" placeholder="Enter password" required>
       <input type="password" name="confirm_password" placeholder="Confirm password" required>
-      <button type="submit" name="submit" class="form-btn">Register</button>
+      <button type="submit" name="submit" class="form-btn" onclick="validatePassword()">Register</button>
 
       <p>Already have an account? <a href="login.php">Login now</a></p>
 
