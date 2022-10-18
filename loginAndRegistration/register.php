@@ -1,11 +1,11 @@
 <?php
 
-require 'config.php';
+require '../phpDependencies/config.php';
 
 if(isset($_POST['submit'])) {
-  $id = filter_input(INPUT_POST, 'id');
-  $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-  $password = md5(filter_input(INPUT_POST, 'password'));
+  $id               = filter_input(INPUT_POST, 'id');
+  $email            = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+  $password         = md5(filter_input(INPUT_POST, 'password'));
   $confirm_password = md5(filter_input(INPUT_POST, 'confirm_password'));
 
   $query = "SELECT id, email FROM userID WHERE id = '$id' OR email = '$email'";
@@ -21,7 +21,7 @@ if(isset($_POST['submit'])) {
     $insert = "insert into userID values('$id', '$email', '$password')";
     mysqli_query($conn, $insert);
     $_SESSION['id'] = $id;
-    header('location:full_register.php');
+    header('location:../home/index.php');
   }  
 }
 

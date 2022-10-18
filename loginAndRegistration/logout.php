@@ -1,6 +1,6 @@
 <?php
 
-require 'config.php';
+require '../phpDependencies/config.php';
 session_start();
 session_unset();
 session_destroy();

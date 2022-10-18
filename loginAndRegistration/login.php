@@ -1,6 +1,6 @@
 <?php
 
-require 'config.php';
+require '../phpDependencies/config.php';
 
 session_start();
 
@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
 
     if($row['password'] == $password) {
       $_SESSION['id'] = $row['id'];
-      header('location:user_page.php');
+      header('location:../home/index.php');
     } else
       $error = "Wrong password!";
   }
