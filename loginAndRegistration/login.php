@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
   $result = mysqli_query($conn, $query);
 
   if(mysqli_num_rows($result) == 0)
-    $error[] = "User not found!";
+    $error = "User not found!";
   else {
     $row = mysqli_fetch_array($result);
 
@@ -20,7 +20,7 @@ if(isset($_POST['submit'])) {
       $_SESSION['id'] = $row['id'];
       header('location:user_page.php');
     } else
-      $error[] = "Wrong password!";
+      $error = "Wrong password!";
   }
 }
 
@@ -43,18 +43,14 @@ if(isset($_POST['submit'])) {
       <h3>Log In Now</h3>
 
       <?php
-      
       if(isset($error)) {
-        foreach($error as $error) {
-          echo '<span class="error-msg">'.$error.'</span>';
-        };
-      };
-
+        echo '<span class="error-msg">'.$error.'</span>';
+      }
       ?>
 
       <input type="text" name="id" id="id" placeholder="Enter User ID" required>
       <input type="password" name="password" id="password" placeholder="Enter password" required>
-      <button type="submit" name="submit" class="form-btn">Log in</button>
+      <button type="submit" name="submit" class="form-btn" onclick="showMessage()">Log in</button>
 
       <p>Don't have an account? <a href="register.php">Register now</a></p>
 
