@@ -54,7 +54,7 @@ if(isset($_POST['submit'])) {
   <div class="big-navbar">
     <!-- navbar-1 starts although its name is navbar-->
     <nav class="navbar">
-        <h2 class="navbar-logo"> <a href="index.html">Kajkormo.com</a></h2>
+        <h2 class="navbar-logo"> <a href="../home/index.php">Kajkormo.com</a></h2>
         <div class="navbar-menu">
             <a href="#jobs">Jobs</a>
             <a href="#myjobs">Myjobs</a>
@@ -72,10 +72,6 @@ if(isset($_POST['submit'])) {
     <!--navbar2 starts-->
     <nav class="navbar2">
         <div class="nb-class1">
-            <div class="sign-in">
-                <a href="../loginAndRegistration/login.php">Sign in</a><br>
-                <a href="../loginAndRegistration/register.php">Sign up</a>
-            </div>
             <div class="career-resources-dropdown">
                 <select class="career-resource" id="career-resource">
                     <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
@@ -112,11 +108,7 @@ if(isset($_POST['submit'])) {
     <!-- navbar-2 ends -->
 </div>
 <!-- navbar ends -->
-main - ER diagram
-1.contents - ki ki korsi
-2.Promised features
-3.kon kon features gula parsi
-4.gyan chart ey ki ki korsi
+
   <div class="form-container">
     <form class="form" action="" method="post">
       <div class="login-title">
@@ -155,5 +147,63 @@ main - ER diagram
     </form>
   </div>
 
+<!-- footer -->
+<div class="footer">
+
+    <!-- about us starts -->
+    <div class="about-us">
+        <div class="heading-about-us">
+            <h2>ABOUT US</h2>
+        </div>
+        <div class="links">
+            <a href="about_us.php">About Kajkormo</a>
+            <a href="terms_and_conditions_style.html">Terms & condotions</a>
+            <a href="#">Our Services</a>
+            <a href="privacy_policy.php">Privacy Policy</a>
+            <a href="#">Feedback</a>
+            <a href="#">Contact us</a>
+        </div>
+    </div>
+    <!-- about us ends -->
+
+    <!-- job seekers starts -->
+    <div class="Job-Seekers">
+        <div class="heading-job-seekers">
+            <h2>JOB SEEKERS</h2>
+        </div>
+        <div class="links-of-jobseekers">
+            <a href="#">Create Account</a>
+            <a href="#">Career Guideline</a>
+            <a href="#">Resume Templates</a>
+            <a href="#">Myb Rating</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+    <!-- job seekers ends -->
+
+
+    <!-- EMPLOYERS starts -->
+    <div class="Job-Seekers">
+        <div class="heading-job-seekers">
+            <h2>EMPLOYERS</h2>
+        </div>
+        <div class="links-of-jobseekers">
+            <a href="#">Create Account</a>
+            <a href="#">Post a job</a>
+            <a href="#">Service</a>
+            <a href="#">My/Company's Rating</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+    <!-- EMPLOYERS ends -->
+
+
+</div>
+<!-- footer ends -->
+
+<div class="hotline">
+   
+    <h2><span>Hot Line:</span>1068944</h2>
+</div>
 </body>
 </html>
