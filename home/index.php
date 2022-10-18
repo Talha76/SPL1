@@ -21,7 +21,7 @@ include '../phpDependencies/config.php';
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!--icons-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <title>Resposive job portal website</title>
+  <title>Kaajkormo - Home</title>
 
 <body>
   <!--navbar starts-->
