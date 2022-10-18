@@ -28,7 +28,7 @@ include '../phpDependencies/config.php';
   <div class="big-navbar">
     <!-- navbar-1 starts although its name is navbar-->
     <nav class="navbar">
-        <h2 class="navbar-logo"> <a href="#">Kajkormo.com</a></h2>
+        <h2 class="navbar-logo"> <a href="index.php">Kajkormo.com</a></h2>
         <div class="navbar-menu">
             <a href="#jobs">Jobs</a>
             <a href="#myjobs">Myjobs</a>

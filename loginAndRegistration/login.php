@@ -126,19 +126,6 @@ if(isset($_POST['submit'])) {
         <input class="password" type="password" name="password" id="password" placeholder="Enter password" required>
       </div>
       <br>
-      <div class="agree_policy">
-        <input type="checkbox" name="agree_to_terms" id="agree_to_terms">
-            I have agreed to the 
-            <a href="../home/terms_and_conditions.html">
-              terms and conditions
-            </a> 
-            and read the 
-            <a href="../home/privacy_policy.html">
-              privacy policy
-            </a>
-            .
-      </div>
-      <br>
       <button type="submit" name="submit" class="form-btn" onclick="showMessage()">Log in</button>
       <br>
       <br>
