@@ -1,6 +1,6 @@
 <?php
 
-require '../phpDependencies/config.php';
+include '../phpDependencies/config.php';
 
 session_start();
 

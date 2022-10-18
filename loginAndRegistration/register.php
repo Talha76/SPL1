@@ -1,6 +1,6 @@
 <?php
 
-require '../phpDependencies/config.php';
+include '../phpDependencies/config.php';
 
 if(isset($_POST['submit'])) {
   $id               = filter_input(INPUT_POST, 'id');

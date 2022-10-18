@@ -1,3 +1,9 @@
+<?php
+
+include '../phpDependencies/config.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Kaajkormo - Terms and conditions</title>
@@ -27,7 +33,7 @@
  <div class="big-navbar">
     <!-- navbar-1 starts although its name is navbar-->
     <nav class="navbar">
-        <h2 class="navbar-logo"> <a href="index.html">Kajkormo.com</a></h2>
+        <h2 class="navbar-logo"> <a href="index.php">Kajkormo.com</a></h2>
         <div class="navbar-menu">
             <a href="#jobs">Jobs</a>
             <a href="#myjobs">Myjobs</a>
@@ -46,8 +52,17 @@
     <nav class="navbar2">
         <div class="nb-class1">
             <div class="sign-in">
-                <a href="../loginAndRegistration/login.php">Sign in</a><br>
-                <a href="../loginAndRegistration/register.php">Sign up</a>
+                <?php
+              
+              if(!isset($_SESSION['id'])) {
+                echo '<a href="../loginAndRegistration/login.php">Sign in</a><br>
+                <a href="../loginAndRegistration/register.php">Sign up</a>';
+              } else {
+                echo '<a href="#">'.$_SESSION['id'].'</a><br>
+                      <a href="../loginAndRegistration/logout.php">Logout</a>';
+              }
+
+              ?>
             </div>
             <div class="career-resources-dropdown">
                 <select class="career-resource" id="career-resource">
@@ -143,10 +158,10 @@
             <h2>ABOUT US</h2>
         </div>
         <div class="links">
-            <a href="about_us.html">About Kajkormo</a>
+            <a href="about_us.php">About Kajkormo</a>
             <a href="terms_and_conditions_style.html">Terms & condotions</a>
             <a href="#">Our Services</a>
-            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="privacy_policy.php">Privacy Policy</a>
             <a href="#">Feedback</a>
             <a href="#">Contact us</a>
         </div>

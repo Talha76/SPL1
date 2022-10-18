@@ -1,6 +1,6 @@
 <?php
 
-require '../phpDependencies/config.php';
+include '../phpDependencies/config.php';
 
 ?>
 
@@ -60,8 +60,7 @@ require '../phpDependencies/config.php';
               }
 
               ?>
-              <!-- <a href="../loginAndRegistration/login.php">Sign in</a><br> -->
-              <!-- <a href="../loginAndRegistration/register.php">Sign up</a> -->
+
           </div>
           <div class="career-resources-dropdown">
               <select class="career-resource" id="career-resource">
@@ -505,10 +504,10 @@ require '../phpDependencies/config.php';
               <h2>ABOUT US</h2>
           </div>
           <div class="links">
-              <a href="about_us.html">About Kajkormo</a>
-              <a href="terms_and_conditions.html">Terms & conditions</a>
+              <a href="about_us.php">About Kajkormo</a>
+              <a href="terms_and_conditions.php">Terms & conditions</a>
               <a href="#">Our Services</a>
-              <a href="privacy_policy.html">Privacy Policy</a>
+              <a href="privacy_policy.php">Privacy Policy</a>
               <a href="#">Feedback</a>
               <a href="#">Contact us</a>
           </div>
