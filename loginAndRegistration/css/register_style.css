@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+.form-container{
+    margin-left: 30%;
+    margin-top : 10%;
+    margin-right: 30%;
+    margin-bottom: -50%;
+    /* align-items: center; */
+    text-align: center;
+    background-color:aliceblue;
+    border-radius: 0.3rem;
+    border-color: black;
+    border-width: 0.05rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 3.5%;
+    /* padding-top: -7rem;  */
+    border-style: solid;
+}
+h3 {
+    font-size: 30px;
+    color: #333;
+}
+.register-title{
+    margin-top: -5%;
+    margin-bottom: 5%;
+}
+.input-fields {
+    display:grid;
+}
+.input-fields > .user-id, .email, .enter-password, .confirm-password{
+    margin-right: 15%;
+    margin-left: 15%;
+    border-radius: 0.3rem;
+    padding: 1%;
+}
+.agree-terms{
+    font-size: small;
+}
