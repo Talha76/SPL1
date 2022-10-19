@@ -83,7 +83,7 @@ include '../phpDependencies/config.php'
 
         <!--navbar2 starts-->
         <nav class="navbar2">
-            <h2 class="navbar-logo"> <a href="index.php">Kajkormo.com</a></h2>
+            <h2 class="navbar-logo"> <a href="index.php">Kaajkormo.com</a></h2>
 
 
             <div class="nb-class2">
@@ -275,7 +275,7 @@ include '../phpDependencies/config.php'
             <h2>ABOUT US</h2>
         </div>
         <div class="links">
-            <a href="about_us.php">About Kajkormo</a>
+            <a href="about_us.php">About Kaajkormo</a>
             <a href="terms_and_conditions_style.php">Terms & conditions</a>
             <a href="#">Our Services</a>
             <a href="privacy_policy.php">Privacy Policy</a>

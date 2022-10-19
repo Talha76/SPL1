@@ -151,7 +151,7 @@ if(isset($_POST['submit'])) {
                 <h2>ABOUT US</h2>
             </div>
             <div class="links">
-                <a href="../home/about_us.php">About Kajkormo</a>
+                <a href="../home/about_us.php">About Kaajkormo</a>
                 <a href="../home/terms_and_conditions.php">Terms & conditions</a>
                 <a href="#">Our Services</a>
                 <a href="../home/privacy_policy.php">Privacy Policy</a>
