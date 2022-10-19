@@ -142,5 +142,61 @@ if(isset($_POST['submit'])) {
     </form>
   </div>
 
+    <!-- footer -->
+    <div class="footer">
+
+        <!-- about us starts -->
+        <div class="about-us">
+            <div class="heading-about-us">
+                <h2>ABOUT US</h2>
+            </div>
+            <div class="links">
+                <a href="../home/about_us.php">About Kajkormo</a>
+                <a href="../home/terms_and_conditions.php">Terms & conditions</a>
+                <a href="#">Our Services</a>
+                <a href="../home/privacy_policy.php">Privacy Policy</a>
+                <a href="#">Feedback</a>
+                <a href="#">Contact us</a>
+            </div>
+        </div>
+        <!-- about us ends -->
+
+        <!-- job seekers starts -->
+        <div class="Job-Seekers">
+            <div class="heading-job-seekers">
+                <h2>JOB SEEKERS</h2>
+            </div>
+            <div class="links-of-jobseekers">
+                <a href="#">Create Account</a>
+                <a href="#">Career Guideline</a>
+                <a href="#">Resume Templates</a>
+                <a href="#">Myb Rating</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <!-- job seekers ends -->
+
+
+        <!-- EMPLOYERS starts -->
+        <div class="Job-Seekers">
+            <div class="heading-job-seekers">
+                <h2>EMPLOYERS</h2>
+            </div>
+            <div class="links-of-jobseekers">
+                <a href="#">Create Account</a>
+                <a href="#">Post a job</a>
+                <a href="#">Service</a>
+                <a href="#">My/Company's Rating</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <!-- EMPLOYERS ends -->
+
+
+    </div>
+    <!-- footer ends -->
+    <div class="hotline">
+      <h2><span>Hot Line:</span>1068944</h2>
+    </div>
 </body>
 </html>
