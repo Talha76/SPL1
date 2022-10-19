@@ -127,7 +127,7 @@ if(isset($_POST['submit'])) {
       </div>
       <br>
       <div class="agree-terms">
-        <input type="checkbox" id="agree_terms" name="agree_terms">
+        <input type="checkbox" id="agree_terms" name="agree_terms" required>
         I have read the <a href="../home/privacy_policy.php"> privacy policy </a>
         and agreed to the <br>
         <a href="../home/terms_and_conditions.php"> terms and conditions </a>
