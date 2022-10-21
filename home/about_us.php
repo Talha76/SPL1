@@ -240,7 +240,7 @@ include '../phpDependencies/config.php'
                 <h2>JOB SEEKERS</h2>
             </div>
             <div class="links-of-jobseekers">
-                <a href="#">Create Account</a>
+                <a href="../loginAndRegistration/register.php">Create Account</a>
                 <a href="#">Career Guideline</a>
                 <a href="#">Resume Templates</a>
                 <a href="#">Myb Rating</a>
@@ -256,7 +256,7 @@ include '../phpDependencies/config.php'
                 <h2>EMPLOYERS</h2>
             </div>
             <div class="links-of-jobseekers">
-                <a href="#">Create Account</a>
+                <a href="../loginAndRegistration/register.php">Create Account</a>
                 <a href="#">Post a job</a>
                 <a href="#">Service</a>
                 <a href="#">My/Company's Rating</a>
