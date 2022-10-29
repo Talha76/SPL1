@@ -49,9 +49,7 @@ h1 {
   font-family: "IBM Plex Mono", monospace;
   font-size: 30px;
 }
-.navbar-logo {
-  /* background-color: #82071e; */
-}
+
 .navbar-logo > a:hover {
   color: rgb(89, 91, 236);
 }
@@ -1246,6 +1244,4 @@ ul {
 .hotline > h2 > span {
   color: #846e0a;
   margin-right: 2%;
-}
-.sign-in {
 }

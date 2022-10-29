@@ -36,3 +36,13 @@ h3 {
 .agree-terms{
     font-size: small;
 }
+
+.pass-requirements {
+    color: black;
+    margin-top: 2%;
+    margin-right: 15%;
+    margin-left: 15%;
+    display: grid;
+    text-align: left;
+    font-size: 10pt;
+}

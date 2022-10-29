@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 include '../phpDependencies/config.php';
 
@@ -15,6 +15,8 @@ if (isset($_POST['submit'])) {
     $error = "User with this username or email already exists!";
   } elseif (!isset($email)) {
     $error = "Invalid email!";
+  } elseif ($password != $confirm_password) {
+    $error = "Passwords don't match.";
   } else {
     $insert = "insert into userID values('$id', '$email', '$password', 'employee')";
     mysqli_query($conn, $insert);
@@ -23,7 +25,7 @@ if (isset($_POST['submit'])) {
   }
 }
 
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +38,6 @@ if (isset($_POST['submit'])) {
   <link rel="stylesheet" href="../home/css/style.css">
   <link rel="stylesheet" href="css/register_style.css">
   <script defer src="app/app.js"></script>
-
 </head>
 
 <body>
@@ -125,6 +126,15 @@ if (isset($_POST['submit'])) {
         <input id="password" class="enter-password" type="password" name="password" placeholder="Enter password">
         <br>
         <input id="confirm_password" class="confirm-password" type="password" name="confirm_password" placeholder="Confirm password">
+        <div class="pass-requirements">Password should contain at least:
+          <ul>
+            <li>8 characters.</li>
+            <li>An upper-case letter.</li>
+            <li>A lower-case letter.</li>
+            <li>A special charcter.</li>
+            <li>A digit.</li>
+          </ul>
+        </div>
       </div>
       <br>
       <div class="agree-terms">

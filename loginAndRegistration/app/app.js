@@ -7,18 +7,33 @@ function validatePassword() {
   let upcase = /[A-Z]/;
   let locase = /[a-z]/;
   let spchar = /\W/;
-  if(password.length < 8 || !upcase.test(password) || !locase.test(password) || !spchar.test(password)) {
+  let flag = 1;
+  if(password.length < 8) {
     message.innerText = "Password must contain at least 8 characters, a lower-case letter, an upper-case letter, a special character.";
-    message.style.display = "block";
-    return false;
+    flag = 0;
+  }
+  if(!upcase.test(password)) {
+    message.innerText = "Password must contain at least an upper-case letter.";
+    flag = 0;
+  }
+  if(!locase.test(password)) {
+    message.innerText = "Password must contain at least a lower-case letter.";
+    flag = 0;
+  }
+  if(!spchar.test(password)) {
+    message.innerText = "Password must contain at least a special character.";
+    flag = 0;
   }
   if(confirm_password != password) {
     message.innerText = "Passwords don't match.";
-    message.style.display = "block";
-    return false;
+    flag = 0;
   }
   if(!agreement.checked) {
     message.innerHTML = 'You have to agree to the <a href="../home/terms_and_conditions.php">Terms & Conditions</a> and the <a href="../home/privacy_policy.php">Privacy Policy.</a>';
+    flag = 0;
+  }
+
+  if(flag == 0) {
     message.style.display = "block";
     return false;
   }
@@ -28,10 +43,10 @@ function validatePassword() {
 
 function validateID() {
   let id = document.getElementById("id").value;
-  let spchar = /\W/;
+  let pattern = /^\w+$/;
   let message = document.getElementById("error_msg");
   message.style.color = "red";
-  if(spchar.test(id)) {
+  if(!pattern.test(id)) {
     message.innerText = "User ID cannot contain any special character.";
     message.style.display = "block";
     return false;
@@ -42,7 +57,15 @@ function validateID() {
 
 function validateMail() {
   let mail = document.getElementById("email").value;
-  let 
+  let pattern = /^\w+([\.-]?\w+)*\@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  if(!pattern.test(mail)) {
+    let message = document.getElementById("error_msg");
+    message.style.color = "red";
+    message.style.display = "block";
+    message.innerText = "Invalid Email!";
+    return false;
+  }
+  return true;
 }
 
 if (window.history.replaceState) {
@@ -51,7 +74,7 @@ if (window.history.replaceState) {
 
 const form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
-  if (!validateID() || !validatePassword()) {
+  if (!validateID() || !validateMail() || !validatePassword()) {
     e.preventDefault();
   }
 })
