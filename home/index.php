@@ -67,7 +67,7 @@ include '../phpDependencies/config.php'
                     </select>
                 </div>
                 <div class="contact-us">
-                    <a href="#">Contact Us</a>
+                    <a href="./contact_us.php">Contact Us</a>
                 </div>
             </div>
 
