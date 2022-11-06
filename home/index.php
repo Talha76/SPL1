@@ -54,22 +54,22 @@ include '../phpDependencies/config.php'
                               <a href="../loginAndRegistration/register.php">Sign up</a>';
           }
 
-          ?>
-        </div>
-        <div class="career-resources-dropdown">
-          <select class="career-resource" id="career-resource">
-            <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
-            <option value="Career-Guidline"> <a href="#">Career Guideline</a></option>
-            <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
-            <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
-            <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
-            <option value="Articles"> <a href="#">Articles</a></option>
-          </select>
-        </div>
-        <div class="contact-us">
-          <a href="#">Contact Us</a>
-        </div>
-      </div>
+                    ?>
+                </div>
+                <div class="career-resources-dropdown">
+                    <select class="career-resource" id="career-resource">
+                        <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
+                        <option value="Career-Guidline"> <a href="#">Career Guideline</a></option>
+                        <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
+                        <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
+                        <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
+                        <option value="Articles"> <a href="#">Articles</a></option>
+                    </select>
+                </div>
+                <div class="contact-us">
+                    <a href="./contact_us.php">Contact Us</a>
+                </div>
+            </div>
 
 
 

@@ -1,0 +1,38 @@
+.employee-info, .detailed-info {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: justify;
+    background-color:aliceblue;
+    border-radius: 0.3rem;
+    border-color: black;
+    border-width: 0.05rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 1%;
+    border-style: solid;
+}
+.display-info {
+    display: flex;
+}
+.display-info > .image > img{
+    height: 100%;
+    width: 50%;
+}
+.display-info > .basic-info {
+    font-size:  larger;
+    font-weight: bold;
+    margin-top: 3.5%;
+    margin-left: -20%;
+    margin-bottom: 2%;
+    display:grid ;
+}
+.detailed-info{
+    display:grid;
+    /* text-align: justify; */
+    gap: 50px 100px;
+}
+.present-adress, .permanent-adress, .father-info, 
+.mother-info, .education, .previous-jobs, 
+.skills, .interests, .marital-status, .religion{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
