@@ -1,17 +1,21 @@
 <?php
 
 include '../phpDependencies/config.php';
+include '../phpDependencies/smtp.php';
 
 if (isset($_POST['submit'])) {
   $id               = filter_input(INPUT_POST, 'id');
   $email            = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
   $password         = md5(filter_input(INPUT_POST, 'password'));
   $confirm_password = md5(filter_input(INPUT_POST, 'confirm_password'));
+  
+  $user_db = new Database();
+  $user_db->connect('user_db');
 
   $query = "SELECT id, email FROM userID WHERE id = '$id' OR email = '$email'";
-  $result = mysqli_query($conn, $query);
+  $result = $user_db->query($query);
 
-  if (mysqli_num_rows($result) > 0) {
+  if ($result->num_rows > 0) {
     $error = "User with this username or email already exists!";
   } elseif (!isset($email)) {
     $error = "Invalid email!";
@@ -19,9 +23,25 @@ if (isset($_POST['submit'])) {
     $error = "Passwords don't match.";
   } else {
     $insert = "insert into userID values('$id', '$email', '$password', 'employee')";
-    mysqli_query($conn, $insert);
+    $user_db->update($insert);    
     $_SESSION['id'] = $id;
-    header('location:../home/index.php');
+
+    $smtp_credentials = new Database();
+    $smtp_credentials->connect('smtp_credentials');
+
+    $result = $smtp_credentials->query("SELECT * FROM smtp_credentials");
+    if($result->num_rows == 0)
+      throw new Exception("SMTP credentials not found");
+    $row = $result->fetch_array();
+
+    $mail = new Mailer();
+    $mail->connect($row['email'], $row['password']);
+    $mail->setRecipients($email, $id);
+    $mail->setSubject('Verify your Kaajkormo account.');
+    $mail->setBody("Hi" . $id . "!\nPlease verify your account now.");
+    $mail->setAltBody("Hi" . $id . "!\nPlease verify your account now.");
+    $mail->send();
+    header('location:./registration_mail_verification.php');
   }
 }
 

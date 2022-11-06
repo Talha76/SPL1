@@ -3,7 +3,6 @@ function validatePassword() {
   let confirm_password = document.getElementById("confirm_password").value;
   let agreement = document.getElementById("agree_terms");
   let message = document.getElementById("error_msg");
-  message.style.color = "red";
   let upcase = /[A-Z]/;
   let locase = /[a-z]/;
   let spchar = /\W/;
@@ -45,7 +44,10 @@ function validateID() {
   let id = document.getElementById("id").value;
   let pattern = /^\w+$/;
   let message = document.getElementById("error_msg");
-  message.style.color = "red";
+  if(id.length == 0) {
+    message.innerHTML = "User ID cannot be empty";
+    return false;
+  }
   if(!pattern.test(id)) {
     message.innerText = "User ID cannot contain any special character.";
     message.style.display = "block";
@@ -60,7 +62,6 @@ function validateMail() {
   let pattern = /^\w+([\.-]?\w+)*\@\w+([\.-]?\w+)*(\.\w{2,3})+$/
   if(!pattern.test(mail)) {
     let message = document.getElementById("error_msg");
-    message.style.color = "red";
     message.style.display = "block";
     message.innerText = "Invalid Email!";
     return false;
