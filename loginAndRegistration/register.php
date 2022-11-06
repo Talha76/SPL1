@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
         <h3>Register Now</h3>
       </div>
 
-      <span id="error_msg" style="display: block; color: red;">
+      <span id="error_msg">
         <?php
         if (isset($error)) {
           echo $error;
