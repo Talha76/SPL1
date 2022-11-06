@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+srand(time());
 
 class Database {
   private mysqli $connection;
