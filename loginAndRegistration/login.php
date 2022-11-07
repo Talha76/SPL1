@@ -6,8 +6,7 @@ if (isset($_POST['submit'])) {
   $id = filter_input(INPUT_POST, 'id');
   $password = md5(filter_input(INPUT_POST, 'password'));
 
-  $user_db = new Database();
-  $user_db->connect('user_db');
+  $user_db = new Database('user_db');
 
   $query = "SELECT id, password FROM userID WHERE id = '$id'";
   $result = $user_db->query($query);
