@@ -1,2 +1,3 @@
-./Localhost.session.sql
-./ddl.sql
+Localhost.session.sql
+ddl.sql
+test/**
