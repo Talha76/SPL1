@@ -6,36 +6,37 @@ function validatePassword() {
   let upcase = /[A-Z]/;
   let locase = /[a-z]/;
   let spchar = /\W/;
-  let flag = 1;
   if(password.length < 8) {
-    message.innerText = "Password must contain at least 8 characters, a lower-case letter, an upper-case letter, a special character.";
-    flag = 0;
-  }
-  if(!upcase.test(password)) {
-    message.innerText = "Password must contain at least an upper-case letter.";
-    flag = 0;
-  }
-  if(!locase.test(password)) {
-    message.innerText = "Password must contain at least a lower-case letter.";
-    flag = 0;
-  }
-  if(!spchar.test(password)) {
-    message.innerText = "Password must contain at least a special character.";
-    flag = 0;
-  }
-  if(confirm_password != password) {
-    message.innerText = "Passwords don't match.";
-    flag = 0;
-  }
-  if(!agreement.checked) {
-    message.innerHTML = 'You have to agree to the <a href="../home/terms_and_conditions.php">Terms & Conditions</a> and the <a href="../home/privacy_policy.php">Privacy Policy.</a>';
-    flag = 0;
-  }
-
-  if(flag == 0) {
+    message.innerText = "Password must contain at least 8 characters.";
     message.style.display = "block";
     return false;
   }
+  if(!upcase.test(password)) {
+    message.innerText = "Password must contain at least an upper-case letter.";
+    message.style.display = "block";
+    return false;
+  }
+  if(!locase.test(password)) {
+    message.innerText = "Password must contain at least a lower-case letter.";
+    message.style.display = "block";
+    return false;
+  }
+  if(!spchar.test(password)) {
+    message.innerText = "Password must contain at least a special character.";
+    message.style.display = "block";
+    return false;
+  }
+  if(confirm_password != password) {
+    message.innerText = "Passwords don't match.";
+    message.style.display = "block";
+    return false;
+  }
+  if(!agreement.checked) {
+    message.innerHTML = 'You have to agree to the <a href="../home/terms_and_conditions.php">Terms & Conditions</a> and the <a href="../home/privacy_policy.php">Privacy Policy.</a>';
+    message.style.display = "block";
+    return false;
+  }
+
   message.style.display = "none";
   return true;
 }
