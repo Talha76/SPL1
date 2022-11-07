@@ -6,11 +6,18 @@ srand(time());
 class Database {
   private mysqli $connection;
 
-  public function __construct() {}
-
-  public function connect(string $name) {
+  public function __construct(string $db_name) {
     try {
-      $this->connection = new mysqli('localhost', 'root', '', $name);
+      $this->connection = new mysqli('localhost', 'root', '', $db_name);
+      $this->connection->autocommit(TRUE);
+    } catch(Exception $e) {
+      die("Error: ". $e->getMessage());
+    }
+  }
+
+  public function connect(string $db_name) {
+    try {
+      $this->connection = new mysqli('localhost', 'root', '', $db_name);
       $this->connection->autocommit(TRUE);
     } catch(Exception $e) {
       die("Error: ". $e->getMessage());
