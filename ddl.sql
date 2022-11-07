@@ -20,19 +20,16 @@ SET time_zone = "+00:00";
 --
 -- Database: `user_db`
 --
-CREATE DATABASE IF NOT EXISTS `user_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `user_db`;
+CREATE DATABASE IF NOT EXISTS `smtp_credentials` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `smtp_credentials`;
 
-CREATE TABLE `userID` (
-  `id` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `user_type` varchar(50) NOT NULL
+CREATE TABLE `otp_info` (
+  id varchar(255) not null,
+  otp number not null,
+  creation_date date not null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `userID`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE otp_info
+  ADD PRIMARY KEY (id);
 
-ALTER TABLE `user_info`
-  ADD CONSTRAINT `PK_ID` FOREIGN KEY (`id`) REFERENCES `userID` (`id`) ON DELETE CASCADE;
 COMMIT;

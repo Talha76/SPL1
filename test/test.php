@@ -1,9 +1,7 @@
 <?php
 
-function test() {
-  return 'MIME';
-}
-
-echo test();
+$a = 5;
+$b = 6;
+echo $a + $b;
 
 ?>
