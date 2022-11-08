@@ -1,3 +1,3 @@
 *.sql
 test/**
-/loginAndRegistration/nbproject/**
+loginAndRegistration/nbproject/**
