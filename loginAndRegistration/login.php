@@ -6,10 +6,10 @@ if (isset($_POST['submit'])) {
   $id = filter_input(INPUT_POST, 'id');
   $password = md5(filter_input(INPUT_POST, 'password'));
 
-  $user_db = new Database('user_db');
+  $userDB = new Database('user_db');
 
   $query = "SELECT id, password FROM userID WHERE id = '$id'";
-  $result = $user_db->query($query);
+  $result = $userDB->query($query);
 
   if ($result->num_rows == 0)
     $error = "User not found!";
@@ -121,17 +121,20 @@ if (isset($_POST['submit'])) {
 
       <?php
       if (isset($error)) {
-        echo '<span class="error-msg">' . $error . '</span>';
+        echo '<span style="display: block; color: red;">'. $error .'</span>';
       }
       ?>
+      <span id="error_msg" class="error-msg"></span>
+
       <div class="input-fields">
         <input class="user-id" type="text" name="id" id="id" placeholder="Enter User ID" required>
         <br>
         <input class="password" type="password" name="password" id="password" placeholder="Enter password" required>
       </div>
       <br>
-      <button type="submit" name="submit" class="form-btn" onclick="showMessage()">Log in</button>
+      <input type="submit" name="submit" id="submit" value="Submit">
       <br>
+      <a href="./forgotPassword.php">Forgot Password?</a>
       <br>
       <p>Don't have an account? <a href="register.php">Register now</a></p>
 

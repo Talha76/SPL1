@@ -31,12 +31,12 @@ class Mailer {
     try {
       $this->mailer->Host = 'smtp-relay.sendinblue.com';
 
-      $smtp_credentials_db = new Database('smtp_credentials');
-      $result_set = $smtp_credentials_db->query("SELECT * FROM smtp_credentials");
-      if($result_set->num_rows == 0) {
+      $smtpCredentialsDB = new Database('smtp_credentials');
+      $resultSet = $smtpCredentialsDB->query("SELECT * FROM smtp_credentials");
+      if($resultSet->num_rows == 0) {
         throw new Exception("SMTP Credentials doesn't exist");
       }
-      $row = $result_set->fetch_array();
+      $row = $resultSet->fetch_array();
       $this->mailer->Username = $row['email'];
       $this->mailer->Password = $row['password'];
       $this->mailer->setFrom($row['email']);

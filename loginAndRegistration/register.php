@@ -7,38 +7,38 @@ if (isset($_POST['submit'])) {
   $id               = filter_input(INPUT_POST, 'id');
   $email            = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
   $password         = md5(filter_input(INPUT_POST, 'password'));
-  $confirm_password = md5(filter_input(INPUT_POST, 'confirm_password'));
+  $confirmPassword = md5(filter_input(INPUT_POST, 'confirm_password'));
   
-  $user_db = new Database('user_db');
+  $userDB = new Database('user_db');
 
   $query = "SELECT id, email FROM userID WHERE id = '$id' OR email = '$email'";
-  $result = $user_db->query($query);
+  $result = $userDB->query($query);
 
   if ($result->num_rows > 0) {
     $error = "User with this username or email already exists!";
   } elseif (!isset($email)) {
     $error = "Invalid email!";
-  } elseif ($password != $confirm_password) {
+  } elseif ($password != $confirmPassword) {
     $error = "Passwords don't match.";
   } else {  
     $_SESSION['id'] = $id;
 
-    $smtp_credentials = new Database('smtp_credentials');
+    $smtpCredentials = new Database('smtp_credentials');
 
     $query = "SELECT otp FROM otp_info WHERE id = '$id'";
-    $otp_processing_result = $smtp_credentials->query($query);
-    if($otp_processing_result->num_rows > 0) {
-      $otp_processing_result = $smtp_credentials->query("SELECT NOW() - creation_time as time_passed FROM otp_info WHERE id = '$id'");
-      $otp_processed = $otp_processing_result->fetch_array();
-      if($otp_processed['time_passed'] <= 300) {
+    $optResultSet = $smtpCredentials->query($query);
+    if($optResultSet->num_rows > 0) {
+      $optResultSet = $smtpCredentials->query("SELECT NOW() - creation_time as time_passed FROM otp_info WHERE id = '$id'");
+      $otpProcessed = $optResultSet->fetch_array();
+      if($otpProcessed['time_passed'] <= 300) {
         die("An OTP is already being processed for $id");
       } else {
-        $smtp_credentials->update("DELETE FROM otp_info WHERE id = '$id'");
+        $smtpCredentials->update("DELETE FROM otp_info WHERE id = '$id'");
       }
     }
 
     $otp = rand(10000000, 1000000000);
-    $smtp_credentials->update("INSERT INTO otp_info VALUES('$id', '$email', '$password', 'employee', $otp, NOW())");
+    $smtpCredentials->update("INSERT INTO otp_info VALUES('$id', '$email', '$password', 'employee', $otp, NOW())");
     
     $mail = new Mailer();
     $mail->setRecipient($email, $id);

@@ -3,21 +3,21 @@
 include '../phpDependencies/config.php';
 
 if (isset($_POST['submit'])) {
-  $first_name = filter_input(INPUT_POST, 'first_name');
-  $last_name  = filter_input(INPUT_POST, 'last_name');
+  $firstName = filter_input(INPUT_POST, 'first_name');
+  $lastName  = filter_input(INPUT_POST, 'last_name');
   $gender     = filter_input(INPUT_POST, 'gender');
   $skill      = filter_input(INPUT_POST, 'skill');
-  $primary_mobile   = filter_input(INPUT_POST, 'primary_mobile');
-  $secondary_mobile = filter_input(INPUT_POST, 'secondary_mobile');
-  $date_of_birth    = filter_input(INPUT_POST, 'date_of_birth');
-  $father_name      = filter_input(INPUT_POST, 'father_name');
-  $mother_name      = filter_input(INPUT_POST, 'mother_name');
+  $primaryMobile   = filter_input(INPUT_POST, 'primary_mobile');
+  $secondaryMobile = filter_input(INPUT_POST, 'secondary_mobile');
+  $dateOfBirth    = filter_input(INPUT_POST, 'date_of_birth');
+  $fathersName      = filter_input(INPUT_POST, 'father_name');
+  $mothersName      = filter_input(INPUT_POST, 'mother_name');
   $religion   = filter_input(INPUT_POST, 'religion');
-  $marital_status   = filter_input(INPUT_POST, 'marital_status');
+  $maritalStatus   = filter_input(INPUT_POST, 'marital_status');
   $nationality      = filter_input(INPUT_POST, 'nationality');
   $nid        = filter_input(INPUT_POST, 'nid');
   $email      = filter_input(INPUT_POST, 'email');
-  $blood_group      = filter_input(INPUT_POST, 'blood_group');
+  $bloodGroup      = filter_input(INPUT_POST, 'blood_group');
 }
 
 ?>
