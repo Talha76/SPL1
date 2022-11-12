@@ -49,8 +49,8 @@ if (isset($_POST['submit'])) {
     $mail->connect($row['email'], $row['password']);
     $mail->setRecipients($email, $id);
     $mail->setSubject('Verify your Kaajkormo account.');
-    $mail->setBody("<p>Hi" . $id . "!</p><br><p>Your otp is $otp. Your otp will expire within 5 minutes.</p>");
-    $mail->setAltBody("Hi" . $id . "! Your otp is $otp. Your otp will expire within 5 minutes.");
+    $mail->setBody("<p>Hi " . $id . "!</p><br><p>Your otp is $otp. Your otp will expire within 5 minutes.</p>");
+    $mail->setAltBody("Hi " . $id . "! Your otp is $otp. Your otp will expire within 5 minutes.");
     $mail->send();
     header('location:./registration_mail_verification.php');
   }
