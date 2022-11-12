@@ -26,10 +26,10 @@ if (isset($_POST['submit'])) {
     $smtpCredentials = new Database('smtp_credentials');
 
     $query = "SELECT otp FROM otp_info WHERE id = '$id'";
-    $optResultSet = $smtpCredentials->query($query);
-    if($optResultSet->num_rows > 0) {
-      $optResultSet = $smtpCredentials->query("SELECT NOW() - creation_time as time_passed FROM otp_info WHERE id = '$id'");
-      $otpProcessed = $optResultSet->fetch_array();
+    $otpResultSet = $smtpCredentials->query($query);
+    if($otpResultSet->num_rows > 0) {
+      $otpResultSet = $smtpCredentials->query("SELECT NOW() - creation_time as time_passed FROM otp_info WHERE id = '$id'");
+      $otpProcessed = $otpResultSet->fetch_array();
       if($otpProcessed['time_passed'] <= 300) {
         die("An OTP is already being processed for $id");
       } else {
