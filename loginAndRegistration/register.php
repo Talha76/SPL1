@@ -42,11 +42,6 @@ if (isset($_POST['submit'])) {
     $smtp_credentials->update("INSERT INTO otp_info VALUES('$id', '$email', '$password', 'employee', $otp, NOW())");
     
     $mail = new Mailer();
-    $result = $smtp_credentials->query("SELECT * FROM smtp_credentials");
-    if($result->num_rows == 0)
-      throw new Exception("SMTP credentials not found");
-    $row = $result->fetch_array();
-    $mail->connect($row['email'], $row['password']);
     $mail->setRecipients($email, $id);
     $mail->setSubject('Verify your Kaajkormo account.');
     $mail->setBody("<p>Hi " . $id . "!</p><br><p>Your otp is $otp. Your otp will expire within 5 minutes.</p>");
