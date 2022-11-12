@@ -53,7 +53,7 @@ class Mailer {
     }
   }
 
-  public function setRecipients(string $mail, string $name = '') {
+  public function setRecipient(string $mail, string $name = '') {
     try {
       $this->mailer->addAddress($mail, $name);
     } catch(Exception $e) {

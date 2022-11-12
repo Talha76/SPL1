@@ -38,11 +38,10 @@ if (isset($_POST['submit'])) {
     }
 
     $otp = rand(10000000, 1000000000);
-    $_SESSION['otp'] = $otp;
     $smtp_credentials->update("INSERT INTO otp_info VALUES('$id', '$email', '$password', 'employee', $otp, NOW())");
     
     $mail = new Mailer();
-    $mail->setRecipients($email, $id);
+    $mail->setRecipient($email, $id);
     $mail->setSubject('Verify your Kaajkormo account.');
     $mail->setBody("<p>Hi " . $id . "!</p><br><p>Your otp is $otp. Your otp will expire within 5 minutes.</p>");
     $mail->setAltBody("Hi " . $id . "! Your otp is $otp. Your otp will expire within 5 minutes.");
