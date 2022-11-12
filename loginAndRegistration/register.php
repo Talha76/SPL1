@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
   <title>Registration</title>
   <link rel="stylesheet" href="../home/css/style.css">
   <link rel="stylesheet" href="css/register_style.css">
-  <script defer src="app/app.js"></script>
+  <script defer src="app/register_app.js"></script>
 </head>
 
 <body>
