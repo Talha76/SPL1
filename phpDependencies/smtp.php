@@ -21,17 +21,25 @@ class Mailer {
       $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
       $this->mailer->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
       $this->mailer->isHTML(TRUE);
+      $this->connect();
     } catch(Exception $e) {
       die("Error: " . $e->getMessage());
     }
   }
 
-  public function connect(string $username, string $password) {
+  public function connect() {
     try {
       $this->mailer->Host = 'smtp-relay.sendinblue.com';
-      $this->mailer->Username = $username;
-      $this->mailer->Password = $password;
-      $this->mailer->setFrom($username);
+
+      $smtp_credentials_db = new Database('smtp_credentials');
+      $result_set = $smtp_credentials_db->query("SELECT * FROM smtp_credentials");
+      if($result_set->num_rows == 0) {
+        throw new Exception("SMTP Credentials doesn't exist");
+      }
+      $row = $result_set->fetch_array();
+      $this->mailer->Username = $row['email'];
+      $this->mailer->Password = $row['password'];
+      $this->mailer->setFrom($row['email']);
     } catch(Exception $e) {
       die("Error: ". $e->getMessage());
     }
