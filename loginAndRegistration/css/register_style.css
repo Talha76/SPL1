@@ -46,8 +46,3 @@ h3 {
     text-align: left;
     font-size: 10pt;
 }
-
-.error-msg {
-    display: none;
-    color: red;
-}

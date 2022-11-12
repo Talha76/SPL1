@@ -1246,3 +1246,8 @@ ul {
   color: #846e0a;
   margin-right: 2%;
 }
+
+.error-msg {
+  display: none;
+  color: red;
+}
