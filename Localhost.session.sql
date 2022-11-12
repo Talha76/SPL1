@@ -1,1 +1,0 @@
-delete from smtp_credentials.otp_info;
