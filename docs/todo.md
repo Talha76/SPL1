@@ -1,5 +1,7 @@
 # ToDo
+
 ## Front End
+
 - [ ] 1. Search page.
 - [ ] 2. Employer information page.
 - [ ] 3. Employee information page.
@@ -9,13 +11,18 @@
 - [ ] 7. Employee information completion page.
 - [ ] 8. Admin page.
 - [ ] 10. Job addition information page.
+
 ### Optional
+
 - [ ] 1. Section for freshly graduates.
 
 ## Back end
+
 - [ ] 1. Search.
 - [ ] 2. Complete information to database.
-- [ ] 3. Login verification.
-- [ ] 4. Mail verification.
-- [ ] 5. Registration verification.
+- [x] 3. Login forget password.
+- [x] 4. Mail verification.
+- [x] 5. Registration verification.
 - [ ] 6. Admin can view users.
+- [ ] 7. Job posting.
+- [ ] 8. Dynamic updates of popular jobs and popular employees.
