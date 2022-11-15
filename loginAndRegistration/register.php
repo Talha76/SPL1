@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
           </select>
         </div>
         <div class="contact-us">
-          <a href="#">Contact Us</a>
+          <a href="../home/contact_us.php">Contact Us</a>
         </div>
       </div>
     </nav>
@@ -193,7 +193,7 @@ if (isset($_POST['submit'])) {
         <a href="#">Our Services</a>
         <a href="../home/privacy_policy.php">Privacy Policy</a>
         <a href="#">Feedback</a>
-        <a href="#">Contact us</a>
+        <a href="../home/contact_us.php">Contact us</a>
       </div>
     </div>
     <!-- about us ends -->

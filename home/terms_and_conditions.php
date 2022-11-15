@@ -74,7 +74,7 @@ include '../phpDependencies/config.php'
                     </select>
                 </div>
                 <div class="contact-us">
-                    <a href="#">Contact Us</a>
+                    <a href="./contact_us.php">Contact Us</a>
                 </div>
             </div>
 
@@ -175,7 +175,7 @@ include '../phpDependencies/config.php'
                 <a href="#">Our Services</a>
                 <a href="privacy_policy.php">Privacy Policy</a>
                 <a href="#">Feedback</a>
-                <a href="#">Contact us</a>
+                <a href="./contact_us.php">Contact us</a>
             </div>
         </div>
         <!-- about us ends -->
