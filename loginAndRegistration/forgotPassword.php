@@ -31,8 +31,8 @@ if (isset($_POST['submit'])) {
     $mail = new Mailer();
     $mail->setRecipient($row['email']);
     $mail->setSubject('Password reset token for your Kaajkormo account.');
-    $mail->setBody("<p>Hi " . $id . "!</p><br><p>Your password reset token is $otp. Your token will expire within 5 minutes.</p>");
-    $mail->setAltBody("Hi " . $id . "! Your password reset token is $otp. Your token will expire within 5 minutes.");
+    $mail->setBody("<p>Hi " . $id . "!</p><br><p>Your password reset token is $token. Your token will expire within 5 minutes.</p>");
+    $mail->setAltBody("Hi " . $id . "! Your password reset token is $token. Your token will expire within 5 minutes.");
     $mail->send();
     header('location:./reset_pass_token_verification.php');
   }
