@@ -3,12 +3,11 @@
 include '../phpDependencies/config.php';
 
 if (isset($_POST['submit'])) {
+  $id = $_SESSION['id'];
   $firstName = filter_input(INPUT_POST, 'first_name');
   $lastName  = filter_input(INPUT_POST, 'last_name');
   $gender     = filter_input(INPUT_POST, 'gender');
   $skill      = filter_input(INPUT_POST, 'skill');
-  $primaryMobile   = filter_input(INPUT_POST, 'primary_mobile');
-  $secondaryMobile = filter_input(INPUT_POST, 'secondary_mobile');
   $dateOfBirth    = filter_input(INPUT_POST, 'date_of_birth');
   $fathersName      = filter_input(INPUT_POST, 'father_name');
   $mothersName      = filter_input(INPUT_POST, 'mother_name');
@@ -16,8 +15,86 @@ if (isset($_POST['submit'])) {
   $maritalStatus   = filter_input(INPUT_POST, 'marital_status');
   $nationality      = filter_input(INPUT_POST, 'nationality');
   $nid        = filter_input(INPUT_POST, 'nid');
-  $email      = filter_input(INPUT_POST, 'email');
   $bloodGroup      = filter_input(INPUT_POST, 'blood_group');
+  
+  $primaryMobile   = filter_input(INPUT_POST, 'primary_mobile');
+  $secondaryMobile = filter_input(INPUT_POST, 'secondary_mobile');
+  $secondaryMail      = filter_input(INPUT_POST, 'secondary_email');
+  
+  $presentDistrict = filter_input(INPUT_POST, 'present_district');
+  $presentAddress = filter_input(INPUT_POST, 'present_address');
+  $permanentDistrict = filter_input(INPUT_POST, 'permanent_district');
+  $permanentAddress = filter_input(INPUT_POST, 'permanent_address');
+  
+  $objective = filter_input(INPUT_POST, 'objective');
+  $presentSalary = filter_input(INPUT_POST, 'present_salary');
+  $expectedSalary = filter_input(INPUT_POST, 'expected_salary');
+  $preferredPosition = filter_input(INPUT_POST, 'preferred_position');
+  $jobTimePreference = filter_input(INPUT_POST, 'job_time_preference');
+  
+  $preferredLocation = filter_input(INPUT_POST, 'preferred_location');
+  
+  $careerSummary = filter_input(INPUT_POST, 'career_summary');
+  $specialQualification = filter_input(INPUT_POST, 'special_qualification');
+  $keyword = filter_input(INPUT_POST, 'keyword');
+  
+  $db = new Database('user_db');
+  $sql = "INSERT INTO user_info(id, first_name, gender, date_of_birth, religion, nationality)
+          VALUES('$id', '$firstName', '$gender', '$dateOfBirth', '$religion', '$nationality')";
+  $db->update($sql);
+
+  $sql = "INSERT INTO employee_preference(id, skill)
+          VALUES('$id', '$skill')";
+  $db->update($sql);
+  
+  $sql = "INSERT INTO address(id, present_district)
+          VALUES('$id', '$presentDistrict')";
+  $db->update($sql);
+
+  $sql = "INSERT INTO contact_info(id, primary_mobile)
+          VALUES('$id', '$primaryMobile')";
+  $db->update($sql);
+
+  $sql = "INSERT INTO user_family_info(id, marital_status)
+          VALUES('$id', '$maritalStatus')";
+  $db->update($sql);
+
+  if(strlen($lastName)) {
+    $db->update("UPDATE user_info SET last_name = '$lastName' where id = '$id'");
+  } if(strlen($nid)) {
+    $db->update("UPDATE user_info SET nid = '$nid' where id = '$id'");
+  } if(strlen($bloodGroup)) {
+    $db->update("UPDATE user_info SET blood_group = '$bloodGroup' where id = '$id'");
+  } if(strlen($secondaryMobile)) {
+    $db->update("UPDATE contact_info SET secondary_mobile = '$secondaryMobile' where id = '$id'");
+  } if(strlen($secondaryMail)) {
+    $db->update("UPDATE contact_info SET secondary_mail = '$secondaryMail' where id = '$id'");
+  } if(strlen($presentAddress)) {
+    $db->update("UPDATE address SET present_address = '$presentAddress' where id = '$id'");
+  } if(strlen($permanentDistrict)) {
+    $db->update("UPDATE address SET permanent_district = '$permanentDistrict' where id = '$id'");
+  } if(strlen($permanentAddress)) {
+    $db->update("UPDATE address SET permanent_address = '$permanentAddress' where id = '$id'");
+  } if(strlen($objective)) {
+    $db->update("UPDATE employee_preference SET objective = '$objective' where id = '$id'");
+  } if(strlen($presentSalary)) {
+    $db->update("UPDATE employee_preference SET present_salary = $presentSalary where id = '$id'");
+  } if(strlen($expectedSalary)) {
+    $db->update("UPDATE employee_preference SET expected_salary = $expectedSalary where id = '$id'");
+  } if(strlen($preferredPosition)) {
+    $db->update("UPDATE employee_preference SET preferred_position = '$preferredPosition' where id = '$id'");
+  } if(strlen($jobTimePreference)) {
+    $db->update("UPDATE employee_preference SET job_time_preference = '$jobTimePreference' where id = '$id'");
+  } if(strlen($preferredLocation)) {
+    $db->update("UPDATE employee_preference SET preferred_location = '$preferredLocation' where id = '$id'");
+  } if(strlen($careerSummary)) {
+    $db->update("UPDATE employee_preference SET career_summary = '$careerSummary' where id = '$id'");
+  } if(strlen($specialQualification)) {
+    $db->update("UPDATE employee_preference SET special_qualification = '$specialQualification' where id = '$id'");
+  } if(strlen($keyword)) {
+    $db->update("UPDATE employee_preference SET keyword = '$keyword' where id = '$id'");
+  }
+  header("Location: education.php");
 }
 
 ?>
@@ -37,8 +114,8 @@ if (isset($_POST['submit'])) {
 
   <div class="container form-container">
     <form action="" method="POST">
-      <h3>Complete Your Account</h3>
-
+      <h1>Personal Details</h1>
+      <h2>Basic Information</h2>
       <input type="text" id="first_name" name="first_name" placeholder="Your First Name" required>
       <input type="text" name="last_name" id="last_name" placeholder="Your Last Name">
 
@@ -79,12 +156,10 @@ if (isset($_POST['submit'])) {
         <option value="26">Agro (Plant/Animal/Fisheries)</option>
       </select>
 
-      <input type="text" name="primary_mobile" id="primary_mobile" placeholder="Enter Your Mobile Number" required>
-      <input type="text" name="secondary_mobile" id="secondary_mobile" placeholder="Secondary Mobile Number">
       <input type="date" name="date_of_birth" id="date_of_birth" required>
       <input type="text" name="father_name" id="father_name" placeholder="Father's Name">
       <input type="text" name="mother_name" id="mother_name" placeholder="Mother's Name">
-
+      
       <select name="religion" id="religion" required>
         <option value="-1" selected disabled>Select Your Religion</option>
         <option value="Buddhism">Buddhism</option>
@@ -96,18 +171,17 @@ if (isset($_POST['submit'])) {
         <option value="Sikhism">Sikhism</option>
         <option value="Others">Others</option>
       </select>
-
+      
       <select name="marital_status" id="marital_status" required>
         <option value="-1" selected disabled>Select Your Marital Status</option>
         <option value="married">Married</option>
         <option value="single">Single</option>
         <option value="divorced">Divorced</option>
       </select>
-
+      
       <input type="text" name="nationality" id="nationality" placeholder="Nationality" required>
       <input type="text" name="nid" id="nid" placeholder="National ID">
-      <input type="email" name="secondary_mail" id="secondary_mail" placeholder="Secondary Mail">
-
+      
       <select name="blood_group" id="blood_group">
         <option value="-1" selected disabled>Select Your Blood Group</option>
         <option value="A+">A(+ve)</option>
@@ -119,7 +193,12 @@ if (isset($_POST['submit'])) {
         <option value="AB+">AB(+ve)</option>
         <option value="AB-">AB(-ve)</option>
       </select>
-
+      
+      <h2>Contact Information</h2>
+      <input type="text" name="primary_mobile" id="primary_mobile" placeholder="Enter Your Mobile Number" required>
+      <input type="text" name="secondary_mobile" id="secondary_mobile" placeholder="Secondary Mobile Number">
+      <input type="email" name="secondary_mail" id="secondary_mail" placeholder="Secondary Mail">
+      
       <h2>Address</h2>
       <h4>Present Address</h4>
       <select id="present_district" name="present_district" required>
@@ -193,7 +272,7 @@ if (isset($_POST['submit'])) {
       <input type="text" name="present_address" id="present_address" placeholder="Enter your full present address">
       
       <h4>Permanent Address</h4>
-      <select id="permanent_district" name="permanent_district" required>
+      <select id="permanent_district" name="permanent_district">
         <option value="-1" selected disabled>Select District</option>
         <option value="1">Brahmanbaria</option>
         <option value="2">Bagerhat</option>
@@ -263,7 +342,36 @@ if (isset($_POST['submit'])) {
 
       <input type="text" name="permanent_address" id="permanent_address" placeholder="Enter your full permanent address">
 
-      <button type="submit" name="submit" class="form-btn">Complete Your Registration</button>
+      <h2>Career and application information</h2>
+
+      <input type="text" name="objective" id="objective" placeholder="Your objective">
+      <input type="number" name="present_salary" id="present_salary" placeholder="Present Salary">
+      <input type="number" name="expected_salary" id="expected_salary" placeholder="Expected Salary">
+      <select name="preferred_position" id="preferred_position">
+        <option value="-1" disabled selected>Select Your preferred Position</option>
+        <option value="entry">Entry Level</option>
+        <option value="mid">Mid Level</option>
+        <option value="top">Top Level</option>
+      </select>
+
+      <select name="job_time_preference" id="job_time_preference">
+        <option value="-1" disabled selected>Select Your Preference</option>
+        <option value="parttime">Part time</option>
+        <option value="fulltime">Full time</option>
+        <option value="contract">Contract</option>
+        <option value="intern">Internship</option>
+        <option value="freelance">Freelance</option>
+      </select>
+
+      <h2>Preferred Location</h2>
+      <input type="text" name="preferred_location" id="preferred_location" placeholder="Enter Your Preferred Location">
+
+      <h2>Other Information</h2>
+      <input type="text" name="career_summary" id="career_summary" placeholder="Enter Your Career Summary">
+      <input type="text" name="special_qualification" id="special_qualification" placeholder="Enter Your Special Qualifications">
+      <input type="text" name="keyword" id="keyword" placeholder="Enter your preferred keywords">
+
+      <button type="submit" name="submit" class="form-btn">Save</button>
 
     </form>
   </div>

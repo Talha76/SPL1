@@ -1,3 +1,9 @@
+<?php
+
+include '../phpDependencies/config.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>KaajKormo - Employee-info</title>
@@ -44,18 +50,18 @@
 
             <div class="nb-class1">
                 <div class="sign-in">
-                    <!-- <?php
+                    <?php
 
                     if (isset($_SESSION['id'])) {
                         echo '<a href="#">' . $_SESSION['id'] . '</a>
-                              <a href="../loginAndRegistration/logout.php">Logout</a>'; -->
-                    <!-- } else { -->
-                        <!-- echo ' -->
+                              <a href="../loginAndRegistration/logout.php">Logout</a>';
+                    } else {
+                        echo '
                         <a href="../loginAndRegistration/login.php">Sign in</a>
                         <a href="../loginAndRegistration/register.php">Sign up</a>';
-                    <!-- } -->
+                    }
 
-                    <!-- ?> -->
+                    ?>
                 </div>
                 <div class="career-resources-dropdown">
                     <select class="career-resource" id="career-resource">

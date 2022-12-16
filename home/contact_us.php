@@ -51,8 +51,10 @@ include '../phpDependencies/config.php'
                 <div class="sign-in">
                     <?php
 
+                    $html = '';
                     if (isset($_SESSION['id'])) {
-                        echo '<a href="#">' . $_SESSION['id'] . '</a>
+                        
+                        echo '<a href="./employee_profile.php">' . $_SESSION['id'] . '</a>
                             <a href="../loginAndRegistration/logout.php">Logout</a>';
                     } else {
                         echo '<a href="../loginAndRegistration/login.php">Sign in</a>
