@@ -15,6 +15,14 @@ class Database {
     }
   }
 
+  public function __destruct() {
+    try {
+      $this->connection->close();
+    } catch(Exception $e) {
+      die("Error: ". $e->getMessage());
+    }
+  }
+
   public function connect(string $dbName) {
     try {
       $this->connection = new mysqli('localhost', 'root', '', $dbName);
@@ -35,14 +43,6 @@ class Database {
   public function update(string $query) {
     try {
       $this->connection->query($query);
-    } catch(Exception $e) {
-      die("Error: ". $e->getMessage());
-    }
-  }
-
-  public function close() {
-    try {
-      $this->connection->close();
     } catch(Exception $e) {
       die("Error: ". $e->getMessage());
     }
