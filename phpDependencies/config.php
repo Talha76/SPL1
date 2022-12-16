@@ -39,6 +39,19 @@ class Database {
       die("Error: ". $e->getMessage());
     }
   }
+
+  public function close() {
+    try {
+      $this->connection->close();
+    } catch(Exception $e) {
+      die("Error: ". $e->getMessage());
+    }
+  }
+}
+
+class Person {
+  private string $name;
+  private string $email;
 }
 
 ?>
