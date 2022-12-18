@@ -16,7 +16,7 @@
 }
 .display-info > .image > img{
     height: 100%;
-    width: 50%;
+    width: 60%;
 }
 .display-info > .basic-info {
     font-size:  larger;
@@ -28,10 +28,21 @@
 }
 .detailed-info{
     display:grid;
+    /* text-align: justify; */
     gap: 50px 100px;
 }
 .present-adress, .permanent-adress, .father-info, 
 .mother-info, .education, .previous-jobs, 
 .skills, .interests, .marital-status, .religion{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.employee-edit > .save {
+    text-align: center;
+}
+.employee-edit > .save > .save{
+    height: 40px;
+    width: 100px;
+    font-size: larger;
+    background-color: green;
+    color: white;
 }
