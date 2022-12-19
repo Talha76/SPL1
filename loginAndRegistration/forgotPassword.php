@@ -1,7 +1,6 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/smtp.php';
+include '../phpDependencies/all.php';
 
 if (isset($_POST['submit'])) {
   $db = new Database('user_db');
@@ -15,14 +14,7 @@ if (isset($_POST['submit'])) {
     $row = $resultSet->fetch_array();
     $smtpServer = new Database('smtp_credentials');
     $resultSet = $smtpServer->query("SELECT NOW() - creation_time as time_passed FROM reset_password_info WHERE id = '$id'");
-    if($resultSet->num_rows > 0) {
-      $timePassed = intval($resultSet->fetch_array()['time_passed']);
-      if($timePassed <= 300) {
-        die("A reset password token is already being processed for $id");
-      } else {
-        $smtpServer->update("DELETE FROM reset_password_info WHERE id = '$id'");
-      }
-    }
+    $smtpServer->update("DELETE FROM reset_password_info WHERE id = '$id'");
 
     $_SESSION['id'] = $id;
     $token = rand(10000000, 1000000000);

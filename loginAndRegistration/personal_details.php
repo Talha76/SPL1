@@ -9,8 +9,6 @@ if (isset($_POST['submit'])) {
   $gender     = filter_input(INPUT_POST, 'gender');
   $skill      = filter_input(INPUT_POST, 'skill');
   $dateOfBirth    = filter_input(INPUT_POST, 'date_of_birth');
-  $fathersName      = filter_input(INPUT_POST, 'father_name');
-  $mothersName      = filter_input(INPUT_POST, 'mother_name');
   $religion   = filter_input(INPUT_POST, 'religion');
   $maritalStatus   = filter_input(INPUT_POST, 'marital_status');
   $nationality      = filter_input(INPUT_POST, 'nationality');
@@ -116,17 +114,18 @@ if (isset($_POST['submit'])) {
     <form action="" method="POST">
       <h1>Personal Details</h1>
       <h2>Basic Information</h2>
-      <input type="text" id="first_name" name="first_name" placeholder="Your First Name" required>
-      <input type="text" name="last_name" id="last_name" placeholder="Your Last Name">
+      First Name: <input type="text" id="first_name" name="first_name" placeholder="Your First Name" required>
+      <br>
+      Last Name: <input type="text" name="last_name" id="last_name" placeholder="Your Last Name"><br>
 
-      <select name="gender" id="gender" required>
+      Select Gender: <select name="gender" id="gender" required>
         <option value="-1" disabled selected>Select Your Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="others">Others</option>
-      </select>
+      </select><br>
 
-      <select name="skill" id="skill" required>
+      Select Your Skills: <select name="skill" id="skill" required>
         <option value="-1" selected disabled>Select Your Skill</option>
         <option value="1">Accounting/Finance</option>
         <option value="2">Bank/Non-Bank Fin. Institution</option>
@@ -154,13 +153,11 @@ if (isset($_POST['submit'])) {
         <option value="24">Security/Support Service</option>
         <option value="25">Driving/Motor Technician</option>
         <option value="26">Agro (Plant/Animal/Fisheries)</option>
-      </select>
+      </select><br>
 
-      <input type="date" name="date_of_birth" id="date_of_birth" required>
-      <input type="text" name="father_name" id="father_name" placeholder="Father's Name">
-      <input type="text" name="mother_name" id="mother_name" placeholder="Mother's Name">
+      Date of Birth: <input type="date" name="date_of_birth" id="date_of_birth" required><br>
       
-      <select name="religion" id="religion" required>
+      Your Religion: <select name="religion" id="religion" required>
         <option value="-1" selected disabled>Select Your Religion</option>
         <option value="Buddhism">Buddhism</option>
         <option value="Christianity">Christianity</option>
@@ -170,19 +167,20 @@ if (isset($_POST['submit'])) {
         <option value="Judaism">Judaism</option>
         <option value="Sikhism">Sikhism</option>
         <option value="Others">Others</option>
-      </select>
+      </select><br>
       
-      <select name="marital_status" id="marital_status" required>
+      Marital Status: <select name="marital_status" id="marital_status" required>
         <option value="-1" selected disabled>Select Your Marital Status</option>
         <option value="married">Married</option>
         <option value="single">Single</option>
         <option value="divorced">Divorced</option>
-      </select>
+      </select><br>
       
-      <input type="text" name="nationality" id="nationality" placeholder="Nationality" required>
-      <input type="text" name="nid" id="nid" placeholder="National ID">
+      Nationality: <input type="text" name="nationality" id="nationality" placeholder="Nationality" required>
+      <br>
+      NID No.: <input type="text" name="nid" id="nid" placeholder="National ID"><br>
       
-      <select name="blood_group" id="blood_group">
+      Select Blood Group: <select name="blood_group" id="blood_group">
         <option value="-1" selected disabled>Select Your Blood Group</option>
         <option value="A+">A(+ve)</option>
         <option value="A-">A(-ve)</option>
@@ -192,7 +190,9 @@ if (isset($_POST['submit'])) {
         <option value="O-">O(-ve)</option>
         <option value="AB+">AB(+ve)</option>
         <option value="AB-">AB(-ve)</option>
-      </select>
+      </select><br>
+
+      Profile image: <input type="file" name="image" id="image" name="image" accept=".jpeg,.jpg,.png">
       
       <h2>Contact Information</h2>
       <input type="text" name="primary_mobile" id="primary_mobile" placeholder="Enter Your Mobile Number" required>
