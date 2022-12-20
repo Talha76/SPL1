@@ -45,13 +45,20 @@ include '../phpDependencies/config.php'
       <div class="nb-class1">
         <div class="sign-in">
           <?php
-
           if (isset($_SESSION['id'])) {
-            echo '<a href="./employee_profile.php">' . $_SESSION['id'] . '</a>
-                              <a href="../loginAndRegistration/logout.php">Logout</a>';
+            $id = $_SESSION['id'];
+            $html = '';
+            $userType = getUserType($id);
+            if($userType == 'employee') {
+              $html = $html . '<a href="employee_profile.php">';
+            } elseif($userType == 'employer') {
+              $html = $html . '<a href="employer_profile.php">';
+            }
+            echo $html . $_SESSION['id'] . '</a>
+                  <a href="../loginAndRegistration/logout.php">Logout</a>';
           } else {
             echo '<a href="../loginAndRegistration/login.php">Sign in</a>
-                              <a href="../loginAndRegistration/register.php">Sign up</a>';
+                  <a href="../loginAndRegistration/register.php">Sign up</a>';
           }
 
           ?>
