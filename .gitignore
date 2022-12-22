@@ -2,3 +2,5 @@
 test
 nbproject/**
 uploads
+tmp
+tmp/**
