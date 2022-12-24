@@ -48,5 +48,6 @@
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
-  }
+  },
+  "liveServer.settings.port": 5501
 }
