@@ -28,7 +28,7 @@ h3 {
   display:grid;
   /* text-align: center; */
 }
-.input-fields > .user-id, .password{
+.input-fields > .user-id, .password, .user-type {
   margin-right: 15%;
   margin-left: 15%;
   /* border-radius: 2%; */

@@ -130,6 +130,12 @@ if (isset($_POST['submit'])) {
         <input class="user-id" type="text" name="id" id="id" placeholder="Enter User ID" required>
         <br>
         <input class="password" type="password" name="password" id="password" placeholder="Enter password" required>
+        <br>
+        <select class="user-type" name="user_type" id="user_type">
+          <option value="employee">Employee</option>
+          <option value="employer">Employer</option>
+        </select>
+
       </div>
       <br>
       <input type="submit" name="submit" id="submit" value="Submit">
