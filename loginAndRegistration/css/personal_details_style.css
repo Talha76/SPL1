@@ -1,0 +1,46 @@
+.form-container{
+    margin-left: 30%;
+    margin-top : 2%;
+    margin-right: 30%;
+    margin-bottom: -50%;
+    /* align-items: center; */
+    text-align :justify;
+    background-color:aliceblue;
+    border-radius: 0.3rem;
+    border-color: black;
+    border-width: 0.05rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 3.5%;
+    /* padding-top: -7rem;  */
+    border-style: solid;
+    display: grid;
+    gap: 10px;
+}
+
+.first_name, .last_name, .gender, .skill, .father_name, .mother_name, .religion, .marital_status,
+.nationality, .blood_group {
+    border-radius: 0.3rem;
+    padding:0.1%;
+}
+.basic-information, .contact-information, .adress, .career-and-application-information, .location, .other-information{
+    margin-top: -1.5%;
+    margin-bottom: 1.5%;
+    margin-left: -5%;
+    margin-right: -5%;
+    padding-bottom: 1%;
+    border-bottom: #333;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.3rem;
+    display: grid;
+    gap: 10px;
+}
+
+.personal-details{
+    /* background-color: red; */
+    text-align: center;
+    margin-top: 5%;
+}
+.form-button {
+    margin-left: 40%;
+    /* text-align: center; */
+}

@@ -83,7 +83,6 @@ if (isset($_POST['submit'])) {
         <span class="bar"></span>
       </div>
 
-
       <div class="nb-class1">
         <div class="career-resources-dropdown">
           <select class="career-resource" id="career-resource">
@@ -101,12 +100,9 @@ if (isset($_POST['submit'])) {
       </div>
     </nav>
     <!-- navbar-1 ends -->
-
     <!--navbar2 starts-->
     <nav class="navbar2">
       <h2 class="navbar-logo"> <a href="../home/index.php">Kaajkormo.com</a></h2>
-
-
       <div class="nb-class2">
         <div class="facebook">
           <a href="#"><i class="fa-brands fa-square-facebook fa-x"></i></a>

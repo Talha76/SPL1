@@ -1,0 +1,32 @@
+.form-container{
+    margin-left: 30%;
+    margin-top : 10%;
+    margin-right: 30%;
+    margin-bottom: -50%;
+    /* align-items: center; */
+    text-align: center;
+    background-color:aliceblue;
+    border-radius: 0.3rem;
+    border-color: black;
+    border-width: 0.05rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 3.5%;
+    /* padding-top: -7rem;  */
+    border-style: solid;
+    display: grid;
+    gap: 10px;
+}
+.otp > .otp {
+    border-radius: 0.3rem;
+    padding:0.1%;
+}
+.submit-send{
+    /* gap dite hobe */
+}
+.submit, .send-again, .gender {
+    height: 100%;
+    width: 20%;
+}
+.personal-datails {
+    text-align: center;
+}
