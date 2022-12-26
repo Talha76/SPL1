@@ -75,9 +75,6 @@ include '../phpDependencies/config.php'
                     <a href="./contact_us.php">Contact Us</a>
                 </div>
             </div>
-
-
-
         </nav>
         <!-- navbar-1 ends -->
 
@@ -107,7 +104,6 @@ include '../phpDependencies/config.php'
         <!-- navbar-2 ends -->
     </nav>
     <!-- navbar ends -->
-    </div>
 
     <!-- ekhan theke main page er contents shuru-->
     <div class="about-us-full-page">
@@ -215,6 +211,7 @@ include '../phpDependencies/config.php'
     </div>
     <!-- Ehane about us page shesh -->
     <!-- <br><br><br> -->
+    
     <!-- footer starts -->
     <div class="footer">
 

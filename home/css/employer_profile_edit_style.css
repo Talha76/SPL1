@@ -1,4 +1,4 @@
-.employee-info, .detailed-info {
+.employer-info, .detailed-info {
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
@@ -16,7 +16,7 @@
 }
 .display-info > .image > img{
     height: 100%;
-    width: 50%;
+    width: 60%;
 }
 .display-info > .basic-info {
     font-size:  larger;
@@ -34,4 +34,14 @@
 .mother-info, .education, .previous-jobs, 
 .skills, .interests, .marital-status, .religion{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.employer-edit > .save {
+    text-align: center;
+}
+.employer-edit > .save > .save{
+    height: 40px;
+    width: 100px;
+    font-size: larger;
+    background-color: green;
+    color: white;
 }

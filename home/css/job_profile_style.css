@@ -1,4 +1,4 @@
-.employee-info, .detailed-info {
+.job-info, .detailed-info {
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
@@ -24,14 +24,25 @@
     margin-top: 3.5%;
     margin-left: -20%;
     margin-bottom: 2%;
-    display:grid ;
+    display:grid;
 }
 .detailed-info{
     display:grid;
+    /* text-align: justify; */
     gap: 50px 100px;
 }
-.present-adress, .permanent-adress, .father-info, 
-.mother-info, .education, .previous-jobs, 
-.skills, .interests, .marital-status, .religion{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+.compensation-benefits, .job-location, .experience-requirement, .emplpoyment-status, 
+.eduation-requirements, .job-responsibilities, .salary, .holo, .vacancy {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0,  0, 0.1);
+}
+
+.job-apply > .apply {
+    text-align: center;
+}
+.job-apply > .apply > .apply{
+    height: 40px;
+    width: 100px;
+    font-size: larger;
+    background-color: green;
+    color: white;
 }

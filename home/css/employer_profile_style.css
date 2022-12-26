@@ -28,7 +28,6 @@
 }
 .detailed-info{
     display:grid;
-    /* text-align: justify; */
     gap: 50px 100px;
 }
 .present-adress, .permanent-adress, .father-info, 

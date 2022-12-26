@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
       if($timePassed <= 300) {
         die("A reset password token is already being processed for $id");
       } else {
+        
         $smtpServer->update("DELETE FROM reset_password_info WHERE id = '$id'");
       }
     }
@@ -47,19 +48,145 @@ if (isset($_POST['submit'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../home/css/style.css">
+  <link rel="stylesheet" href="css/forgot_password_style.css">
   <title>Forgot Password</title>
 </head>
 
 <body>
+  <!--navbar starts-->
+  <nav class="big-navbar">
+    <!-- navbar-1 starts although its name is navbar-->
+    <nav class="navbar">
+      <div class="navbar-menu">
+        <a href="#jobs">Jobs</a>
+        <a href="#myjobs">Myjobs</a>
+        <a href="#elearning">E-learning</a>
+        <a href="#tender">Tender/Eoi</a>
+        <a href="#employers">Employers</a>
+      </div>
+      <div class="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nb-class1">
+        <div class="career-resources-dropdown">
+          <select class="career-resource" id="career-resource">
+            <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
+            <option value="Career-Guidline"> <a href="#">Career Guideline</a></option>
+            <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
+            <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
+            <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
+            <option value="Articles"> <a href="#">Articles</a></option>
+          </select>
+        </div>
+        <div class="contact-us">
+          <a href="../home/contact_us.php">Contact Us</a>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar-1 ends -->
+    <!--navbar2 starts-->
+    <nav class="navbar2">
+      <h2 class="navbar-logo"> <a href="../home/index.php">Kaajkormo.com</a></h2>
+      <div class="nb-class2">
+        <div class="facebook">
+          <a href="#"><i class="fa-brands fa-square-facebook fa-x"></i></a>
+        </div>
+        <div class="linkedin">
+          <a href="#"><i class="fa-brands fa-linkedin fa-x"></i></a>
+        </div>
+        <div class="instagram">
+          <a href="#"><i class="fa-brands fa-instagram fa-x"></i></a>
+        </div>
+        <div class="gmail">
+          <a href="#"> <i class="fa-solid fa-at "></i></a>
+        </div>
+        <div class="youtube">
+          <a href="#"><i class="fa-brands fa-youtube fa-x"></i></a>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar-2 ends -->
+  </nav>
+  <!-- navbar ends -->
+
   <?php
   if (isset($error)) {
     echo '<span style="display: block; color: red;">' . $error . '</span>';
   }
   ?>
   <form action="" method="post">
-    <input type="text" name="id" id="id" placeholder="Enter your user ID" required>
-    <input type="submit" name="submit" id="submit" value="Submit">
+    <div class="forgot-password">
+      <h2>Enter User ID</h2>
+      <input type="text" name="id" id="id" placeholder="Enter your user ID" required>
+      <div class="submit-button">
+        <input type="submit" name="submit" id="submit" value="Submit">
+      </div>
+    </div>
   </form>
+
+  <!-- footer starts -->
+  <div class="footer">
+
+<!-- about us starts -->
+<div class="about-us">
+    <div class="heading-about-us">
+        <h2>ABOUT US</h2>
+    </div>
+    <div class="links">
+        <a href="about_us.php">About Kaajkormo</a>
+        <a href="terms_and_conditions.php">Terms & conditions</a>
+        <a href="#">Our Services</a>
+        <a href="privacy_policy.php">Privacy Policy</a>
+        <a href="#">Feedback</a>
+        <a href="./contact_us.php">Contact us</a>
+    </div>
+</div>
+<!-- about us ends -->
+
+<!-- job seekers starts -->
+<div class="Job-Seekers">
+    <div class="heading-job-seekers">
+        <h2>JOB SEEKERS</h2>
+    </div>
+    <div class="links-of-jobseekers">
+        <a href="../loginAndRegistration/register.php">Create Account</a>
+        <a href="#">Career Guideline</a>
+        <a href="#">Resume Templates</a>
+        <a href="#">Myb Rating</a>
+        <a href="#">FAQ</a>
+    </div>
+</div>
+<!-- job seekers ends -->
+
+
+<!-- EMPLOYERS starts -->
+<div class="Job-Seekers">
+    <div class="heading-job-seekers">
+        <h2>EMPLOYERS</h2>
+    </div>
+    <div class="links-of-jobseekers">
+        <a href="../loginAndRegistration/register.php">Create Account</a>
+        <a href="#">Post a job</a>
+        <a href="#">Service</a>
+        <a href="#">My/Company's Rating</a>
+        <a href="#">FAQ</a>
+    </div>
+</div>
+<!-- EMPLOYERS ends -->
+
+
+</div>
+<!-- footer ends -->
+
+
+<div class="hotline">
+
+<h2><span>Hot Line:</span>1068944</h2>
+</div>
 </body>
 
 </html>

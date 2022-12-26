@@ -2,13 +2,13 @@
 
 ## Front End
 
-- [ ] 1. Search page.
+- [x] 1. Search page.
 - [x] 2. Employer information page.
 - [x] 3. Employee information page.
-- [ ] 4. Job Info page.
+- [x] 4. Job Info page.
 - [x] 5. Profile page. (for both)
-- [ ] 6. Employer registration page.
-- [ ] 7. Admin page.
+- [x] 6. Employer registration page.
+- [x] 7. Admin page.
 - [ ] 8. Job addition information page.
 
 ### Optional
