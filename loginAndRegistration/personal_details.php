@@ -157,7 +157,8 @@ if (isset($_POST['submit'])) {
 
       Date of Birth: <input type="date" name="date_of_birth" id="date_of_birth" required><br>
       
-      Your Religion: <select name="religion" id="religion" required>
+      Your Religion:
+      <select name="religion" id="religion" required>
         <option value="-1" selected disabled>Select Your Religion</option>
         <option value="Buddhism">Buddhism</option>
         <option value="Christianity">Christianity</option>
@@ -169,7 +170,8 @@ if (isset($_POST['submit'])) {
         <option value="Others">Others</option>
       </select><br>
       
-      Marital Status: <select name="marital_status" id="marital_status" required>
+      Marital Status:
+      <select name="marital_status" id="marital_status" required>
         <option value="-1" selected disabled>Select Your Marital Status</option>
         <option value="married">Married</option>
         <option value="single">Single</option>
