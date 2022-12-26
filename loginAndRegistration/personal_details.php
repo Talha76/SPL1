@@ -630,82 +630,80 @@ if (isset($_POST['submit'])) {
         <input type="text" name="permanent_address" id="permanent_address"
           placeholder="Enter your full permanent address">
       </div>
-        <input type="text" name="permanent_address" id="permanent_address"
-          placeholder="Enter your full permanent address">
-      </div>
+      <input type="text" name="permanent_address" id="permanent_address"
+        placeholder="Enter your full permanent address">
+  </div>
 
-      <div class="career-and-application-information">
-        <h2>Career and application information</h2>
-      <div class="career-and-application-information">
-        <h2>Career and application information</h2>
+  <div class="career-and-application-information">
+    <h2>Career and application information</h2>
+    <div class="career-and-application-information">
+      <h2>Career and application information</h2>
 
-        <input type="text" name="objective" id="objective" placeholder="Your objective">
-        <input type="number" name="present_salary" id="present_salary" placeholder="Present Salary">
-        <input type="number" name="expected_salary" id="expected_salary" placeholder="Expected Salary">
-        <select name="preferred_position" id="preferred_position">
-          <option value="-1" disabled selected>Select Your preferred Position</option>
-          <option value="entry">Entry Level</option>
-          <option value="mid">Mid Level</option>
-          <option value="top">Top Level</option>
-        </select>
-        <input type="text" name="objective" id="objective" placeholder="Your objective">
-        <input type="number" name="present_salary" id="present_salary" placeholder="Present Salary">
-        <input type="number" name="expected_salary" id="expected_salary" placeholder="Expected Salary">
-        <select name="preferred_position" id="preferred_position">
-          <option value="-1" disabled selected>Select Your preferred Position</option>
-          <option value="entry">Entry Level</option>
-          <option value="mid">Mid Level</option>
-          <option value="top">Top Level</option>
-        </select>
+      <input type="text" name="objective" id="objective" placeholder="Your objective">
+      <input type="number" name="present_salary" id="present_salary" placeholder="Present Salary">
+      <input type="number" name="expected_salary" id="expected_salary" placeholder="Expected Salary">
+      <select name="preferred_position" id="preferred_position">
+        <option value="-1" disabled selected>Select Your preferred Position</option>
+        <option value="entry">Entry Level</option>
+        <option value="mid">Mid Level</option>
+        <option value="top">Top Level</option>
+      </select>
+      <input type="text" name="objective" id="objective" placeholder="Your objective">
+      <input type="number" name="present_salary" id="present_salary" placeholder="Present Salary">
+      <input type="number" name="expected_salary" id="expected_salary" placeholder="Expected Salary">
+      <select name="preferred_position" id="preferred_position">
+        <option value="-1" disabled selected>Select Your preferred Position</option>
+        <option value="entry">Entry Level</option>
+        <option value="mid">Mid Level</option>
+        <option value="top">Top Level</option>
+      </select>
 
-        <select name="job_time_preference" id="job_time_preference">
-          <option value="-1" disabled selected>Select Your Preference</option>
-          <option value="parttime">Part time</option>
-          <option value="fulltime">Full time</option>
-          <option value="contract">Contract</option>
-          <option value="intern">Internship</option>
-          <option value="freelance">Freelance</option>
-        </select>
-      </div>
-        <select name="job_time_preference" id="job_time_preference">
-          <option value="-1" disabled selected>Select Your Preference</option>
-          <option value="parttime">Part time</option>
-          <option value="fulltime">Full time</option>
-          <option value="contract">Contract</option>
-          <option value="intern">Internship</option>
-          <option value="freelance">Freelance</option>
-        </select>
-      </div>
+      <select name="job_time_preference" id="job_time_preference">
+        <option value="-1" disabled selected>Select Your Preference</option>
+        <option value="parttime">Part time</option>
+        <option value="fulltime">Full time</option>
+        <option value="contract">Contract</option>
+        <option value="intern">Internship</option>
+        <option value="freelance">Freelance</option>
+      </select>
+    </div>
+    <select name="job_time_preference" id="job_time_preference">
+      <option value="-1" disabled selected>Select Your Preference</option>
+      <option value="parttime">Part time</option>
+      <option value="fulltime">Full time</option>
+      <option value="contract">Contract</option>
+      <option value="intern">Internship</option>
+      <option value="freelance">Freelance</option>
+    </select>
+  </div>
 
-      <div class="location">
-        <h2>Preferred Location</h2>
-        <input type="text" name="preferred_location" id="preferred_location"
-          placeholder="Enter Your Preferred Location">
-      </div>
-      <div class="other-information">
-        <h2>Other Information</h2>
-        <input type="text" name="career_summary" id="career_summary" placeholder="Enter Your Career Summary">
-        <input type="text" name="special_qualification" id="special_qualification"
-          placeholder="Enter Your Special Qualifications">
-        <input type="text" name="keyword" id="keyword" placeholder="Enter your preferred keywords">
-      </div>
-      <br>
-      <button class="form-button" type="submit" name="submit">Save</button>
-      <div class="location">
-        <h2>Preferred Location</h2>
-        <input type="text" name="preferred_location" id="preferred_location"
-          placeholder="Enter Your Preferred Location">
-      </div>
-      <div class="other-information">
-        <h2>Other Information</h2>
-        <input type="text" name="career_summary" id="career_summary" placeholder="Enter Your Career Summary">
-        <input type="text" name="special_qualification" id="special_qualification"
-          placeholder="Enter Your Special Qualifications">
-        <input type="text" name="keyword" id="keyword" placeholder="Enter your preferred keywords">
-      </div>
-      <br>
-      <button class="form-button" type="submit" name="submit">Save</button>
-    </form>
+  <div class="location">
+    <h2>Preferred Location</h2>
+    <input type="text" name="preferred_location" id="preferred_location" placeholder="Enter Your Preferred Location">
+  </div>
+  <div class="other-information">
+    <h2>Other Information</h2>
+    <input type="text" name="career_summary" id="career_summary" placeholder="Enter Your Career Summary">
+    <input type="text" name="special_qualification" id="special_qualification"
+      placeholder="Enter Your Special Qualifications">
+    <input type="text" name="keyword" id="keyword" placeholder="Enter your preferred keywords">
+  </div>
+  <br>
+  <button class="form-button" type="submit" name="submit">Save</button>
+  <div class="location">
+    <h2>Preferred Location</h2>
+    <input type="text" name="preferred_location" id="preferred_location" placeholder="Enter Your Preferred Location">
+  </div>
+  <div class="other-information">
+    <h2>Other Information</h2>
+    <input type="text" name="career_summary" id="career_summary" placeholder="Enter Your Career Summary">
+    <input type="text" name="special_qualification" id="special_qualification"
+      placeholder="Enter Your Special Qualifications">
+    <input type="text" name="keyword" id="keyword" placeholder="Enter your preferred keywords">
+  </div>
+  <br>
+  <button class="form-button" type="submit" name="submit">Save</button>
+  </form>
   </div>
 
   <!-- footer starts -->
@@ -829,3 +827,4 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
+ 
