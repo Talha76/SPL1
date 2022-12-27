@@ -1,14 +1,20 @@
 <?php
 include '../phpDependencies/config.php';
+include '../phpDependencies/Database.php';
 if(isset($_POST['submit'])){
-    $job_name = filter_input(INPUT_POST, 'job-name');
-    $job_type = filter_input(INPUT_POST, 'job-type');
-    $job_rank = filter_input(INPUT_POST, 'job-rank');
+    $jobName = filter_input(INPUT_POST, 'job-name');
+    $jobType = filter_input(INPUT_POST, 'job-type');
+    $jobRank = filter_input(INPUT_POST, 'job-rank');
     $salary = filter_input(INPUT_POST, 'salary');
-    $work_hour = filter_input(INPUT_POST, 'work-hour');
     $company = filter_input(INPUT_POST, 'company');
-    $adress = filter_input(INPUT_POST, 'adress');
-    
+    $location = filter_input(INPUT_POST, 'job-location');
+    $educationRequirement = filter_input(INPUT_POST, 'eduation-requirements');
+    $experienceRequirement = filter_input(INPUT_POST, 'experience-requirements');
+
+    $db=new Database("job_db");
+    $query="insert into job_info values($jobName,$jobType,$jobRank,$salary,$company,$location,$educationRequirement,$experienceRequirement)";
+    $db->update($query);
+   
 }
 ?>
 
@@ -133,8 +139,6 @@ if(isset($_POST['submit'])){
         </select>
         <p>Job Rank : </p>
         <input type="text" name="job-rank" id="job-rank" placeholder="job-rank">
-        <p>Salary :</p>
-        <input type="text" name="salary" id="salary" placeholder="salary">
         <p>Company :</p>
         <input type="text" name="company" id="company" placeholder="company">
     </div>
@@ -158,17 +162,13 @@ if(isset($_POST['submit'])){
             <p>Job Location</p>
             <input type="text" name="job-location" id="job-location" placeholder="job-location">
         </div>
-        <div class="compensation-benefits">
-            <p>hello</p>
-            <input type="text" name="compensation-benefits" id="compensation-benefits" placeholder="compensation-benefits">
-        </div>
     </div>
 <br>
 <br>
 
 <div class="job-apply">
     <div class="save">
-        <input type="submit" name="save" id="save" value="Save" class="save"> 
+        <input type="submit" name="submit" id="submit" value="Save" class="save"> 
     </div>
 </div>
 </form>
