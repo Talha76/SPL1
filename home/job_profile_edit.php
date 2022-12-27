@@ -12,10 +12,6 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <title>KaajKormo - Job-info-edit</title>
@@ -62,18 +58,18 @@ if(isset($_POST['submit'])){
 
             <div class="nb-class1">
                 <div class="sign-in">
-                    <!-- <?php
+                    <?php
 
                     if (isset($_SESSION['id'])) {
                         echo '<a href="#">' . $_SESSION['id'] . '</a>
-                              <a href="../loginAndRegistration/logout.php">Logout</a>'; -->
-                    <!-- } else { -->
-                        <!-- echo ' -->
+                              <a href="../loginAndRegistration/logout.php">Logout</a>';
+                     } else { 
+                         echo ' 
                         <a href="../loginAndRegistration/login.php">Sign in</a>
                         <a href="../loginAndRegistration/register.php">Sign up</a>';
-                    <!-- } -->
+                     } 
 
-                    <!-- ?> -->
+                     ?> 
                 </div>
                 <div class="career-resources-dropdown">
                     <select class="career-resource" id="career-resource">
@@ -120,72 +116,53 @@ if(isset($_POST['submit'])){
     <!-- navbar ends -->
 
 <!--job info starts -->
+
+<div class="post-job">
+    <h1>Post Job</h1>
+</div>
 <form action="" method="post">
-<div class="job-info">
-    <div class="display-info">
-
-        <!-- <div class="image">
-            <img src="images\tanzim.jpg" alt="Shahrier Al Tanzim">
-        </div> -->
-
-        <div class="basic-info">
-            <h3>JOB</h3>
-            <br>
-            <p>Job Name : </p>
-            <input type="text" name="job-name" id="job-name" placeholder="job-name">
-            <p>Job Type : </p>
-            <input type="text" name="job-type" id="job-type" placeholder="job-type">
-            <p>Job Rank : </p>
-            <input type="text" name="job-rank" id="job-rank" placeholder="job-rank">
-            <p>Salary :</p>
+    <div class="basic-info">
+        <h3>JOB</h3>
+        <br>
+        <p>Job Name : </p>
+        <input type="text" name="job-name" id="job-name" placeholder="job-name">
+        <p>Job Type : </p>
+        <select name="job-type" id="job-type" class="job-type">
+            <option value="full-time">Full Time</option>
+            <option value="part-time">Part Time</option>
+        </select>
+        <p>Job Rank : </p>
+        <input type="text" name="job-rank" id="job-rank" placeholder="job-rank">
+        <p>Salary :</p>
+        <input type="text" name="salary" id="salary" placeholder="salary">
+        <p>Company :</p>
+        <input type="text" name="company" id="company" placeholder="company">
+    </div>
+    <div class="detailed-info">
+        <div class="detaile-info-title">
+            <h2> Detailed Information </h2>
+        </div>
+        <div class="salary">
+            <p>Salary : </p>
             <input type="text" name="salary" id="salary" placeholder="salary">
-            <p>Work-hour : 8 hours/day</p>
-            <input type="text" name="work-hour" id="work-hour" placeholder="work-hour">
-            <p>Company : <a href="#"></a></p>
-            <input type="text" name="company" id="company" placeholder="company">
-            <p>Adress : </p>
-            <input type="text" name="adress" id="adress" placeholder="adress">
+        </div>
+        <div class="eduation-requirements">
+            <p>Education Requirements</p>
+            <input type="text" name="eduation-requirements" id="eduation-requirements" placeholder="eduation-requirements">
+        </div>
+        <div class="experience-requirements">
+            <p>Experience Requirements</p>
+            <input type="text" name="experience-requirements" id="experience-requirements" placeholder="experience-requirements">
+        </div>
+        <div class="job-location">
+            <p>Job Location</p>
+            <input type="text" name="job-location" id="job-location" placeholder="job-location">
+        </div>
+        <div class="compensation-benefits">
+            <p>hello</p>
+            <input type="text" name="compensation-benefits" id="compensation-benefits" placeholder="compensation-benefits">
         </div>
     </div>
-</div>
-<div class="detailed-info">
-    <div class="detaile-info-title">
-        <h2> Detailed Information </h2>
-    </div>
-    <div class="salary">
-        <p>Salary : </p>
-        <input type="text" name="salary" id="salary" placeholder="salary">
-    </div>
-    <div class="vacancy">
-        <p>hello</p>
-        <input type="text" name="vacancy" id="vacancy" placeholder="vacancy">
-    </div>
-    <div class="job-responsibilities">
-        <input type="text" name="job-responsibilities" id="job-responsibilities" placeholder="job-responsibilities">
-        <p>holo</p>
-    </div>
-    <div class="eduation-requirements">
-        <p>hello</p>
-        <input type="text" name="eduation-requirements" id="eduation-requirements" placeholder="eduation-requirements">
-    </div>
-    <div class="emplpoyment-status">
-        <p>hello</p>
-        <input type="text" name="emplpoyment" id="emplpoyment" placeholder="emplpoyment">
-    </div>
-    <div class="experience-requirements">
-        <p>hello</p>
-        <input type="text" name="experience-requirements" id="experience-requirements" placeholder="experience-requirements">
-    </div>
-    <div class="job-location">
-        <p>hello</p>
-        <input type="text" name="job-location" id="job-location" placeholder="job-location">
-    </div>
-    <div class="compensation-benefits">
-        <p>hello</p>
-        <input type="text" name="compensation-benefits" id="compensation-benefits" placeholder="compensation-benefits">
-    </div>
-</div>
-
 <br>
 <br>
 
