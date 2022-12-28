@@ -15,21 +15,6 @@ if (isset($_POST['submit'])) {
   } else {
     $error = "Wrong Password";
   }
-  
-  $userDB = new Database('user_db');
-
-  $query = "SELECT id, password FROM userID WHERE id = '$id'";
-  $rs = new ResultSet($userDB->query($query));
-
-  if ($rs->hasNext()) {
-    if ($rs->get('password') == $password) {
-      $_SESSION['id'] = $row['id'];
-      header('location:../home/index.php');
-    } else
-      $error = "Wrong password!";
-  } else {
-    $error = "User not found!";
-  }
 }
 
 ?>
