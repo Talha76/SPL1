@@ -1,38 +1,40 @@
 <?php
 
 include '../phpDependencies/config.php';
+include '../phpDependencies/ResultSet.php';
+include '../phpDependencies/Database.php';
 
 if (isset($_POST['submit'])) {
   $db = new Database('smtp_credentials');
   $id = $_SESSION['id'];
+  $otp = filter_input(INPUT_POST, 'otp', FILTER_VALIDATE_INT);
 
   try {
-    $otp = filter_input(INPUT_POST, 'otp', FILTER_VALIDATE_INT);
-    $otpResultSet = $db->query("SELECT * FROM otp_info WHERE id = '$id'");
-    $otpRow = $otpResultSet->fetch_array();
-    if ($otpResultSet->num_rows == 0) {
+    $rs = new ResultSet($db->query("SELECT * FROM otp_info WHERE id = '$id'"));
+    if ($rs->numRows() == 0) {
       $error = "No otp information available";
+      die($error);
     } else {
-      $timeDiffResultSet = $db->query("SELECT NOW() - creation_time as time_diff FROM otp_info WHERE id = '" . $_SESSION['id'] . "'");
-      $timeDiffRow = $timeDiffResultSet->fetch_array();
-      $timeDiff = intval($timeDiffRow['time_diff']);
-      $expectedOTP = $otpRow['otp'];
+      $sql = "SELECT NOW() - creation_time as time_diff, otp, email, password, user_type FROM otp_info WHERE id = '$id'";
+      $rs = new ResultSet($db->query($sql));
+      $timeDiff = intval($rs->get('time_diff'));
+      $expectedOTP = $rs->get('otp');
       if ($timeDiff > 300) {
         $error = "OTP expired";
+        $db->update("DELETE FROM otp_info WHERE id = '$id'");
         unset($_SESSION['id']);
       } else if ($otp != $expectedOTP) {
         $error = "OTP does not match";
       } else {
-        $db->update("DELETE FROM otp_info WHERE id = '" . $_SESSION['id'] . "'");
+        $db->update("DELETE FROM otp_info WHERE id = '$id'");
 
         $db->connect('user_db');
-        $id = $otpRow['id'];
-        $email = $otpRow['email'];
-        $password = $otpRow['password'];
-        $userType = $otpRow['user_type'];
+        $email = $rs->get('email');
+        $password = $rs->get('password');
+        $userType = $rs->get('user_type');
         $insert = "INSERT INTO userID VALUES('$id', '$email', '$password', '$userType')";
         $db->query($insert);
-        header('location:../home/index.php');
+        header('location: ../home/index.php');
       }
     }
   } catch (Exception $e) {
@@ -118,28 +120,27 @@ if (isset($_POST['submit'])) {
         <!-- navbar-2 ends -->
     </nav>
     <!-- navbar ends -->
-    <!-- <a href="./register.php">Kaajkormo</a> -->
-    <p>
-        <?php
-        if (isset($error))
-            echo $error;
-        ?></p>
     <form action="" method="post">
         <div class="form-container">
             <div class="otp-title">
                 <p>Enter the OTP sent to your given mail</p>
             </div>
-            <!-- <br> -->
+            <?php
+
+            if(isset($error)) {
+              echo '<span style="color: red">' . $error . '</span>';
+            }
+
+            ?>
             <div class="otp">
-                <input type="number" name="otp" id="otp" class="otp" placeholder="_ _ _ _">
+                <input type="number" name="otp" id="otp" class="otp" placeholder="OTP">
             </div>
-            <!-- <br> -->
             <div class="submit-send">
-                <input type="submit" name="submit" value="Submit" class="submit">
-                <input type="submit" name="send-again" value="Send Again" class="send-again">
+                <input type="submit" name="submit" id="submit" value="Submit" class="submit">
+                <!-- <input type="submit" name="send-again" id="send-again" value="Send Again" class="send-again"> -->
             </div>
             <div class="send-agiain-title">
-                <p><a href="#">Send OTP again</a> If you didn't recieve any OTP</p>
+                <p><a href="./send_otp.php">Send OTP again</a> If you didn't recieve any OTP</p>
             </div>
         </div>
     </form>

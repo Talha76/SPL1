@@ -1,4 +1,4 @@
-*.sql
+Localhost.session.sql
 test
 nbproject/**
 uploads
