@@ -26,20 +26,10 @@ if (isset($_POST['submit'])) {
     $error = "Passwords don't match.";
   } else {  
     $_SESSION['id'] = $id;
-
-    $smtpCredentials = new Database('smtp_credentials');
-    $smtpCredentials->update("DELETE FROM otp_info WHERE id = '$id'");
-
-    $otp = rand(10000000, 1000000000);
-    $smtpCredentials->update("INSERT INTO otp_info VALUES('$id', '$email', '$password', '$userType', $otp, NOW())");
-    
-    $mail = new Mailer();
-    $mail->setRecipient($email, $id);
-    $mail->setSubject('Verify your Kaajkormo account.');
-    $mail->setBody("<p>Hi " . $id . "!</p><br><p>Your otp is $otp. Your otp will expire within 5 minutes.</p>");
-    $mail->setAltBody("Hi " . $id . "! Your otp is $otp. Your otp will expire within 5 minutes.");
-    $mail->send();
-    header('location:./registration_mail_verification.php');
+    $_SESSION['email'] = $email;
+    $_SESSION['password'] = $password;
+    $_SESSION['user_type'] = $userType;
+    header('location: ./send_otp.php');
   }
 }
 

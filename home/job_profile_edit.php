@@ -11,9 +11,11 @@ if(isset($_POST['submit'])){
     $location = filter_input(INPUT_POST, 'job-location');
     $educationRequirement = filter_input(INPUT_POST, 'eduation-requirements');
     $experienceRequirement = filter_input(INPUT_POST, 'experience-requirements');
+    $email=filter_input(INPUT_POST,'e-mail');
+    $phone=filter_input(INPUT_POST,'phone');
 
     $db=new Database("job_db");
-    $query="insert into job_info values($jobName,$jobType,$jobRank,$salary,$company,$location,$educationRequirement,$experienceRequirement)";
+    $query="insert into job_info values($jobName,$jobType,$jobRank,$salary,$company,$location,$educationRequirement,$experienceRequirement,$email,$phone)";
     $db->update($query);
    
 }
@@ -172,6 +174,14 @@ if(isset($_POST['submit'])){
         <div class="job-location">
             <p>Job Location</p>
             <input type="text" name="job-location" id="job-location" placeholder="job-location">
+        </div>
+        <div class="e-mail">
+            <p>E-mail</p>
+            <input type="text" name="e-mail" id="e-mail" placeholder="e-mail">
+        </div>
+        <div class="phone">
+            <p>Phone</p>
+            <input type="text" name="phone" id="phone" placeholder="phone">
         </div>
     </div>
 <br>
