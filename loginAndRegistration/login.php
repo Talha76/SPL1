@@ -1,26 +1,34 @@
 <?php
 
 include '../phpDependencies/config.php';
+include '../phpDependencies/Person.php';
 
 if (isset($_POST['submit'])) {
   $id = filter_input(INPUT_POST, 'id');
+
+  $person = new Person($id);
   $password = md5(filter_input(INPUT_POST, 'password'));
 
+  if($person->getPassword() == $password) {
+    $_SESSION['id'] = $id;
+    header('location:../home/index.php');
+  } else {
+    $error = "Wrong Password";
+  }
+  
   $userDB = new Database('user_db');
 
   $query = "SELECT id, password FROM userID WHERE id = '$id'";
-  $result = $userDB->query($query);
+  $rs = new ResultSet($userDB->query($query));
 
-  if ($result->num_rows == 0)
-    $error = "User not found!";
-  else {
-    $row = $result->fetch_array();
-
-    if ($row['password'] == $password) {
+  if ($rs->hasNext()) {
+    if ($rs->get('password') == $password) {
       $_SESSION['id'] = $row['id'];
       header('location:../home/index.php');
     } else
       $error = "Wrong password!";
+  } else {
+    $error = "User not found!";
   }
 }
 
@@ -130,11 +138,6 @@ if (isset($_POST['submit'])) {
         <input class="user-id" type="text" name="id" id="id" placeholder="Enter User ID" required>
         <br>
         <input class="password" type="password" name="password" id="password" placeholder="Enter password" required>
-        <br>
-        <select class="user-type" name="user_type" id="user_type">
-          <option value="employee">Employee</option>
-          <option value="employer">Employer</option>
-        </select>
 
       </div>
       <br>
