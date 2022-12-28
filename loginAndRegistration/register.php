@@ -2,19 +2,23 @@
 
 include '../phpDependencies/config.php';
 include '../phpDependencies/smtp.php';
+include '../phpDependencies/ResultSet.php';
+include '../phpDependencies/Database.php';
 
 if (isset($_POST['submit'])) {
   $id               = filter_input(INPUT_POST, 'id');
   $email            = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
   $password         = md5(filter_input(INPUT_POST, 'password'));
-  $confirmPassword = md5(filter_input(INPUT_POST, 'confirm_password'));
+  $confirmPassword  = md5(filter_input(INPUT_POST, 'confirm_password'));
+  $userType         = filter_input(INPUT_POST, 'user_type');
   
-  $userDB = new Database('user_db');
-
+  $db = new Database('user_db');
+  
   $query = "SELECT id, email FROM userID WHERE id = '$id' OR email = '$email'";
-  $result = $userDB->query($query);
+  $rs = new ResultSet($db->query($query));
 
-  if ($result->num_rows > 0) {
+  $error = $rs->numRows();
+  if($rs->hasNext()) {
     $error = "User with this username or email already exists!";
   } elseif (!isset($email)) {
     $error = "Invalid email!";
@@ -24,21 +28,10 @@ if (isset($_POST['submit'])) {
     $_SESSION['id'] = $id;
 
     $smtpCredentials = new Database('smtp_credentials');
-
-    $query = "SELECT otp FROM otp_info WHERE id = '$id'";
-    $otpResultSet = $smtpCredentials->query($query);
-    if($otpResultSet->num_rows > 0) {
-      $otpResultSet = $smtpCredentials->query("SELECT NOW() - creation_time as time_passed FROM otp_info WHERE id = '$id'");
-      $otpProcessed = $otpResultSet->fetch_array();
-      if($otpProcessed['time_passed'] <= 300) {
-        die("An OTP is already being processed for $id");
-      } else {
-        $smtpCredentials->update("DELETE FROM otp_info WHERE id = '$id'");
-      }
-    }
+    $smtpCredentials->update("DELETE FROM otp_info WHERE id = '$id'");
 
     $otp = rand(10000000, 1000000000);
-    $smtpCredentials->update("INSERT INTO otp_info VALUES('$id', '$email', '$password', 'employee', $otp, NOW())");
+    $smtpCredentials->update("INSERT INTO otp_info VALUES('$id', '$email', '$password', '$userType', $otp, NOW())");
     
     $mail = new Mailer();
     $mail->setRecipient($email, $id);
@@ -140,13 +133,18 @@ if (isset($_POST['submit'])) {
       <span id="error_msg" class="error-msg">
       </span>
       <div class="input-fields">
-        <input id="id" class="user-id" type="text" name="id" placeholder="Choose user ID" required>
+        <input id="id" class="user-id" type="text" name="id" placeholder="Choose user ID" >
         <br>
-        <input id="email" class="email" type="email" name="email" placeholder="Enter user email" required>
+        <input id="email" class="email" type="email" name="email" placeholder="Enter user email" >
         <br>
-        <input id="password" class="enter-password" type="password" name="password" placeholder="Enter password" required>
+        <input id="password" class="enter-password" type="password" name="password" placeholder="Enter password" >
         <br>
-        <input id="confirm_password" class="confirm-password" type="password" name="confirm_password" placeholder="Confirm password" required>
+        <input id="confirm_password" class="confirm-password" type="password" name="confirm_password" placeholder="Confirm password" >
+        <br>
+        <select class="user-type" name="user_type" id="user_type">
+          <option value="employee">Employee</option>
+          <option value="employer">Employer</option>
+        </select>
         <div class="pass-requirements">Password should contain at least:
           <ul>
             <li>8 characters.</li>

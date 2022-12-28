@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
           VALUES('$id', '$maritalStatus')";
   $db->update($sql);
 
-  if (strlen($lastName)) {
+  if (strlen($lastName)) {}
   if (strlen($lastName)) {
     $db->update("UPDATE user_info SET last_name = '$lastName' where id = '$id'");
   }

@@ -3,40 +3,41 @@
 include '../phpDependencies/config.php';
 
 if (isset($_POST['submit'])) {
-    $conn = new Database('smtp_credentials');
+  $db = new Database('smtp_credentials');
+  $id = $_SESSION['id'];
 
-    try {
-        $otp = filter_input(INPUT_POST, 'otp', FILTER_VALIDATE_INT);
-        $otpResultSet = $conn->query("SELECT * FROM otp_info WHERE id = '" . $_SESSION['id'] . "'");
-        $otpRow = $otpResultSet->fetch_array();
-        if ($otpResultSet->num_rows == 0) {
-            $error = "No otp information available";
-        } else {
-            $timeDiffResultSet = $conn->query("SELECT NOW() - creation_time as time_diff FROM otp_info WHERE id = '" . $_SESSION['id'] . "'");
-            $timeDiffRow = $timeDiffResultSet->fetch_array();
-            $timeDiff = intval($timeDiffRow['time_diff']);
-            $expectedOTP = $otpRow['otp'];
-            if ($timeDiff > 300) {
-                $error = "OTP expired";
-                unset($_SESSION['id']);
-            } else if ($otp != $expectedOTP) {
-                $error = "OTP does not match";
-            } else {
-                $conn->update("DELETE FROM otp_info WHERE id = '" . $_SESSION['id'] . "'");
+  try {
+    $otp = filter_input(INPUT_POST, 'otp', FILTER_VALIDATE_INT);
+    $otpResultSet = $db->query("SELECT * FROM otp_info WHERE id = '$id'");
+    $otpRow = $otpResultSet->fetch_array();
+    if ($otpResultSet->num_rows == 0) {
+      $error = "No otp information available";
+    } else {
+      $timeDiffResultSet = $db->query("SELECT NOW() - creation_time as time_diff FROM otp_info WHERE id = '" . $_SESSION['id'] . "'");
+      $timeDiffRow = $timeDiffResultSet->fetch_array();
+      $timeDiff = intval($timeDiffRow['time_diff']);
+      $expectedOTP = $otpRow['otp'];
+      if ($timeDiff > 300) {
+        $error = "OTP expired";
+        unset($_SESSION['id']);
+      } else if ($otp != $expectedOTP) {
+        $error = "OTP does not match";
+      } else {
+        $db->update("DELETE FROM otp_info WHERE id = '" . $_SESSION['id'] . "'");
 
-                $conn->connect('user_db');
-                $id = $otpRow['id'];
-                $email = $otpRow['email'];
-                $password = $otpRow['password'];
-                $userType = $otpRow['user_type'];
-                $insert = "INSERT INTO userID VALUES('$id', '$email', '$password', '$userType')";
-                $conn->query($insert);
-                header('location:../home/index.php');
-            }
-        }
-    } catch (Exception $e) {
-        die("Error: " . $e->getMessage());
+        $db->connect('user_db');
+        $id = $otpRow['id'];
+        $email = $otpRow['email'];
+        $password = $otpRow['password'];
+        $userType = $otpRow['user_type'];
+        $insert = "INSERT INTO userID VALUES('$id', '$email', '$password', '$userType')";
+        $db->query($insert);
+        header('location:../home/index.php');
+      }
     }
+  } catch (Exception $e) {
+    die("Error: " . $e->getMessage());
+  }
 }
 
 ?>

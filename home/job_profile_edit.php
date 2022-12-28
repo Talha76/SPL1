@@ -1,6 +1,7 @@
 <?php
+
 include '../phpDependencies/config.php';
-include '../phpDependencies/Database.php';
+
 if(isset($_POST['submit'])){
     $jobName = filter_input(INPUT_POST, 'job-name');
     $jobType = filter_input(INPUT_POST, 'job-type');
@@ -16,6 +17,7 @@ if(isset($_POST['submit'])){
     $db->update($query);
    
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -136,6 +138,7 @@ if(isset($_POST['submit'])){
         <select name="job-type" id="job-type" class="job-type">
             <option value="full-time">Full Time</option>
             <option value="part-time">Part Time</option>
+            <option value="intern">Internship</option>
         </select>
         <p>Job Rank : </p>
         <input type="text" name="job-rank" id="job-rank" placeholder="job-rank">

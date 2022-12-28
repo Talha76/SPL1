@@ -27,7 +27,7 @@ h3 {
 .input-fields {
     display:grid;
 }
-.input-fields > .user-id, .email, .enter-password, .confirm-password{
+.input-fields > .user-id, .email, .enter-password, .confirm-password, .user-type{
     margin-right: 15%;
     margin-left: 15%;
     border-radius: 0.3rem;
