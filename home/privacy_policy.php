@@ -28,85 +28,92 @@ include '../phpDependencies/config.php'
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
+<body>
 <div>
     <!--navbar starts-->
-    <nav class="big-navbar">
-        <!-- navbar-1 starts although its name is navbar-->
-        <nav class="navbar">
-            <div class="navbar-menu">
-                <a href="#jobs">Jobs</a>
-                <a href="#myjobs">Myjobs</a>
-                <a href="#elearning">E-learning</a>
-                <a href="#tender">Tender/Eoi</a>
-                <a href="#employers">Employers</a>
-            </div>
-            <div class="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+  <nav class="big-navbar">
+    <!-- navbar-1 starts although its name is navbar-->
+    <nav class="navbar">
+      <div class="navbar-menu">
+        <a href="#jobs">Jobs</a>
+        <a href="#myjobs">Myjobs</a>
+        <a href="#elearning">E-learning</a>
+        <a href="#tender"></a>
+        <a href="#employers"></a>
+      </div>
+      <div class="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
 
 
-            <div class="nb-class1">
-                <div class="sign-in">
-                    <?php
+      <div class="nb-class1">
+        <div class="sign-in">
+          <?php
 
-                    if (isset($_SESSION['id'])) {
-                        echo '<a href="#">' . $_SESSION['id'] . '</a>
-                            <a href="../loginAndRegistration/logout.php">Logout</a>';
-                    } else {
-                        echo '<a href="../loginAndRegistration/login.php">Sign in</a>
-                            <a href="../loginAndRegistration/register.php">Sign up</a>';
-                    }
+          if (isset($_SESSION['id'])) {
+            $html = '';
+            if($userType == 'employee') {
+              $html = $html . '<a href="employee_profile.php">';
+            } elseif($userType == 'employer') {
+              $html = $html . '<a href="employer_profile.php">';
+            }
+            echo $html . $_SESSION['id'] . '</a>
+                  <a href="../loginAndRegistration/logout.php">Logout</a>';
+          } else {
+            echo '<a href="../loginAndRegistration/login.php">Sign in</a>
+                  <a href="../loginAndRegistration/register.php">Sign up</a>';
+          }
 
-                    ?>
-                </div>
-                <div class="career-resources-dropdown">
-                    <select class="career-resource" id="career-resource">
-                        <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
-                        <option value="Career-Guidline"> <a href="#">Career Guideline</a></option>
-                        <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
-                        <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
-                        <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
-                        <option value="Articles"> <a href="#">Articles</a></option>
-                    </select>
-                </div>
-                <div class="contact-us">
-                    <a href="./contact_us.php">Contact Us</a>
-                </div>
-            </div>
-
-
-
-        </nav>
-        <!-- navbar-1 ends -->
-
-        <!--navbar2 starts-->
-        <nav class="navbar2">
-            <h2 class="navbar-logo"> <a href="index.php">Kaajkormo.com</a></h2>
+          ?>
+          </div>
+          <div class="career-resources-dropdown">
+              <select class="career-resource" id="career-resource">
+                  <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
+                  <option value="Career-Guidline"> <a href="https://www.bdjobs.com/career/careerguide/">Career Guideline</a></option>
+                  <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
+                  <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
+                  <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
+                  <option value="Articles"> <a href="#">Articles</a></option>
+              </select>
+          </div>
+          <div class="contact-us">
+              <a href="./contact_us.php">Contact Us</a>
+          </div>
+      </div>
 
 
-            <div class="nb-class2">
-                <div class="facebook">
-                    <a href="#"><i class="fa-brands fa-square-facebook fa-x"></i></a>
-                </div>
-                <div class="linkedin">
-                    <a href="#"><i class="fa-brands fa-linkedin fa-x"></i></a>
-                </div>
-                <div class="instagram">
-                    <a href="#"><i class="fa-brands fa-instagram fa-x"></i></a>
-                </div>
-                <div class="gmail">
-                    <a href="#"> <i class="fa-solid fa-at "></i></a>
-                </div>
-                <div class="youtube">
-                    <a href="#"><i class="fa-brands fa-youtube fa-x"></i></a>
-                </div>
-            </div>
-        </nav>
-        <!-- navbar-2 ends -->
+
     </nav>
-    <!-- navbar ends -->
+    <!-- navbar-1 ends -->
+
+    <!--navbar2 starts-->
+    <nav class="navbar2">
+      <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
+
+      
+      <div class="nb-class2">
+        <div class="facebook">
+          <a href="#"><i class=""></i></a>
+        </div>
+        <div class="linkedin">
+          <a href="#"><i class=""></i></a>
+        </div>
+        <div class="instagram">
+          <a href="#"><i class=""></i></a>
+        </div>
+        <div class="gmail">
+          <a href="#"> <i class=""></i></a>
+        </div>
+        <div class="youtube">
+          <a href="#"><i class=""></i></a>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar-2 ends -->
+  </nav>
+  <!-- navbar ends -->
 </div>
 
 <!-- privacy page starts from here -->
@@ -264,11 +271,10 @@ include '../phpDependencies/config.php'
         </p>
     </div>
 </div>
-</body>
 
 <!-- footer -->
 <div class="footer">
-
+    
     <!-- about us starts -->
     <div class="about-us">
         <div class="heading-about-us">
@@ -284,7 +290,7 @@ include '../phpDependencies/config.php'
         </div>
     </div>
     <!-- about us ends -->
-
+    
     <!-- job seekers starts -->
     <div class="Job-Seekers">
         <div class="heading-job-seekers">
@@ -299,8 +305,8 @@ include '../phpDependencies/config.php'
         </div>
     </div>
     <!-- job seekers ends -->
-
-
+    
+    
     <!-- EMPLOYERS starts -->
     <div class="Job-Seekers">
         <div class="heading-job-seekers">
@@ -321,6 +327,7 @@ include '../phpDependencies/config.php'
 <!-- footer ends -->
 
 <div class="hotline">
-
+    
     <h2><span>Hot Line:</span>1068944</h2>
 </div>
+</body>
