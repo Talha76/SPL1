@@ -29,7 +29,7 @@ class Database {
     }
   }
 
-  public function query(string $query) {
+  public function query(string $query) : mysqli_result {
     try {
       return $this->connection->query($query);
     } catch(Exception $e) {
