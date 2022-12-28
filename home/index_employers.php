@@ -107,51 +107,9 @@
 
     <!--header starts-->
     <header>
-        <!-- <div class="background-image">
-            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80">
-        </div> -->
         <h1 class="header-title">
             FIND YOUR <br> <span>PERFECT EMPLOYEE</span><br>EASILY
         </h1>
-        <!-- Divisional Jobs -->
-        <!-- <div class="Divisional-Jobs">
-            <h1 class="heading">Divisional Jobs</h1>
-            <button class="dhaka">Dhaka</button>
-            <button class="Barishal">Barishal</button>
-            <button class="Khulna">Khulna</button>
-            <button class="Sylhet">Sylhet</button>
-            <button class="Chottogram">Chottogram</button>
-            <button class="Rajshahi">Rajshahi</button>
-            <button class="Rangpur">Rangpur</button>
-            <button class="Mymenshingh">Mymenshingh</button> -->
-
-            <!--Quick links starts-->
-            <!-- <div class="Quick-links">
-                <h1 class="hq">Quick links</h1>
-                <ul>
-                    <div class="li1">
-                        <li><a href="#">Employers List</a></li>
-                    </div>
-                    <div class="li2">
-                        <li><a href="#">Part time jobs</a></li>
-                    </div>
-                    <div class="li3">
-                        <li><a href="#">Contractual jobs</a></li>
-                    </div>
-                    <div class="li4">
-                        <li><a href="#">Overseas Jobs</a></li>
-                    </div>
-                    <div class="li5">
-                        <li><a href="#">Work from home</a></li>
-                    </div>
-                    <div class="li6">
-                        <li><a href="#">Technical jobs</a></li>
-                    </div>
-                </ul>
-            </div> -->
-            <!-- quick links ends -->
-        <!-- </div> -->
-        <!-- Divisional jobs ends -->
 
 
     </header>
@@ -162,17 +120,6 @@
         <div class="search-box">
             <div class="search-card">
                 <input class="search-input" type="text" placeholder="Employees or skills">
-                <div class="organizationtype">
-                    <select class="org-dropdown" id="org-dropdown">
-                        <option value="organizationtype">Employee Type</option>
-                        <option value="semi-government">Full Time</option>
-                        <option value="ngo">Part Time</option>
-                        <option value="privatefirm">Student</option>
-                        <option value="internationalagencies">Job Hopper</option>
-                        <option value="others">Others</option>
-
-                    </select>
-                </div>
                 <button class="search-button">Search</button>
             </div>
         </div>
@@ -206,28 +153,6 @@
         </a>
         <!-- livejob ends -->
 
-        <!-- vacancies starts -->
-        <a href="#vc">
-            <div class="vacancies">
-                <!-- all the links in this div will be same-->
-
-                <div class="icon2">
-                    <i class="fa-solid fa-users fa-3x"></i>
-                </div>
-                <div class="link2">
-                    <!-- link1 has 2 divs: link & number of vacancies -->
-                    <div class="link-of-vc">
-                        <a href="#">VACANCIES</a>
-                    </div>
-                    <div class="num-of-vc">
-                        <a href="#lj">
-                            <h2>7365+</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <!-- vacancies ends -->
 
         <!-- companies start -->
         <a href="#comp">
