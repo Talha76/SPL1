@@ -39,8 +39,8 @@ if(isset($_SESSION['id'])) {
         <a href="#jobs">Jobs</a>
         <a href="#myjobs">Myjobs</a>
         <a href="#elearning">E-learning</a>
-        <a href="#tender">Tender/Eoi</a>
-        <a href="#employers">Employers</a>
+        <a href="#tender"></a>
+        <a href="#employers"></a>
       </div>
       <div class="menu-toggle">
         <span class="bar"></span>
@@ -72,7 +72,7 @@ if(isset($_SESSION['id'])) {
           <div class="career-resources-dropdown">
               <select class="career-resource" id="career-resource">
                   <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
-                  <option value="Career-Guidline"> <a href="#">Career Guideline</a></option>
+                  <option value="Career-Guidline"> <a href="https://www.bdjobs.com/career/careerguide/">Career Guideline</a></option>
                   <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
                   <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
                   <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
@@ -93,22 +93,22 @@ if(isset($_SESSION['id'])) {
     <nav class="navbar2">
       <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
 
-
+      
       <div class="nb-class2">
         <div class="facebook">
-          <a href="#"><i class="fa-brands fa-square-facebook fa-x"></i></a>
+          <a href="#"><i class=""></i></a>
         </div>
         <div class="linkedin">
-          <a href="#"><i class="fa-brands fa-linkedin fa-x"></i></a>
+          <a href="#"><i class=""></i></a>
         </div>
         <div class="instagram">
-          <a href="#"><i class="fa-brands fa-instagram fa-x"></i></a>
+          <a href="#"><i class=""></i></a>
         </div>
         <div class="gmail">
-          <a href="#"> <i class="fa-solid fa-at "></i></a>
+          <a href="#"> <i class=""></i></a>
         </div>
         <div class="youtube">
-          <a href="#"><i class="fa-brands fa-youtube fa-x"></i></a>
+          <a href="#"><i class=""></i></a>
         </div>
       </div>
     </nav>
@@ -119,53 +119,10 @@ if(isset($_SESSION['id'])) {
 
   <!--header starts-->
   <header>
-    <!-- <div class="background-image">
-            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80">
-        </div> -->
+    
     <h1 class="header-title">
       FIND YOUR <br> <span>PERFECT JOB</span><br>EASILY
     </h1>
-    <!--Divisional Jobs-->
-    <div class="Divisional-Jobs">
-      <h1 class="heading">Divisional Jobs</h1>
-      <button class="dhaka">Dhaka</button>
-      <button class="Barishal">Barishal</button>
-      <button class="Khulna">Khulna</button>
-      <button class="Sylhet">Sylhet</button>
-      <button class="Chottogram">Chottogram</button>
-      <button class="Rajshahi">Rajshahi</button>
-      <button class="Rangpur">Rangpur</button>
-      <button class="Mymenshingh">Mymenshingh</button>
-
-      <!--Quick links starts-->
-      <div class="Quick-links">
-        <h1 class="hq">Quick links</h1>
-        <ul>
-          <div class="li1">
-            <li><a href="#">Employers List</a></li>
-          </div>
-          <div class="li2">
-            <li><a href="#">Part time jobs</a></li>
-          </div>
-          <div class="li3">
-            <li><a href="#">Contractual jobs</a></li>
-          </div>
-          <div class="li4">
-            <li><a href="#">Overseas Jobs</a></li>
-          </div>
-          <div class="li5">
-            <li><a href="#">Work from home</a></li>
-          </div>
-          <div class="li6">
-            <li><a href="#">Technical jobs</a></li>
-          </div>
-        </ul>
-      </div>
-      <!-- quick links ends -->
-    </div>
-    <!-- Divisional jobs ends -->
-
-
   </header>
   <!-- header ends -->
 
@@ -174,17 +131,6 @@ if(isset($_SESSION['id'])) {
     <div class="search-box">
       <div class="search-card">
         <input class="search-input" type="text" placeholder="Job title or keywords">
-        <div class="organizationtype">
-          <select class="org-dropdown" id="org-dropdown">
-            <option value="organizationtype">Organization Type</option>
-            <option value="semi-government">Semi Government</option>
-            <option value="ngo">NGO</option>
-            <option value="privatefirm">Private Firm/Company</option>
-            <option value="internationalagencies">International Agencies</option>
-            <option value="others">Others</option>
-
-          </select>
-        </div>
         <button class="search-button">Search</button>
       </div>
     </div>
@@ -218,28 +164,6 @@ if(isset($_SESSION['id'])) {
     </a>
     <!-- livejob ends -->
 
-    <!-- vacancies starts -->
-    <a href="#vc">
-      <div class="vacancies">
-        <!-- all the links in this div will be same-->
-
-        <div class="icon2">
-          <i class="fa-solid fa-users fa-3x"></i>
-        </div>
-        <div class="link2">
-          <!-- link1 has 2 divs: link & number of vacancies -->
-          <div class="link-of-vc">
-            <a href="#">VCANCIES</a>
-          </div>
-          <div class="num-of-vc">
-            <a href="#lj">
-              <h2>7365+</h2>
-            </a>
-          </div>
-        </div>
-      </div>
-    </a>
-    <!-- vacancies ends -->
 
     <!-- companies start -->
     <a href="#comp">
@@ -307,9 +231,6 @@ if(isset($_SESSION['id'])) {
 
       <!-- container-1 of row1 starts -->
       <div class="bsh-container">
-        <div class="bsh-image">
-          <img src="images\bsh.jpeg">
-        </div>
         <div class="bsh-heading">
           <a href="#">Bangladesh Specialized Hospital Ltd.</a>
         </div>
@@ -319,9 +240,6 @@ if(isset($_SESSION['id'])) {
 
       <!-- container-2 of row1 starts -->
       <div class="akijgroup">
-        <div class="akij-image">
-          <img src="images\Akij group.jpg">
-        </div>
         <div class="akij-heading">
           <a href="#akij">Akij Group Ltd.</a>
         </div>
@@ -330,9 +248,7 @@ if(isset($_SESSION['id'])) {
 
       <!-- container-3 of row1 starts -->
       <div class="asset-container">
-        <div class="asset-image">
-          <img src="images\ASSET-Logo-Transparent.png">
-        </div>
+        
         <div class="asset-heading">
           <a href="#asset">Asset Developments & Holdings Ltd. </a>
         </div>
@@ -349,9 +265,7 @@ if(isset($_SESSION['id'])) {
 
       <!-- container-1 of row2 starts -->
       <div class="nsu-container">
-        <div class="nsu-image">
-          <img src="images\nsu.jpeg">
-        </div>
+        
         <div class="nsu-heading">
           <a href="#">North South University (NSU)</a>
         </div>
@@ -361,9 +275,7 @@ if(isset($_SESSION['id'])) {
 
       <!-- container-2 of row2 starts -->
       <div class="brac-container">
-        <div class="brac-image">
-          <img src="images\brac.png">
-        </div>
+        
         <div class="brac-heading">
           <a href="#brac">Brac</a>
         </div>
@@ -372,10 +284,7 @@ if(isset($_SESSION['id'])) {
 
       <!-- container-3 of row2 starts -->
       <div class="british-council-container">
-        <div class="british-council-image">
-
-          <img src="images\british_council.png">
-        </div>
+       
         <div class="british-council-heading">
           <a href="#british-council">British Council</a>
         </div>
@@ -384,130 +293,6 @@ if(isset($_SESSION['id'])) {
 
     </div>
     <!-- row2 ends -->
-
-
-    <!-- row3 starts -->
-    <div class="row3">
-
-      <!-- container-1 of row3 starts -->
-      <div class="square-container">
-        <div class="square-image">
-          <img src="images\logo-rectangle-text-company-architectural-engineering.jpg">
-        </div>
-        <div class="square-heading">
-          <a href="#">Square Pharmaceuticals Ltd.</a>
-        </div>
-      </div>
-      <!-- container-1 of row3 ends -->
-
-
-      <!-- container-2 of row3 starts -->
-      <div class="danish-container">
-        <div class="danish-image">
-          <img src="images\denish.jpeg">
-        </div>
-        <div class="danish-heading">
-          <a href="#danish">Danish Refugee Council</a>
-        </div>
-      </div>
-      <!-- container-2 of row3 ends -->
-
-      <!-- container-3 of row3 starts -->
-      <div class="walton-container">
-        <div class="walton-image">
-
-          <img src="images\walton.jpeg">
-        </div>
-        <div class="walton-heading">
-          <a href="#walton">Walton</a>
-        </div>
-      </div>
-      <!-- container-3 of row3 ends -->
-
-    </div>
-    <!-- row3 ends -->
-
-
-    <!-- row4 starts -->
-    <div class="row4">
-
-      <!-- container-1 of row4 starts -->
-      <div class="samsung-container">
-        <div class="samsung-image">
-          <img src="images\samsung.png">
-        </div>
-        <div class="samsung-heading">
-          <a href="#">Samsung</a>
-        </div>
-      </div>
-      <!-- container-1 of row4 ends -->
-
-
-      <!-- container-2 of row4 starts -->
-      <div class="trade-international-container">
-        <div class="trade-international-image">
-          <img src="images\tradeinternational.png">
-        </div>
-        <div class="trade-international-heading">
-          <a href="#trade-international">Trade International Industries Ltd.</a>
-        </div>
-      </div>
-      <!-- container-2 of row4 ends -->
-
-      <!-- container-3 of row4 starts -->
-      <div class="coast-container">
-        <div class="coast-image">
-
-          <img src="images\COAST-Foundation-logo-English_Web-1024x603.jpg">
-        </div>
-        <div class="coast-heading">
-          <a href="#coast">COAST Foundation</a>
-        </div>
-      </div>
-    </div>
-    <!-- container-3 of row4 ends -->
-
-
-    <!-- row5 starts -->
-    <div class="row5">
-
-      <!-- container-1 of row5 starts -->
-      <div class="shahjalal-islamic-bank-container">
-        <div class="shahjalal-islamic-bank-image">
-          <img src="images\sib.png">
-        </div>
-        <div class="shahjalal-islamic-bank-heading">
-          <a href="#">shahjalal-islamic-bank</a>
-        </div>
-      </div>
-      <!-- container-1 of row5 ends -->
-
-
-      <!-- container-2 of row5 starts -->
-      <div class="seaf-ventures-container">
-        <div class="seaf-ventures-image">
-          <img src="images\seaf.png">
-        </div>
-        <div class="seaf-ventures-heading">
-          <a href="#seaf-ventures">SEAF Ventures Ltd.</a>
-        </div>
-      </div>
-      <!-- container-2 of row5 ends -->
-
-      <!-- container-3 of row5 starts -->
-      <div class="basis-container">
-        <div class="basis-image">
-
-          <img src="images\basis.png">
-        </div>
-        <div class="basis-heading">
-          <a href="#basis">Bangladesh Association of Software and Information Services (BASIS)</a>
-        </div>
-      </div>
-      <!-- container-3 of row5 ends -->
-    </div>
-    <!-- row5 ends -->
-
 
   </div>
   <!-- hot job conatainer ends -->
