@@ -1,9 +1,9 @@
 <?php
 
 include '../phpDependencies/config.php';
-session_start();
 session_unset();
 session_destroy();
+session_start();
 header('location:../home/index.php');
 
 ?>
