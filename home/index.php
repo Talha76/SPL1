@@ -9,6 +9,11 @@ if(isset($_SESSION['id'])) {
   $userType = $person->getUserType();
 }
 
+if(isset($_POST['search'])) {
+  $searchWord = filter_input(INPUT_POST, 'search-input');
+  die($searchWord);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -127,14 +132,16 @@ if(isset($_SESSION['id'])) {
   <!-- header ends -->
 
   <!--searchbar starts-->
+  <form action="" method="POST">
   <div class="search-wrapper">
     <div class="search-box">
       <div class="search-card">
-        <input class="search-input" type="text" placeholder="Job title or keywords">
-        <button class="search-button">Search</button>
+        <input class="search-input" type="search" name="search-input" id="search-input" placeholder="Job title or keywords">
+        <button class="search-button" name="search" id="search">Search</button>
       </div>
     </div>
   </div>
+  </form>
   <!-- searchbar ends -->
 
 

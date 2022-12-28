@@ -2,7 +2,7 @@
 
 include '../phpDependencies/config.php';
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])) {
     $jobName = filter_input(INPUT_POST, 'job-name');
     $jobType = filter_input(INPUT_POST, 'job-type');
     $jobRank = filter_input(INPUT_POST, 'job-rank');
