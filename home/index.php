@@ -1,6 +1,13 @@
 <?php
 
-include '../phpDependencies/config.php'
+include '../phpDependencies/config.php';
+include '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+  $id = $_SESSION['id'];
+  $person = new Person($id);
+  $userType = $person->getUserType();
+}
 
 ?>
 
@@ -45,10 +52,9 @@ include '../phpDependencies/config.php'
       <div class="nb-class1">
         <div class="sign-in">
           <?php
+
           if (isset($_SESSION['id'])) {
-            $id = $_SESSION['id'];
             $html = '';
-            $userType = getUserType($id);
             if($userType == 'employee') {
               $html = $html . '<a href="employee_profile.php">';
             } elseif($userType == 'employer') {
