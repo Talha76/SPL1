@@ -20,133 +20,96 @@
 
 <body>
     <!--navbar starts-->
-    <nav class="big-navbar">
-        <!-- navbar-1 starts although its name is navbar-->
-        <nav class="navbar">
-            <div class="navbar-menu">
-                <a href="#Employees">Employees</a>
-                <a href="#myemployees">MyEmployees</a>
-                <!-- <a href="#elearning">E-learning</a> -->
-                <!-- <a href="#tender">Tender/Eoi</a> -->
-                <a href="#employers">Skills</a>
-            </div>
-            <div class="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+  <nav class="big-navbar">
+    <!-- navbar-1 starts although its name is navbar-->
+    <nav class="navbar">
+      <div class="navbar-menu">
+        <a href="#jobs">Jobs</a>
+        <a href="#myjobs">Myjobs</a>
+        <a href="#elearning">E-learning</a>
+        <a href="#tender"></a>
+        <a href="#employers"></a>
+      </div>
+      <div class="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
 
 
-            <div class="nb-class1">
-                <div class="sign-in">
-                    <!-- <?php -->
+      <div class="nb-class1">
+        <div class="sign-in">
+          <?php
 
-                    <!-- if(isset($_SESSION['id'])) { -->
-                        <!-- echo '<a href="#">'.$_SESSION['id'].'</a> -->
-                              <!-- <a href="../loginAndRegistration/logout.php">Logout</a>'; -->
-                    <!-- } else { -->
-                        <!-- echo ' -->
-                        <a href="../loginAndRegistration/login.php">Sign in</a>
-                              <a href="../loginAndRegistration/register.php">Sign up</a>';
-                    <!-- } -->
+          if (isset($_SESSION['id'])) {
+            $html = '';
+            if($userType == 'employee') {
+              $html = $html . '<a href="employee_profile.php">';
+            } elseif($userType == 'employer') {
+              $html = $html . '<a href="employer_profile.php">';
+            }
+            echo $html . $_SESSION['id'] . '</a>
+                  <a href="../loginAndRegistration/logout.php">Logout</a>';
+          } else {
+            echo '<a href="../loginAndRegistration/login.php">Sign in</a>
+                  <a href="../loginAndRegistration/register.php">Sign up</a>';
+          }
 
-                    <!-- ?> -->
-                </div>
-                <div class="career-resources-dropdown">
-                    <select class="career-resource" id="career-resource">
-                        <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
-                        <option value="Career-Guidline"> <a href="#">Career Guideline</a></option>
-                        <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
-                        <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
-                        <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
-                        <option value="Articles"> <a href="#">Articles</a></option>
-                    </select>
-                </div>
-                <div class="contact-us">
-                    <a href="./contact_us.php">Contact Us</a>
-                </div>
-            </div>
+          ?>
+          </div>
+          <div class="career-resources-dropdown">
+              <select class="career-resource" id="career-resource">
+                  <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
+                  <option value="Career-Guidline"> <a href="https://www.bdjobs.com/career/careerguide/">Career Guideline</a></option>
+                  <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
+                  <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
+                  <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
+                  <option value="Articles"> <a href="#">Articles</a></option>
+              </select>
+          </div>
+          <div class="contact-us">
+              <a href="./contact_us.php">Contact Us</a>
+          </div>
+      </div>
 
 
-            
-        </nav>
-        <!-- navbar-1 ends -->
 
-        <!--navbar2 starts-->
-        <nav class="navbar2">
-            <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
-            
-
-            <div class="nb-class2">
-                <div class="facebook">
-                    <a href="#"><i class="fa-brands fa-square-facebook fa-x"></i></a>
-                </div>
-                <div class="linkedin">
-                    <a href="#"><i class="fa-brands fa-linkedin fa-x"></i></a>
-                </div>
-                <div class="instagram">
-                    <a href="#"><i class="fa-brands fa-instagram fa-x"></i></a>
-                </div>
-                <div class="gmail">
-                    <a href="#"> <i class="fa-solid fa-at "></i></a>
-                </div>
-                <div class="youtube">
-                    <a href="#"><i class="fa-brands fa-youtube fa-x"></i></a>
-                </div>
-            </div>
-        </nav>
-        <!-- navbar-2 ends -->
     </nav>
-    <!-- navbar ends -->
+    <!-- navbar-1 ends -->
+
+    <!--navbar2 starts-->
+    <nav class="navbar2">
+      <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
+
+      
+      <div class="nb-class2">
+        <div class="facebook">
+          <a href="#"><i class=""></i></a>
+        </div>
+        <div class="linkedin">
+          <a href="#"><i class=""></i></a>
+        </div>
+        <div class="instagram">
+          <a href="#"><i class=""></i></a>
+        </div>
+        <div class="gmail">
+          <a href="#"> <i class=""></i></a>
+        </div>
+        <div class="youtube">
+          <a href="#"><i class=""></i></a>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar-2 ends -->
+  </nav>
+  <!-- navbar ends -->
 
 
     <!--header starts-->
     <header>
-        <!-- <div class="background-image">
-            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80">
-        </div> -->
         <h1 class="header-title">
             FIND YOUR <br> <span>PERFECT EMPLOYEE</span><br>EASILY
         </h1>
-        <!-- Divisional Jobs -->
-        <!-- <div class="Divisional-Jobs">
-            <h1 class="heading">Divisional Jobs</h1>
-            <button class="dhaka">Dhaka</button>
-            <button class="Barishal">Barishal</button>
-            <button class="Khulna">Khulna</button>
-            <button class="Sylhet">Sylhet</button>
-            <button class="Chottogram">Chottogram</button>
-            <button class="Rajshahi">Rajshahi</button>
-            <button class="Rangpur">Rangpur</button>
-            <button class="Mymenshingh">Mymenshingh</button> -->
-
-            <!--Quick links starts-->
-            <!-- <div class="Quick-links">
-                <h1 class="hq">Quick links</h1>
-                <ul>
-                    <div class="li1">
-                        <li><a href="#">Employers List</a></li>
-                    </div>
-                    <div class="li2">
-                        <li><a href="#">Part time jobs</a></li>
-                    </div>
-                    <div class="li3">
-                        <li><a href="#">Contractual jobs</a></li>
-                    </div>
-                    <div class="li4">
-                        <li><a href="#">Overseas Jobs</a></li>
-                    </div>
-                    <div class="li5">
-                        <li><a href="#">Work from home</a></li>
-                    </div>
-                    <div class="li6">
-                        <li><a href="#">Technical jobs</a></li>
-                    </div>
-                </ul>
-            </div> -->
-            <!-- quick links ends -->
-        <!-- </div> -->
-        <!-- Divisional jobs ends -->
 
 
     </header>
@@ -157,17 +120,6 @@
         <div class="search-box">
             <div class="search-card">
                 <input class="search-input" type="text" placeholder="Employees or skills">
-                <div class="organizationtype">
-                    <select class="org-dropdown" id="org-dropdown">
-                        <option value="organizationtype">Employee Type</option>
-                        <option value="semi-government">Full Time</option>
-                        <option value="ngo">Part Time</option>
-                        <option value="privatefirm">Student</option>
-                        <option value="internationalagencies">Job Hopper</option>
-                        <option value="others">Others</option>
-
-                    </select>
-                </div>
                 <button class="search-button">Search</button>
             </div>
         </div>
@@ -201,28 +153,6 @@
         </a>
         <!-- livejob ends -->
 
-        <!-- vacancies starts -->
-        <a href="#vc">
-            <div class="vacancies">
-                <!-- all the links in this div will be same-->
-
-                <div class="icon2">
-                    <i class="fa-solid fa-users fa-3x"></i>
-                </div>
-                <div class="link2">
-                    <!-- link1 has 2 divs: link & number of vacancies -->
-                    <div class="link-of-vc">
-                        <a href="#">VACANCIES</a>
-                    </div>
-                    <div class="num-of-vc">
-                        <a href="#lj">
-                            <h2>7365+</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <!-- vacancies ends -->
 
         <!-- companies start -->
         <a href="#comp">
