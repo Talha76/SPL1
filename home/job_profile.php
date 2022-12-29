@@ -144,11 +144,17 @@
 <br>
 <br>
 
-<div class="job-apply">
-    <div class="apply">
-        <input type="submit" name="submit" id="submit" value="Apply" class="apply"> 
-    </div>
-</div>
+<form action="">
+  <div class="job-apply">
+      <div class="apply">
+          <input type="submit" name="edit" id="edit" value="Edit" class="apply">
+      </div>
+      <div class="apply">
+          <input type="submit" value="Delete" class="apply">
+      </div>
+  </div>
+  
+</form>
 <!-- footer starts -->
 <div class="footer">
 
