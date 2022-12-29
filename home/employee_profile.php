@@ -115,125 +115,111 @@ include '../phpDependencies/config.php';
   </nav>
   <!-- navbar ends -->
 
-<!-- employee info starts -->
-<div class="employee-info">
-    <div class="display-info">
-
-        <div class="image">
-            <img src="images\tanzim.jpg" alt="Shahrier Al Tanzim">
-        </div>
-
+    <!-- employee info starts -->
+    <form action="" method="post" enctype="multipart/form-data">
+        <h1 class="employee">Employee</h1>
         <div class="basic-info">
-            <h3>Employee</h3>
-            <h1>Shahrier Al Tanzim </h1>
-            <p>Age : 21 Years</p>
-            <p>Quality : Software Engineer</p>
-            <p>Work Experience : 4 Years</p>
-            <p>Availabity : Free</p>
-            <p>Adress : House 60, Road 2/1A, Dhap, Lalkuthi</p>
-            <p>District : Rangpur</p>
-            <p>Division : Rangpur</p>
-            <P>Rating : 5 star</P>
+            <br>
+            <p>Name : </p>
+            <p>Date of birth : </p>
+            <p>Skill : </p>
+            <p>Availability : </p>
+            <p>Present District : </p>
+            <p>Permanent District : </p>
+            <p>Blood Group : </p>
+            <p>Upload Picture : </p>
         </div>
-    </div>
-</div>
-<div class="detailed-info">
-    <div class="detaile-info-title">
-        <h2> Detailed Information </h2>
-    </div>
-    <div class="present-adress">
-        <p>hello</p>
-    </div>
-    <div class="permanent-adress">
-        <p>hello</p>
-    </div>
-    <div class="father-info">
-        <p>hello</p>
-    </div>
-    <div class="mother-info">
-        <p>hello</p>
-    </div>
-    <div class="education">
-        <p>hello</p>
-    </div>
-    <div class="previous-jobs">
-        <p>hello</p>
-    </div>
-    <div class="skills">
-        <p>hello</p>
-    </div>
-    <div class="interests">
-        <p>hello</p>
-    </div>
-    <div class="marital-status">
-        <p>hello</p>
-    </div>
-    <div class="religion">
-        <p>hello</p>
-    </div>
-    <!-- <div class="present-adress"></div>
-    <div class="permanent-adress"></div>
-    <div class="father-info"></div>
-    <div class="mother-info"></div>
-    <div class="education"></div>
-    <div class="previous-jobs"></div>
-    <div class="skills"></div>
-    <div class="interests"></div>
-    <div class="marital-status"></div>
-    <div class="religion"></div> -->
-</div>
-<!-- footer starts -->
-<div class="footer">
+        <div class="detailed-info">
+            <div class="detailed-info-title">
+                <h2> Detailed Information </h2>
+            </div>
+            <div class="present-adress">
+                <p>Present Adress : </p>
+                <br>
+            </div>
+            <div class="permanent-adress">
+                <p>Permanent Adress : </p>
+                <br>
+            </div>
+            <div class="father-info">
+                <p>Father's Name : </p>
+                <br>
+            </div>
+            <div class="mother-info">
+                <p>Mother's Name : </p>
+            </div>
+            <div class="marital-status">
+                <p>Marital Status : </p>
+                <br>
+            </div>
+            <div class="religion">
+                <p>Religion : </p>
+                <br>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- <div class="employee-edit">
+            <div class="submit">
+                <input type="submit" name="submit" id="submit" value="Save" class="submit">
+            </div>
+        </div> -->
+    </form>
+    <!-- footer starts -->
+    <div class="footer">
 
-    <!-- about us starts -->
-    <div class="about-us">
-        <div class="heading-about-us">
-            <h2>ABOUT US</h2>
+        <!-- about us starts -->
+        <div class="about-us">
+            <div class="heading-about-us">
+                <h2>ABOUT US</h2>
+            </div>
+            <div class="links">
+                <a href="about_us.php">About Kaajkormo</a>
+                <a href="terms_and_conditions.php">Terms & conditions</a>
+                <a href="#">Our Services</a>
+                <a href="privacy_policy.php">Privacy Policy</a>
+                <a href="#">Feedback</a>
+                <a href="#">Contact us</a>
+            </div>
         </div>
-        <div class="links">
-            <a href="about_us.php">About Kaajkormo</a>
-            <a href="terms_and_conditions.php">Terms & conditions</a>
-            <a href="#">Our Services</a>
-            <a href="privacy_policy.php">Privacy Policy</a>
-            <a href="#">Feedback</a>
-            <a href="./contact_us.php">Contact us</a>
-        </div>
-    </div>
-    <!-- about us ends -->
+        <!-- about us ends -->
 
-    <!-- job seekers starts -->
-    <div class="Job-Seekers">
-        <div class="heading-job-seekers">
-            <h2>JOB SEEKERS</h2>
+        <!-- job seekers starts -->
+        <div class="Job-Seekers">
+            <div class="heading-job-seekers">
+                <h2>JOB SEEKERS</h2>
+            </div>
+            <div class="links-of-jobseekers">
+                <a href="../loginAndRegistration/register.php">Create Account</a>
+                <a href="#">Career Guideline</a>
+                <a href="#">Resume Templates</a>
+                <a href="#">Myb Rating</a>
+                <a href="#">FAQ</a>
+            </div>
         </div>
-        <div class="links-of-jobseekers">
-            <a href="../loginAndRegistration/register.php">Create Account</a>
-            <a href="#">Career Guideline</a>
-            <a href="#">Resume Templates</a>
-            <a href="#">Myb Rating</a>
-            <a href="#">FAQ</a>
-        </div>
-    </div>
-    <!-- job seekers ends -->
+        <!-- job seekers ends -->
 
 
-    <!-- EMPLOYERS starts -->
-    <div class="Job-Seekers">
-        <div class="heading-job-seekers">
-            <h2>EMPLOYERS</h2>
+        <!-- EMPLOYERS starts -->
+        <div class="Job-Seekers">
+            <div class="heading-job-seekers">
+                <h2>EMPLOYERS</h2>
+            </div>
+            <div class="links-of-jobseekers">
+                <a href="../loginAndRegistration/register.php">Create Account</a>
+                <a href="#">Post a job</a>
+                <a href="#">Service</a>
+                <a href="#">My/Company's Rating</a>
+                <a href="#">FAQ</a>
+            </div>
         </div>
-        <div class="links-of-jobseekers">
-            <a href="../loginAndRegistration/register.php">Create Account</a>
-            <a href="#">Post a job</a>
-            <a href="#">Service</a>
-            <a href="#">My/Company's Rating</a>
-            <a href="#">FAQ</a>
-        </div>
+        <!-- EMPLOYERS ends -->
     </div>
-    <!-- EMPLOYERS ends -->
-</div>
-<!-- footer ends -->
-<div class="hotline">
+    <!-- footer ends -->
+    <div class="hotline">
 
-    <h2><span>Hot Line:</span>1068944</h2>
-</div>
+        <h2><span>Hot Line:</span>1068944</h2>
+    </div>
+</body>
+
+</html>

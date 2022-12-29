@@ -8,6 +8,27 @@
     border-radius: 0.3rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.post-job {
+    margin-top: 5%;
+    color: blue;
+    background-color: red;
+}
+.submit {
+    margin-left: 45%;
+}
+
+
+.submit {
+    text-align: center;
+}
+.submit{
+    height: 40px;
+    width: 100px;
+    font-size: larger;
+    background-color: green;
+    color: white;
+}
+
 .employee1, .employee2, .employee3, .employee4, .employee5 {
     /* display: flex; */
     display:flex;
@@ -76,3 +97,4 @@
     margin-left: -185%;
     /* margin-right: 40%; */
 }
+
