@@ -1,27 +1,8 @@
 <?php
 
-class ImageUploadFailureException extends Exception {
-    public function __construct() {
-        $this->message = "Failed to upload image";
-    }
-}
-
 include '../phpDependencies/config.php';
 
 if (isset($_POST['submit'])) {
-    try {
-        $id = $_SESSION['id'];
-        $fileName = $_FILES['image']['name'];
-        $fileTmpName = $_FILES['image']['tmp_name'];
-        $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-        $uploadPath = "./uploads/$id.$fileExt";
-        if (move_uploaded_file($fileTmpName, $uploadPath))
-            $message = "Uploaded successfully";
-        else
-            throw new ImageUploadFailureException();
-    } catch(Exception $e) {
-        die("Eror: " . $e->getMessage());
-    }
 }
 
 ?>
@@ -329,8 +310,8 @@ if (isset($_POST['submit'])) {
                 <option value="AB+">AB(+ve)</option>
                 <option value="AB-">AB(-ve)</option>
             </select>
-            <p>Upload Picture : </p>
-            <input type="file" name="image" id="image" accept="image/*">
+            <p>Upload CV : </p>
+            <input type="file" name="cv" id="cv" accept=".pdf">
         </div>
         <div class="detailed-info">
             <div class="detailed-info-title">

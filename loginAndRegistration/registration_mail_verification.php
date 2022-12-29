@@ -35,7 +35,12 @@ if (isset($_POST['submit'])) {
           $userType = $rs->get('user_type');
           $insert = "INSERT INTO userID VALUES('$id', '$email', '$password', '$userType')";
           $db->update($insert);
-          header('location: ../home/index.php');
+          if($userType == 'employee') {
+            $location = 'index.php';
+          } elseif($userType == 'employer') {
+            $location = 'index_employers.php';
+          }
+          header('location: ../home/' . $location);
         }
       } else {
         throw new Exception('No OTP found with this id');

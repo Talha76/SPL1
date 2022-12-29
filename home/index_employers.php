@@ -1,3 +1,19 @@
+<?php
+
+include '../phpDependencies/config.php';
+include '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+  $id = $_SESSION['id'];
+  $link = '<a href="employer_profile.php">' . $id . '</a>
+           <a href="../loginAndRegistration/logout.php">Logout</a>';
+} else {
+  $link = '<a href="../loginAndRegistration/login.php">Sign in</a>
+           <a href="../loginAndRegistration/register.php">Sign up</a>';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,19 +57,7 @@
         <div class="sign-in">
           <?php
 
-          if (isset($_SESSION['id'])) {
-            $html = '';
-            if($userType == 'employee') {
-              $html = $html . '<a href="employee_profile.php">';
-            } elseif($userType == 'employer') {
-              $html = $html . '<a href="employer_profile.php">';
-            }
-            echo $html . $_SESSION['id'] . '</a>
-                  <a href="../loginAndRegistration/logout.php">Logout</a>';
-          } else {
-            echo '<a href="../loginAndRegistration/login.php">Sign in</a>
-                  <a href="../loginAndRegistration/register.php">Sign up</a>';
-          }
+          echo $link;
 
           ?>
           </div>
@@ -79,7 +83,7 @@
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="index.php">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
 
       
       <div class="nb-class2">
@@ -114,9 +118,11 @@
 
     </header>
     <!-- header ends -->
-    <div class="post-job"></div>
+    <form action="./job_profile_edit.php">
+      <div class="post-job"></div>
         <input type="submit" name="submit" id="submit" class="submit" value="Post Job"> 
-    </div>
+      </div>
+    </form>
     
     <!-- to make the footer lower, have to work on that -->
     <!-- <br><br><br> -->

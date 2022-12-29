@@ -11,7 +11,13 @@ if (isset($_POST['submit'])) {
 
   if($person->getPassword() == $password) {
     $_SESSION['id'] = $id;
-    header('location:../home/index.php');
+    $userType = $person->getUserType();
+    if($userType == 'employee') {
+      $location = 'index.php';
+    } elseif($userType == 'employer') {
+      $location = 'index_employers.php';
+    }
+    header('location: ../home/' . $location);
   } else {
     $error = "Wrong Password";
   }
@@ -89,7 +95,7 @@ if (isset($_POST['submit'])) {
               </select>
           </div>
           <div class="contact-us">
-              <a href="./contact_us.php">Contact Us</a>
+              <a href="../home/contact_us.php">Contact Us</a>
           </div>
       </div>
 

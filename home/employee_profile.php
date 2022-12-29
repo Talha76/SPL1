@@ -116,7 +116,7 @@ include '../phpDependencies/config.php';
   <!-- navbar ends -->
 
     <!-- employee info starts -->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="employee_profile_edit.php" method="post" enctype="multipart/form-data">
         <h1 class="employee">Employee</h1>
         <div class="basic-info">
             <br>

@@ -90,7 +90,7 @@ include '../phpDependencies/config.php';
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="./index.php">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"> <a href="./index_employers.php">Kaajkormo.com</a></h2>
 
       
       <div class="nb-class2">
@@ -116,7 +116,7 @@ include '../phpDependencies/config.php';
   <!-- navbar ends -->
 
     <!-- employee info starts -->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="employer_profile_edit.php" method="post" enctype="multipart/form-data">
         <h1 class="employer">Employer</h1>
         <div class="basic-info">
             <br>
@@ -127,7 +127,6 @@ include '../phpDependencies/config.php';
             <p>Present District : </p>
             <p>Permanent District : </p>
             <p>Blood Group : </p>
-            <p>Upload Picture : </p>
         </div>
         <div class="detailed-info">
             <div class="detailed-info-title">

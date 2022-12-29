@@ -6,7 +6,11 @@ include '../phpDependencies/Person.php';
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];
   $person = new Person($id);
-  $userType = $person->getUserType();
+  $link = '<a href="employee_profile.php">' . $id . '</a>
+           <a href="../loginAndRegistration/logout.php">Logout</a>';
+} else {
+  $link = '<a href="../loginAndRegistration/login.php">Sign in</a>
+           <a href="../loginAndRegistration/register.php">Sign up</a>';
 }
 
 if(isset($_POST['search'])) {
@@ -58,19 +62,7 @@ if(isset($_POST['search'])) {
         <div class="sign-in">
           <?php
 
-          if (isset($_SESSION['id'])) {
-            $html = '';
-            if($userType == 'employee') {
-              $html = $html . '<a href="employee_profile.php">';
-            } elseif($userType == 'employer') {
-              $html = $html . '<a href="employer_profile.php">';
-            }
-            echo $html . $_SESSION['id'] . '</a>
-                  <a href="../loginAndRegistration/logout.php">Logout</a>';
-          } else {
-            echo '<a href="../loginAndRegistration/login.php">Sign in</a>
-                  <a href="../loginAndRegistration/register.php">Sign up</a>';
-          }
+          echo $link;
 
           ?>
           </div>

@@ -1,6 +1,20 @@
 <?php
 
-include '../phpDependencies/config.php'
+include '../phpDependencies/config.php';
+include '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $person = new Person($id);
+    $userType = $person->getUserType();
+    if($userType == 'employee') {
+        $location = 'index.php';
+    } else {
+        $location = 'index_employers.php';
+    }
+} else {
+    $location = 'index.php';
+}
 
 ?>
 
@@ -89,7 +103,7 @@ include '../phpDependencies/config.php'
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="./index.php">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"><?php echo '<a href="' . $location . '">Kaajkormo.com</a> '; ?></h2>
 
       
       <div class="nb-class2">

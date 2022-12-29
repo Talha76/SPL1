@@ -1,3 +1,19 @@
+<?php
+
+include '../phpDependencies/config.php';
+include '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $link = '<a href="employer_profile.php">' . $id . '</a>
+             <a href="../loginAndRegistration/logout.php">Logout</a>';
+} else {
+    $link = '<a href="../loginAndRegistration/login.php">Sign in</a>
+             <a href="../loginAndRegistration/register.php">Sign up</a>';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>KaajKormo - Employer-info-edit</title>
@@ -46,19 +62,7 @@
         <div class="sign-in">
           <?php
 
-          if (isset($_SESSION['id'])) {
-            $html = '';
-            if($userType == 'employee') {
-              $html = $html . '<a href="employee_profile.php">';
-            } elseif($userType == 'employer') {
-              $html = $html . '<a href="employer_profile.php">';
-            }
-            echo $html . $_SESSION['id'] . '</a>
-                  <a href="../loginAndRegistration/logout.php">Logout</a>';
-          } else {
-            echo '<a href="../loginAndRegistration/login.php">Sign in</a>
-                  <a href="../loginAndRegistration/register.php">Sign up</a>';
-          }
+          echo $link;
 
           ?>
           </div>
@@ -84,7 +88,7 @@
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="index.php">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"> <a href="index_employers.php">Kaajkormo.com</a></h2>
 
       
       <div class="nb-class2">
@@ -116,232 +120,19 @@
             <br>
             <p>Name : </p>
             <input type="text" name="name" id="name" placeholder="Enter Your Name">
-            <p>Date of birth : </p>
-            <input type="date" name="date_of_birth" id="date_of_birth">
-            <p>Skill : </p>
-            <select name="skill" id="skill">
-                <option value="-1" selected disabled>Select Your Skill</option>
-                <option value="1">Accounting/Finance</option>
-                <option value="2">Bank/Non-Bank Fin. Institution</option>
-                <option value="3">Commercial/Supply Chain</option>
-                <option value="4">Education/Training</option>
-                <option value="5">Engineer/Architect</option>
-                <option value="6">Garments/ Textile</option>
-                <option value="7">General Management/Admin</option>
-                <option value="8">IT/Telecommunication</option>
-                <option value="9">Marketing/Sales</option>
-                <option value="10">Media/Advertisement/Event Mgt.</option>
-                <option value="11">Medical/Pharma</option>
-                <option value="12">NGO/Development</option>
-                <option value="13">Research/Consultancy</option>
-                <option value="14">Secretary/Receptionist</option>
-                <option value="15">Data Entry/Operator/BPO</option>
-                <option value="16">Customer Support/Call Centre</option>
-                <option value="17">HR/Org. Development</option>
-                <option value="18">Design/Creative</option>
-                <option value="19">Production/Operation</option>
-                <option value="20">Hospitality/ Travel/ Tourism</option>
-                <option value="21">Beauty Care/ Health & Fitness</option>
-                <option value="22">Law/ Legal</option>
-                <option value="23">Electrician/ Construction/ Repair</option>
-                <option value="24">Security/Support Service</option>
-                <option value="25">Driving/Motor Technician</option>
-                <option value="26">Agro (Plant/Animal/Fisheries)</option>
-            </select>
+            <br><br>
             <p>Availability : </p>
             <select name="availability" id="availability">
                 <option value="-1" disabled selected>Availability</option>
                 <option value="available">Available</option>
                 <option value="unavailable">Unavailable</option>
             </select>
-            <p>Present District : </p>
-            <select id="present_district" name="present_district" required>
-                <option value="-1" selected disabled>Select District</option>
-                <option value="1">Brahmanbaria</option>
-                <option value="2">Bagerhat</option>
-                <option value="3">Bandarban</option>
-                <option value="4">Barishal</option>
-                <option value="5">Bhola</option>
-                <option value="6">Bogura</option>
-                <option value="7">Barguna</option>
-                <option value="8">Chandpur</option>
-                <option value="9">Chapainawabganj</option>
-                <option value="10">Chattogram</option>
-                <option value="11">Chuadanga</option>
-                <option value="12">Cumilla</option>
-                <option value="13">Cox's Bazar</option>
-                <option value="14">Dhaka</option>
-                <option value="15">Dinajpur</option>
-                <option value="16">Faridpur</option>
-                <option value="17">Feni</option>
-                <option value="18">Gaibandha</option>
-                <option value="19">Gazipur</option>
-                <option value="20">Gopalganj</option>
-                <option value="21">Habiganj</option>
-                <option value="22">Jamalpur</option>
-                <option value="23">Jashore</option>
-                <option value="24">Jhalakathi</option>
-                <option value="25">Jhenaidah</option>
-                <option value="26">Joypurhat</option>
-                <option value="27">Khagrachhari</option>
-                <option value="28">Khulna</option>
-                <option value="29">Kishoreganj</option>
-                <option value="30">Kurigram</option>
-                <option value="31">Kushtia</option>
-                <option value="32">Lalmonirhat</option>
-                <option value="33">Laksmipur</option>
-                <option value="34">Madaripur</option>
-                <option value="35">Magura</option>
-                <option value="36">Manikganj</option>
-                <option value="37">Meherpur</option>
-                <option value="38">Moulvibazar</option>
-                <option value="39">Munshiganj</option>
-                <option value="40">Mymensingh</option>
-                <option value="41">Naogaon</option>
-                <option value="42">Narail</option>
-                <option value="43">Narayanganj</option>
-                <option value="44">Narsingdi</option>
-                <option value="45">Natore</option>
-                <option value="46">Netrokona</option>
-                <option value="47">Nilphamari</option>
-                <option value="48">Noakhali</option>
-                <option value="49">Pabna</option>
-                <option value="50">Panchagarh</option>
-                <option value="51">Patuakhali</option>
-                <option value="52">Pirojpur</option>
-                <option value="53">Rajbari</option>
-                <option value="54">Rajshahi</option>
-                <option value="55">Rangamati</option>
-                <option value="56">Rangpur</option>
-                <option value="57">Satkhira</option>
-                <option value="58">Shariatpur</option>
-                <option value="59">Sherpur</option>
-                <option value="60">Sirajganj</option>
-                <option value="61">Sunamganj</option>
-                <option value="62">Sylhet</option>
-                <option value="63">Tangail</option>
-                <option value="64">Thakurgaon</option>
-            </select>
-            <p>Permanent District : </p>
-            <select id="present_district" name="present_district" required>
-                <option value="-1" selected disabled>Select District</option>
-                <option value="1">Brahmanbaria</option>
-                <option value="2">Bagerhat</option>
-                <option value="3">Bandarban</option>
-                <option value="4">Barishal</option>
-                <option value="5">Bhola</option>
-                <option value="6">Bogura</option>
-                <option value="7">Barguna</option>
-                <option value="8">Chandpur</option>
-                <option value="9">Chapainawabganj</option>
-                <option value="10">Chattogram</option>
-                <option value="11">Chuadanga</option>
-                <option value="12">Cumilla</option>
-                <option value="13">Cox's Bazar</option>
-                <option value="14">Dhaka</option>
-                <option value="15">Dinajpur</option>
-                <option value="16">Faridpur</option>
-                <option value="17">Feni</option>
-                <option value="18">Gaibandha</option>
-                <option value="19">Gazipur</option>
-                <option value="20">Gopalganj</option>
-                <option value="21">Habiganj</option>
-                <option value="22">Jamalpur</option>
-                <option value="23">Jashore</option>
-                <option value="24">Jhalakathi</option>
-                <option value="25">Jhenaidah</option>
-                <option value="26">Joypurhat</option>
-                <option value="27">Khagrachhari</option>
-                <option value="28">Khulna</option>
-                <option value="29">Kishoreganj</option>
-                <option value="30">Kurigram</option>
-                <option value="31">Kushtia</option>
-                <option value="32">Lalmonirhat</option>
-                <option value="33">Laksmipur</option>
-                <option value="34">Madaripur</option>
-                <option value="35">Magura</option>
-                <option value="36">Manikganj</option>
-                <option value="37">Meherpur</option>
-                <option value="38">Moulvibazar</option>
-                <option value="39">Munshiganj</option>
-                <option value="40">Mymensingh</option>
-                <option value="41">Naogaon</option>
-                <option value="42">Narail</option>
-                <option value="43">Narayanganj</option>
-                <option value="44">Narsingdi</option>
-                <option value="45">Natore</option>
-                <option value="46">Netrokona</option>
-                <option value="47">Nilphamari</option>
-                <option value="48">Noakhali</option>
-                <option value="49">Pabna</option>
-                <option value="50">Panchagarh</option>
-                <option value="51">Patuakhali</option>
-                <option value="52">Pirojpur</option>
-                <option value="53">Rajbari</option>
-                <option value="54">Rajshahi</option>
-                <option value="55">Rangamati</option>
-                <option value="56">Rangpur</option>
-                <option value="57">Satkhira</option>
-                <option value="58">Shariatpur</option>
-                <option value="59">Sherpur</option>
-                <option value="60">Sirajganj</option>
-                <option value="61">Sunamganj</option>
-                <option value="62">Sylhet</option>
-                <option value="63">Tangail</option>
-                <option value="64">Thakurgaon</option>
-            </select>
-            <p>Blood Group : </p>
-            <select name="blood_group" id="blood_group">
-                <option value="-1" selected disabled>Select Your Blood Group</option>
-                <option value="A+">A(+ve)</option>
-                <option value="A-">A(-ve)</option>
-                <option value="B+">B(+ve)</option>
-                <option value="B-">B(-ve)</option>
-                <option value="O+">O(+ve)</option>
-                <option value="O-">O(-ve)</option>
-                <option value="AB+">AB(+ve)</option>
-                <option value="AB-">AB(-ve)</option>
-            </select>
-            <p>Upload Picture : </p>
-            <input type="file" name="image" id="image" accept="image/*">
-        </div>
-        <div class="detailed-info">
-            <div class="detailed-info-title">
-                <h2> Detailed Information </h2>
-            </div>
-            <div class="present-adress">
-                <p>Present Adress : </p>
-                <br>
-                <input class="present-adress" type="text" name="present_adress" id="present_address" placeholder="present-adress">
-            </div>
-            <div class="permanent-adress">
-                <p>Permanent Adress : </p>
-                <br>
-                <input class="permanent-adress" type="text" name="permanent_adress" id="permanent_address" placeholder="permanent-adress">
-            </div>
-            <div class="father-info">
-                <p>Father's Name : </p>
-                <br>
-                <input class="father-info" type="text" name="fathers_name" id="fathers_name" placeholder="father-info">
-            </div>
-            <div class="mother-info">
-                <p>Mother's Name : </p>
-                <br>
-                <input class="mother-info" type="text" name="mothers_name" id="mothers_name" placeholder="mother-info">
-            </div>
-            <div class="marital-status">
-                <p>Marital Status : </p>
-                <br>
-                <select name="marital_status" id="marital_status" required>
-                    <option value="-1" selected disabled>Select Your Marital Status</option>
-                    <option value="married">Married</option>
-                    <option value="single">Single</option>
-                    <option value="divorced">Divorced</option>
-                </select>
-            </div>
+            <br><br>
+            <p>Email : </p>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email">
+            <br><br>
             <div class="religion">
                 <p>Religion : </p>
-                <br>
                 <select name="religion" id="religion" required>
                     <option value="-1" selected disabled>Select Your Religion</option>
                     <option value="Buddhism">Buddhism</option>
