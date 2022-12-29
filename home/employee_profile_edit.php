@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"> <a href="index.php">Kaajkormo.com</a></h2>
 
       
       <div class="nb-class2">

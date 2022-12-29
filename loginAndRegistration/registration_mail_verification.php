@@ -17,24 +17,28 @@ if (isset($_POST['submit'])) {
     } else {
       $sql = "SELECT NOW() - creation_time as time_diff, otp, email, password, user_type FROM otp_info WHERE id = '$id'";
       $rs = new ResultSet($db->query($sql));
-      $timeDiff = intval($rs->get('time_diff'));
-      $expectedOTP = $rs->get('otp');
-      if ($timeDiff > 300) {
-        $error = "OTP expired";
-        $db->update("DELETE FROM otp_info WHERE id = '$id'");
-        unset($_SESSION['id']);
-      } else if ($otp != $expectedOTP) {
-        $error = "OTP does not match";
+      if($rs->hasNext()) {
+        $timeDiff = intval($rs->get('time_diff'));
+        $expectedOTP = $rs->get('otp');
+        if ($timeDiff > 300) {
+          $error = "OTP expired";
+          $db->update("DELETE FROM otp_info WHERE id = '$id'");
+          unset($_SESSION['id']);
+        } else if ($otp != $expectedOTP) {
+          $error = "OTP does not match";
+        } else {
+          $db->update("DELETE FROM otp_info WHERE id = '$id'");
+          
+          $db->connect('user_db');
+          $email = $rs->get('email');
+          $password = $rs->get('password');
+          $userType = $rs->get('user_type');
+          $insert = "INSERT INTO userID VALUES('$id', '$email', '$password', '$userType')";
+          $db->update($insert);
+          header('location: ../home/index.php');
+        }
       } else {
-        $db->update("DELETE FROM otp_info WHERE id = '$id'");
-
-        $db->connect('user_db');
-        $email = $rs->get('email');
-        $password = $rs->get('password');
-        $userType = $rs->get('user_type');
-        $insert = "INSERT INTO userID VALUES('$id', '$email', '$password', '$userType')";
-        $db->query($insert);
-        header('location: ../home/index.php');
+        throw new Exception('No OTP found with this id');
       }
     }
   } catch (Exception $e) {
@@ -119,7 +123,7 @@ if (isset($_POST['submit'])) {
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"> <a href="../home/index.php">Kaajkormo.com</a></h2>
 
       
       <div class="nb-class2">

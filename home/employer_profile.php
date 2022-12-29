@@ -90,7 +90,7 @@ include '../phpDependencies/config.php';
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"> <a href="./index.php">Kaajkormo.com</a></h2>
 
       
       <div class="nb-class2">
@@ -159,11 +159,11 @@ include '../phpDependencies/config.php';
         </div>
         <br>
         <br>
-        <!-- <div class="employee-edit">
-            <div class="submit">
-                <input type="submit" name="submit" id="submit" value="Save" class="submit">
-            </div>
-        </div> -->
+        <div class="employee-edit">
+          <div class="submit">
+            <input type="submit" name="submit" id="submit" value="Edit Your Profile" class="submit">
+          </div>
+        </div>
     </form>
     <!-- footer starts -->
     <div class="footer">

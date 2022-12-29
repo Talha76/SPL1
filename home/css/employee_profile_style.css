@@ -39,3 +39,13 @@
     background-color: green;
     color: white;
 }
+.employee-edit > .submit {
+    text-align: center;
+}
+.employee-edit > .submit > .submit{
+    height: 40px;
+    width: 200px;
+    font-size: larger;
+    background-color: green;
+    color: white;
+}
