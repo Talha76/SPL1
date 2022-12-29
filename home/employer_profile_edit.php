@@ -15,26 +15,24 @@ if(isset($_SESSION['id'])) {
 if(isset($_POST['submit'])) {
     $name = filter_input(INPUT_POST, 'name');
     $availability = filter_input(INPUT_POST, 'availability');
-    $email = filter_input(INPUT_POST, 'email');
     $religion = filter_input(INPUT_POST, 'religion');
 
     $db=new Database("user_db");
-    $rs = new ResultSet($db->query("SELECT count(id) as total FROM employer_info WHERE id = '$id'"));
+    $rs = new ResultSet($db->query("SELECT count(id) as total FROM user_info WHERE id = '$id'"));
     $rs->hasNext();
     if($rs->get('total') > 0) {
       if(strlen($name)) {
-        $db->update("UPDATE employer_info SET name = '$name' WHERE id = '$id'");
+        $db->update("UPDATE user_info SET name = '$name' WHERE id = '$id'");
       } if(strlen($availability)) {
-        $db->update("UPDATE employer_info SET availability = '$availability' WHERE id = '$id'");
-      } if(strlen($email)) {
-        $db->update("UPDATE employer_info SET email = '$email' WHERE id = '$id'");
+        $db->update("UPDATE user_info SET availability = '$availability' WHERE id = '$id'");
       } if(strlen($religion)) {
-        $db->update("UPDATE employer_info SET religion = '$religion' WHERE id = '$id'");
+        $db->update("UPDATE user_info SET religion = '$religion' WHERE id = '$id'");
       }
       header('Location: employer_profile.php');
     } else {
-      $query="insert into employer_info values('$id','$name','$availability','$email','$religion')";
+      $query="insert into user_info(id, name, availability, religion) values('$id','$name','$availability','$religion')";
       $db->update($query);
+      header('Location: employer_profile.php');
     }
 }
 
