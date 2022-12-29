@@ -36,6 +36,8 @@ class ResultSet {
     }
   }
 
+  public function getRow() { return $this->row; }
+
   public function get($key) {
     try {
       return $this->row[$key];

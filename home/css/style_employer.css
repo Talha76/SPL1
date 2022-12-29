@@ -1,7 +1,7 @@
 
 .hot-jobs-container {
     width: 85%;
-    height: 60%;
+    height: auto !important;
     position: absolute;
     margin-left: 5%;
     margin-top: 2%;
@@ -30,7 +30,7 @@
     color: white;
 }
 
-.job1, .job2, .job3, .job4, .job5 {
+.job {
     margin-left: 4%;
     /* display:flex; */
     margin-top: 2%;

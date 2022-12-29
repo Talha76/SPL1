@@ -1,23 +1,57 @@
 <?php
 
 include '../phpDependencies/config.php';
+include '../phpDependencies/Job.php';
+
+if(isset($_GET['job_id'])) {
+  $task = 'Edit Job';
+} else {
+  $task = 'Post Job';
+}
 
 if(isset($_POST['submit'])) {
-    $jobName = filter_input(INPUT_POST, 'job-name');
-    $jobType = filter_input(INPUT_POST, 'job-type');
-    $jobRank = filter_input(INPUT_POST, 'job-rank');
-    $salary = filter_input(INPUT_POST, 'salary');
-    $company = filter_input(INPUT_POST, 'company');
-    $location = filter_input(INPUT_POST, 'job-location');
-    $educationRequirement = filter_input(INPUT_POST, 'eduation-requirements');
-    $experienceRequirement = filter_input(INPUT_POST, 'experience-requirements');
-    $email=filter_input(INPUT_POST,'e-mail');
-    $phone=filter_input(INPUT_POST,'phone');
+  $jobName = filter_input(INPUT_POST, 'job-name');
+  $jobType = filter_input(INPUT_POST, 'job-type');
+  $jobRank = filter_input(INPUT_POST, 'job-rank');
+  $salary = filter_input(INPUT_POST, 'salary', FILTER_VALIDATE_INT);
+  $company = filter_input(INPUT_POST, 'company');
+  $location = filter_input(INPUT_POST, 'job-location');
+  $educationRequirements = filter_input(INPUT_POST, 'eduation-requirements');
+  $experienceRequirements = filter_input(INPUT_POST, 'experience-requirements');
+  $email=filter_input(INPUT_POST,'e-mail', FILTER_VALIDATE_EMAIL);
+  $phone=filter_input(INPUT_POST,'phone');
 
-    $db=new Database("job_db");
-    $query="insert into job_info values($jobName,$jobType,$jobRank,$salary,$company,$location,$educationRequirement,$experienceRequirement,$email,$phone)";
+  $db=new Database("job_db");
+
+  if(isset($_GET['job_id'])) {
+    $jobID = $_GET['job_id'];
+    if(strlen($jobName)) {
+      $db->update("UPDATE job_info SET name = '$jobName' WHERE id = $jobID");
+    } else if(strlen($jobType)) {
+      $db->update("UPDATE job_info SET type = '$jobType' WHERE id = $jobID");
+    } else if(strlen($jobRank)) {
+      $db->update("UPDATE job_info SET rank = '$jobRank' WHERE id = $jobID");
+    } else if(!empty($salary)) {
+      $db->update("UPDATE job_info SET salary = $salary WHERE id = $jobID");
+    } else if(strlen($educationRequirements)) {
+      $db->update("UPDATE job_info SET education_equirements = '$educationRequirements' WHERE id = $jobID");
+    } else if(strlen($experienceRequirements)) {
+      $db->update("UPDATE job_info SET experience_equirements = '$experienceRequirements' WHERE id = $jobID");
+    } else if(strlen($email)) {
+      $db->update("UPDATE job_info SET email = '$email' WHERE id = $jobID");
+    } else if(strlen($phone)) {
+      $db->update("UPDATE job_info SET phone = '$phone' WHERE id = $jobID");
+    }
+    $message = "Job Information Updated Successfully";
+  } else {
+    $job = new Job();
+    $jobID = $job->getId();
+    $id = $_SESSION['id'];
+
+    $query="insert into job_info values($jobID, '$id', '$jobName', '$jobType', '$jobRank', $salary, '$company', '$location', '$educationRequirement', '$experienceRequirement', '$email', '$phone')";
     $db->update($query);
-   
+    $message = "Job Posted Successfully";
+  }
 }
 
 ?>
@@ -136,9 +170,16 @@ if(isset($_POST['submit'])) {
 <!--job info starts -->
 
 <div class="post-job">
-    <h1>Post Job</h1>
+  <h1><?php echo $task; ?></h1>
+  <?php
+
+  if(isset($message)) {
+    echo '<p style="color:green">' . $message . '</p>';
+  }
+
+  ?>
 </div>
-<form action="" method="post">
+<form action="" method="POST">
     <div class="basic-info">
         <h3>JOB</h3>
         <br>
@@ -146,6 +187,7 @@ if(isset($_POST['submit'])) {
         <input type="text" name="job-name" id="job-name" placeholder="job-name">
         <p>Job Type : </p>
         <select name="job-type" id="job-type" class="job-type">
+            <option value="-1" selected disabled>Select Job Type</option>
             <option value="full-time">Full Time</option>
             <option value="part-time">Part Time</option>
             <option value="intern">Internship</option>
@@ -161,7 +203,7 @@ if(isset($_POST['submit'])) {
         </div>
         <div class="salary">
             <p>Salary : </p>
-            <input type="text" name="salary" id="salary" placeholder="salary">
+            <input type="number" name="salary" id="salary" placeholder="salary">
         </div>
         <div class="eduation-requirements">
             <p>Education Requirements</p>

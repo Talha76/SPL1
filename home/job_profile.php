@@ -1,3 +1,32 @@
+<?php
+
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+  $id = $_SESSION['id'];
+  $person = new Person($id);
+  if($person->getUserType() == 'employee') {
+    $button = '<div class="apply">
+                   <input type="submit" name="edit" id="edit" value="Apply" class="apply">
+               </div>';
+  } else {
+    $button = '<div class="apply">
+                   <input type="submit" name="edit" id="edit" value="Edit" class="apply">
+               </div>
+               <div class="apply">
+                   <input type="submit" value="Delete" class="apply" name="delete" id="delete">
+               </div>';
+  }
+}
+
+if(isset($_POST['edit'])) {
+  $jobID = $_GET['job_id'];
+  header('Location: job_profile_edit.php?job_id=' . $jobID);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>KaajKormo - Job-info</title>
@@ -144,14 +173,9 @@
 <br>
 <br>
 
-<form action="">
+<form action="" method="POST">
   <div class="job-apply">
-      <div class="apply">
-          <input type="submit" name="edit" id="edit" value="Edit" class="apply">
-      </div>
-      <div class="apply">
-          <input type="submit" value="Delete" class="apply">
-      </div>
+      <?php echo $button; ?>
   </div>
   
 </form>

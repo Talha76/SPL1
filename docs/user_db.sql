@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 28, 2022 at 04:53 PM
+-- Generation Time: Dec 29, 2022 at 07:42 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -20,15 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `user_db`
 --
+CREATE DATABASE IF NOT EXISTS `user_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `user_db`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `address`
+--
+
+CREATE TABLE `address` (
+  `id` varchar(100) NOT NULL,
+  `present_address` varchar(500) NOT NULL,
+  `permanent_address` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `employee_info`
 --
-
-create database user_db;
-use user_db;
 
 CREATE TABLE `employee_info` (
   `id` varchar(100) NOT NULL,
@@ -38,6 +49,19 @@ CREATE TABLE `employee_info` (
   `availability` varchar(20) NOT NULL,
   `blood_group` varchar(10) NOT NULL,
   `religion` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `family_info`
+--
+
+CREATE TABLE `family_info` (
+  `id` varchar(100) NOT NULL,
+  `fathers_name` varchar(255) NOT NULL,
+  `mothers_name` varchar(255) DEFAULT NULL,
+  `marital_status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -58,6 +82,7 @@ CREATE TABLE `userID` (
 --
 
 INSERT INTO `userID` (`id`, `email`, `password`, `user_type`) VALUES
+('talha', 'mushfiqurrahman845@gmail.com', '846c9fa0d0488a4caa493b36a6d31a87', 'employer'),
 ('temp', 'lofer96287@miarr.com', '66e4826e97fa5eee677149cc22ddfcf0', 'employee');
 
 --
@@ -65,9 +90,21 @@ INSERT INTO `userID` (`id`, `email`, `password`, `user_type`) VALUES
 --
 
 --
+-- Indexes for table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `employee_info`
 --
 ALTER TABLE `employee_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `family_info`
+--
+ALTER TABLE `family_info`
   ADD PRIMARY KEY (`id`);
 
 --

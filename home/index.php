@@ -1,7 +1,10 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/Person.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
+include_once '../phpDependencies/Job.php';
+
+$job = new Job();
 
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];
@@ -154,9 +157,7 @@ if(isset($_POST['search'])) {
             <a href="#lj">LIVE JOBS</a>
           </div>
           <div class="num-of-lj">
-            <a href="#lj">
-              <h2>7365+</h2>
-            </a>
+              <h2><?php echo $job->getLiveJobs(); ?></h2>
           </div>
         </div>
       </div>
@@ -178,9 +179,7 @@ if(isset($_POST['search'])) {
             <a href="#">COMPANIES</a>
           </div>
           <div class="num-of-comp">
-            <a href="#comp">
-              <h2>7365+</h2>
-            </a>
+              <h2><?php echo $job->getCompanyCount(); ?></h2>
           </div>
         </div>
       </div>
@@ -200,9 +199,7 @@ if(isset($_POST['search'])) {
             <a href="#">NEW JOBS</a>
           </div>
           <div class="num-of-nj">
-            <a href="#nj">
-              <h2>7365+</h2>
-            </a>
+              <h2><?php echo $job->getLiveJobs(); ?></h2>
           </div>
         </div>
       </div>

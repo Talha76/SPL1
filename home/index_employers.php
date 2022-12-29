@@ -132,35 +132,22 @@ if(isset($_SESSION['id'])) {
             <p>_____________________________</p>
         </div>
         <!-- job1 - start -->
-        <div class="job1">
-          <p>Software Engineer</p>
-          <p>Salary : 30,000</p>
-        </div>
-        <!-- job1 - end -->
-        <!-- job2 - start -->
-        <div class="job2">
-          <p>Love Expert</p>
-          <p>Salary : 20,000</p>
-        </div>
-        <!-- job2 - end -->
-        <!-- job3 - start -->
-        <div class="job3">
-          <p>Body-Guard</p>
-          <p>Salary : 78,000</p>
-        </div>
-        <!-- job3 - end -->
-        <!-- job4 - start -->
-        <div class="job4">
-          <p>Programmer</p>
-          <p>Salary : 1,50,000</p>
-        </div>
-        <!-- job4 - end -->
-        <!-- job5 - start -->
-        <div class="job5">
-          <p>Photographer</p>
-          <p>Salary : 60,000</p>
-        </div>
-        <!-- job5 - end -->
+        <?php
+
+        $db = new Database('job_db');
+        $sql = "SELECT id, name, salary FROM job_info WHERE employer_id = '$id'";
+        $rs = new ResultSet($db->query($sql));
+        while($rs->hasNext()) {
+          $jobID = $rs->get('id');
+          $name = $rs->get('name');
+          $salary = $rs->get('salary');
+          echo '<div class="job">
+                <a href="job_profile.php?job_id=' . $jobID . '">' . $name . '</a>
+                <p>Salary : ' . $salary . '</p>
+                </div>';
+        }
+
+        ?>
     </div>
     <!-- hot jobs conatainer ends -->
 

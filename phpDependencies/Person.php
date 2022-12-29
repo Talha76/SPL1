@@ -1,7 +1,7 @@
 <?php
 
-include 'Database.php';
-include 'ResultSet.php';
+include_once 'Database.php';
+include_once 'ResultSet.php';
 
 class Person {
   private string $id;
