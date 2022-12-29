@@ -108,176 +108,18 @@
     <!--header starts-->
     <header>
         <h1 class="header-title">
-            FIND YOUR <br> <span>PERFECT EMPLOYEE</span><br>EASILY
+            FIND YOUR <br> <span>PERFECT JOB</span><br>EASILY
         </h1>
 
 
     </header>
     <!-- header ends -->
-
-    <!--searchbar starts-->
-    <div class="search-wrapper">
-        <div class="search-box">
-            <div class="search-card">
-                <input class="search-input" type="text" placeholder="Employees or skills">
-                <button class="search-button">Search</button>
-            </div>
-        </div>
+    <div class="post-job"></div>
+        <input type="submit" name="submit" id="submit" class="submit" value="Post Job"> 
     </div>
-    <!-- searchbar ends -->
-
-
-    <!--allicons starts-->
-    <div class="allicons">
-        <!-- livejobs starts -->
-        <!-- all the links in this div will be same-->
-        <a href="#lj">
-            <div class="livejobs">
-                <div class="icon1">
-                    <i class="fa-regular fa-address-card fa-3x"></i>
-                </div>
-
-                <div class="link1">
-                    <!-- link1 has 2 divs: link & number of jobs -->
-                    <div class="link-of-lj">
-                        <!-- lj=livejobs -->
-                        <a href="#lj">LIVE EMPS</a>
-                    </div>
-                    <div class="num-of-lj">
-                        <a href="#lj">
-                            <h2>7365+</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <!-- livejob ends -->
-
-
-        <!-- companies start -->
-        <a href="#comp">
-            <div class="companies">
-                <!-- all the links in this div will be same-->
-                <div class="icon3">
-                    <i class="fa-solid fa-city fa-3x"></i>
-                </div>
-
-                <div class="link3">
-                    <!-- link1 has 2 divs: link & number of companies -->
-                    <div class="link-of-comp">
-                        <a href="#">EMPLOYEES</a>
-                    </div>
-                    <div class="num-of-comp">
-                        <a href="#comp">
-                            <h2>7365+</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <!-- companies ends -->
-
-        <!-- newjobs starts -->
-        <a href="#nj">
-            <div class="newjobs">
-                <!-- all the links here should be same -->
-                <div class="icon4">
-                    <i class="fa-solid fa-link fa-3x"></i>
-                </div>
-                <div class="link4">
-                    <div class="link-of-nj">
-                        <!-- nj means new jobs -->
-                        <a href="#">NEW Employees</a>
-                    </div>
-                    <div class="num-of-nj">
-                        <a href="#nj">
-                            <h2>7365+</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <!-- new jobs ends -->
-    </div>
-    <!-- allicons ends -->
-    <!-- hot-employees-container starts -->
-    
-    <div class="hot-employees-container">
-        <div class="hot-employees-title">
-            <h1>HOT EMPLOYEES</h1>
-        </div>
-        <!-- Employee1 - start -->
-        <div class="employee1">
-            <div class="employee1-image">
-                <img src="images\wasif.jpg">
-            </div>
-            <div class="employee1-info">
-                <p> <a href="https://www.facebook.com/mostofawasif.mishal"> Mustafa Wasif Mishal</a></p>
-                <p>Software Engineer</p>
-                <!-- <br> -->
-                <p>Skills : CPer, Html, Css, PHP</p>
-                <p>Interests : Full-Stack</p>
-            </div>
-        </div>
-        <!-- Employee1 - end -->
-        <!-- Employee2 - start -->
-        <div class="employee2">
-            <div class="employee2-image">
-                <img src="images\kawsar.jpg">
-            </div>
-            <div class="employee2-info">
-                <p><a href="https://www.facebook.com/profile.php?id=100010367555864">Kawsar Ahmed</a></p>
-                <p>Love Expert</p>
-                <!-- <br> -->
-                <p>Skills : Teeange-Love, Married Love, Heatbreak Handling</p>
-                <p>Interests : Maily Married Couples</p>
-            </div>
-        </div>
-        <!-- Employee2 - end -->
-        <!-- Employee3 - start -->
-        <div class="employee3">
-            <div class="employee3-image">
-                <img src="images\talha.jpg">
-            </div>
-            <div class="employee3-info">
-                <p><a href="https://www.facebook.com/talha.1876">Mushfiq Talha</a> </p>
-                <p>Cadet</p>
-                <p>Skills : Boxing, Mixed Marshal-Arts</p>
-                <p>Interests: Beating up bad guys</p>
-            </div>
-        </div>
-        <!-- Employee3 - end -->
-        <!-- Employee4 - start -->
-        <div class="employee4">
-            <div class="employee4-image">
-                <img src="images\tanzim.jpg">
-            </div>
-            <div class="employee4-info">
-                <p><a href="https://www.facebook.com/profile.php?id=100009151512067">Shahrier Al Tanzim</a></p>
-                <p>Programmer</p>
-                <p>Skills : Cplusplus, Python</p>
-                <p>Interests: Competitive Programming</p>
-            </div>
-        </div>
-        <!-- Employee4 - end -->
-        <!-- Employee5 - start -->
-        <div class="employee5">
-            <div class="employee5-image">
-                <img src="images\ridun.jpg">
-            </div>
-            <div class="employee5-info">
-                <p><a href="https://www.facebook.com/tashrefeemahmood.ridun">Tasrefee Mahmood Ridun</a></p>
-                <p>Photographer</p>
-                <p>Skills : Picture Editing, Camera Knowledge</p>
-                <p>Interests: Wild-life Phototgraphy</p>
-            </div>
-        </div>
-        <!-- Employee5 - end -->
-    </div>
-    <!-- hot employees conatainer ends -->
     
     <!-- to make the footer lower, have to work on that -->
-    <br><br><br>
+    <!-- <br><br><br> -->
     <!-- footer starts -->
     <div class="footer">
 

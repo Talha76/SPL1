@@ -1,4 +1,4 @@
-.employee-info, .detailed-info {
+.detailed-info, .basic-info {
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
@@ -14,24 +14,28 @@
 .display-info {
     display: flex;
 }
-.display-info > .image > img{
-    height: 100%;
-    width: 50%;
-}
-.display-info > .basic-info {
-    font-size:  larger;
-    font-weight: bold;
-    margin-top: 3.5%;
-    margin-left: -20%;
-    margin-bottom: 2%;
-    display:grid ;
-}
 .detailed-info{
     display:grid;
+    /* text-align: justify; */
     gap: 50px 100px;
+}
+.employee {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: -2%;
 }
 .present-adress, .permanent-adress, .father-info, 
 .mother-info, .education, .previous-jobs, 
 .skills, .interests, .marital-status, .religion{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.employee-edit > .submit {
+    text-align: center;
+}
+.employee-edit > .submit > .submit{
+    height: 40px;
+    width: 100px;
+    font-size: larger;
+    background-color: green;
+    color: white;
 }
