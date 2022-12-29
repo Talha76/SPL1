@@ -1,6 +1,6 @@
 <?php
 
-include '../phpDependencies/config.php';
+include_once '../phpDependencies/config.php';
 
 if (!isset($_SESSION['id'])) {
   die("Error: Session ID not set.");

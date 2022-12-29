@@ -1,7 +1,7 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/Job.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/JobUtility.php';
 
 if(isset($_GET['job_id'])) {
   $task = 'Edit Job';
@@ -27,24 +27,24 @@ if(isset($_POST['submit'])) {
     $jobID = $_GET['job_id'];
     if(strlen($jobName)) {
       $db->update("UPDATE job_info SET name = '$jobName' WHERE id = $jobID");
-    } else if(strlen($jobType)) {
+    } if(strlen($jobType)) {
       $db->update("UPDATE job_info SET type = '$jobType' WHERE id = $jobID");
-    } else if(strlen($jobRank)) {
+    } if(strlen($jobRank)) {
       $db->update("UPDATE job_info SET rank = '$jobRank' WHERE id = $jobID");
-    } else if(!empty($salary)) {
+    } if(!empty($salary)) {
       $db->update("UPDATE job_info SET salary = $salary WHERE id = $jobID");
-    } else if(strlen($educationRequirements)) {
+    } if(strlen($educationRequirements)) {
       $db->update("UPDATE job_info SET education_equirements = '$educationRequirements' WHERE id = $jobID");
-    } else if(strlen($experienceRequirements)) {
+    } if(strlen($experienceRequirements)) {
       $db->update("UPDATE job_info SET experience_equirements = '$experienceRequirements' WHERE id = $jobID");
-    } else if(strlen($email)) {
+    } if(strlen($email)) {
       $db->update("UPDATE job_info SET email = '$email' WHERE id = $jobID");
-    } else if(strlen($phone)) {
+    } if(strlen($phone)) {
       $db->update("UPDATE job_info SET phone = '$phone' WHERE id = $jobID");
     }
     $message = "Job Information Updated Successfully";
   } else {
-    $job = new Job();
+    $job = new JobUtility();
     $jobID = $job->getId();
     $id = $_SESSION['id'];
 

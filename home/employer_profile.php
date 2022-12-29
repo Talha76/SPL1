@@ -1,6 +1,13 @@
 <?php
 
-include '../phpDependencies/config.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
+
+$id = $_SESSION['id'];
+
+if(isset($_POST['submit'])) {
+  header('Location: employer_profile_edit.php');
+}
 
 ?>
 
@@ -116,7 +123,7 @@ include '../phpDependencies/config.php';
   <!-- navbar ends -->
 
     <!-- employee info starts -->
-    <form action="employer_profile_edit.php" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <h1 class="employer">Employer</h1>
         <div class="basic-info">
             <br>

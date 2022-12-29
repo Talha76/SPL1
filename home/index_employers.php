@@ -1,7 +1,7 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/Person.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
 
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];

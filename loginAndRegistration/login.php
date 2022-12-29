@@ -1,7 +1,7 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/Person.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
 
 if (isset($_POST['submit'])) {
   $id = filter_input(INPUT_POST, 'id');

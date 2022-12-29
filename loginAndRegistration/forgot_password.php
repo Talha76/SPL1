@@ -1,7 +1,7 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/smtp.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/smtp.php';
 
 if (isset($_POST['submit'])) {
   $db = new Database('user_db');

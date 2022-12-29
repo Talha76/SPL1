@@ -91,14 +91,14 @@ class InstalledVersions
      * This also returns true if the package name is provided or replaced by another package
      *
      * @param  string $packageName
-     * @param  bool   $includeDevRequirements
+     * @param  bool   $include_onceDevRequirements
      * @return bool
      */
-    public static function isInstalled($packageName, $includeDevRequirements = true)
+    public static function isInstalled($packageName, $include_onceDevRequirements = true)
     {
         foreach (self::getInstalled() as $installed) {
             if (isset($installed['versions'][$packageName])) {
-                return $includeDevRequirements || empty($installed['versions'][$packageName]['dev_requirement']);
+                return $include_onceDevRequirements || empty($installed['versions'][$packageName]['dev_requirement']);
             }
         }
 
@@ -267,7 +267,7 @@ class InstalledVersions
             // only require the installed.php file if this file is loaded from its dumped location,
             // and not from its source location in the composer/composer package, see https://github.com/composer/composer/issues/9937
             if (substr(__DIR__, -8, 1) !== 'C') {
-                self::$installed = include __DIR__ . '/installed.php';
+                self::$installed = include_once __DIR__ . '/installed.php';
             } else {
                 self::$installed = array();
             }

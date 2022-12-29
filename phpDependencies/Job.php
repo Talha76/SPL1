@@ -4,51 +4,70 @@ include_once 'Database.php';
 include_once 'ResultSet.php';
 
 class Job {
-  public function getID() : int {
-    try {
-      $db = new Database('job_db');
-      $rs = new ResultSet($db->query("SELECT count(*) as total FROM job_info"));
-      $rs->hasNext();
-      return $rs->get('total');
-    } catch(Exception $e) {
-      die("Error: " . $e->getMessage());
-    }
+  private int $id;
+
+  public function __construct(int $id) {
+    $this->id = $id;
   }
 
-  public function getLiveJobs() : int {
-    try {
-      $db = new Database('job_db');
-      $rs = new ResultSet($db->query("SELECT count(*) as total FROM job_info"));
-      $rs->hasNext();
-      return $rs->get('total');
-    } catch(Exception $e) {
-      die("Error: " . $e->getMessage());
-    }
-  }
+  public function getID() { return $this->id; }
 
-  public function getCompanyCount() : int {
+  private function get(string $attribute) {
     try {
       $db = new Database('job_db');
-      $rs = new ResultSet($db->query("SELECT count(distinct company) as total FROM job_info"));
-      $rs->hasNext();
-      return $rs->get('total');
-    } catch(Exception $e) {
-      die("Error: " . $e->getMessage());
-    }
-  }
-
-  public function getLatestJobInfo(int $n) {
-    try {
-      $db = new Database('job_db');
-      $rs = new ResultSet($db->query("SELECT * FROM job_info ORDER BY id DESC"));
-      for($i = 0; $i < $n;$i++) {
-        if($rs->hasNext()) continue;
-        else throw new Exception("No more jobs");
+      $rs = new ResultSet($db->query("SELECT " . $attribute . " FROM job_info WHERE id = $this->id"));
+      if($rs->hasNext()) {
+        return $rs->get($attribute);
+      } else {
+        throw new Exception('Job not found');
       }
-      return $rs->getRow();
     } catch(Exception $e) {
       die("Error: " . $e->getMessage());
     }
+  }
+
+  public function getName() : string {
+    return $this->get('name');
+  }
+
+  public function getEmployerID() : string {
+    return $this->get('employer_id');
+  }
+
+  public function getType() : string {
+    return $this->get('type');
+  }
+
+  public function getRank() : string {
+    return $this->get('rank');
+  }
+
+  public function getSalary() : int {
+    return $this->get('salary');
+  }
+
+  public function getCompany() : string {
+    return $this->get('company');
+  }
+
+  public function getLocation() : string {
+    return $this->get('location');
+  }
+  
+  public function getEducationRequirements() : string {
+    return $this->get('education_requirements');
+  }
+
+  public function getExperienceRequirements() : string {
+    return $this->get('experience_requirements');
+  }
+
+  public function getEmail() : string {
+    return $this->get('email');
+  }
+
+  public function getPhone() : string {
+    return $this->get('phone');
   }
 }
 

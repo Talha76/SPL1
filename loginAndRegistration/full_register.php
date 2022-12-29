@@ -1,6 +1,6 @@
 <?php
 
-include '../phpDependencies/config.php';
+include_once '../phpDependencies/config.php';
 
 if (isset($_POST['submit'])) {
   $firstName = filter_input(INPUT_POST, 'first_name');

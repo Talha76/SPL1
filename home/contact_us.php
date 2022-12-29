@@ -1,7 +1,7 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/Person.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
 
 if(isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
@@ -140,7 +140,7 @@ if(isset($_SESSION['id'])) {
     <div class="content">
         <p>
             Kaajkormo.com collects information about visitors.
-            This information includes your IP address, browser type, domain names,
+            This information include_onces your IP address, browser type, domain names,
             access times and referring addresses. We use this information for
             operating our services, maintaining the quality of the service,
             security management and providing reports for relevant business

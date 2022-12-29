@@ -1,6 +1,6 @@
 <?php
 
-include '../phpDependencies/all.php';
+include_once '../phpDependencies/all.php';
 
 if (!isset($_SESSION['id'])) {
   die("Error: Session ID not found");

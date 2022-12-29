@@ -2,6 +2,12 @@
 
 include_once '../phpDependencies/config.php';
 include_once '../phpDependencies/Person.php';
+include_once '../phpDependencies/Job.php';
+
+if(isset($_GET['job_id'])) {
+  $jobID = $_GET['job_id'];
+  $job = new Job($jobID);
+}
 
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];
@@ -10,6 +16,7 @@ if(isset($_SESSION['id'])) {
     $button = '<div class="apply">
                    <input type="submit" name="edit" id="edit" value="Apply" class="apply">
                </div>';
+    $location = "index.php";
   } else {
     $button = '<div class="apply">
                    <input type="submit" name="edit" id="edit" value="Edit" class="apply">
@@ -17,12 +24,19 @@ if(isset($_SESSION['id'])) {
                <div class="apply">
                    <input type="submit" value="Delete" class="apply" name="delete" id="delete">
                </div>';
+    $location = "index_employers.php";
   }
 }
 
 if(isset($_POST['edit'])) {
-  $jobID = $_GET['job_id'];
   header('Location: job_profile_edit.php?job_id=' . $jobID);
+}
+
+if(isset($_POST['delete'])) {
+  $db = new Database('job_db');
+  $sql = "DELETE FROM job_info WHERE id = $jobID";
+  $db->update($sql);
+  header('Location: index_employers.php');
 }
 
 ?>
@@ -113,7 +127,7 @@ if(isset($_POST['edit'])) {
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="index.php">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"><?php echo '<a href="' . $location . '">Kaajkormo.com</a> '; ?></h2>
 
       
       <div class="nb-class2">
@@ -143,26 +157,26 @@ if(isset($_POST['edit'])) {
     <h1>Job</h1>
 </div>
 <div class="job-info">
-    <h1>Software Engineer</h1>
-    <p>Type : </p>
-    <p>Rank : Assistant Software Engineer</p>
-    <p>Salary = 60,000 Tk.</p>
+    <h1><?php echo $job->getName(); ?></h1>
+    <h2>Company : <?php echo $job->getCompany(); ?>, <?php echo $job->getLocation(); ?></h2>
+    <br>
+    <p>Type : <?php echo $job->getType(); ?></p><br>
+    <p>Rank : <?php echo $job->getRank(); ?></p><br>
+    <p>Salary : <?php echo $job->getSalary(); ?> BDT/Month</p><br>
+    <p>Contact Email : <?php echo $job->getEmail(); ?></p><br>
+    <p>Telephone : <?php echo $job->getPhone(); ?></p>
 </div>
 <div class="detailed-info">
     <div class="detaile-info-title">
         <h2> Detailed Information </h2>
     </div>
-    <div class="salary">
-        <h2>Salary</h2>
-        <p>Salary-output</p>
-    </div>
     <div class="eduation-requirements">
         <h2>Education Requirements</h2>
-        <p>Education Requirements - output</p>
+        <p><?php echo $job->getEducationRequirements(); ?></p>
     </div>
     <div class="experience-requirements">
         <h2>Experience Requirements</h2>
-        <p>Experience Requirements - output</p>
+        <p><?php echo $job->getExperienceRequirements(); ?></p>
     </div>
     <div class="job-location">
         <h2>Job Requirements</h2>

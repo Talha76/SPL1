@@ -1,8 +1,8 @@
 <?php
 
-include 'config.php';
-include 'Database.php';
-include 'smtp.php';
-include 'IdNotFoundException.php';
+include_once 'config.php';
+include_once 'Database.php';
+include_once 'smtp.php';
+include_once 'IdNotFoundException.php';
 
 ?>

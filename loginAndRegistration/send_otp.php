@@ -1,8 +1,8 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/smtp.php';
-include '../phpDependencies/Database.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/smtp.php';
+include_once '../phpDependencies/Database.php';
 
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];

@@ -1,8 +1,8 @@
 <?php
 
-include '../phpDependencies/config.php';
-include '../phpDependencies/ResultSet.php';
-include '../phpDependencies/Database.php';
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/ResultSet.php';
+include_once '../phpDependencies/Database.php';
 
 if (isset($_POST['submit'])) {
   $db = new Database('smtp_credentials');
