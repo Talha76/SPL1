@@ -111,7 +111,7 @@
 
     <!-- employee info starts -->
     <form action="" method="post" enctype="multipart/form-data">
-        <h1 class="employeer">Employeer</h1>
+        <h1 class="employeer">Employer</h1>
         <div class="basic-info">
             <br>
             <p>Name : </p>

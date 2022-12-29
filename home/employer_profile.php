@@ -117,7 +117,7 @@ include '../phpDependencies/config.php';
 
     <!-- employee info starts -->
     <form action="" method="post" enctype="multipart/form-data">
-        <h1 class="employer">Employee</h1>
+        <h1 class="employer">Employer</h1>
         <div class="basic-info">
             <br>
             <p>Name : </p>
