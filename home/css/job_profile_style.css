@@ -24,9 +24,13 @@
 .eduation-requirements, .salary {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 1px 2px 0 rgba(0, 0,  0, 0.1);
 }
-
+.job-apply {
+    margin-left: 40%;
+    display: flex;
+}
 .job-apply > .apply {
     text-align: center;
+    padding: 2%;
 }
 .job-apply > .apply > .apply{
     height: 40px;
