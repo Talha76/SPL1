@@ -12,6 +12,18 @@ if(isset($_SESSION['id'])) {
              <a href="../loginAndRegistration/register.php">Sign up</a>';
 }
 
+if(isset($_POST['submit'])) {
+    $name = filter_input(INPUT_POST, 'name');
+    $availability = filter_input(INPUT_POST, 'availability');
+    $email = filter_input(INPUT_POST, 'email');
+    $religion = filter_input(INPUT_POST, 'religion');
+
+    $db=new Database("user_db");
+    $query="insert into employer_info values('$id','$name','$availability','$email','$religion')";
+    $db->update($query);
+}
+
+
 ?>
 
 <!DOCTYPE html>
