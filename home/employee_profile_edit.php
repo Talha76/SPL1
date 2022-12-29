@@ -3,6 +3,29 @@
 include '../phpDependencies/config.php';
 
 if (isset($_POST['submit'])) {
+    $id = $_SESSION['id'];
+    $name=filter_input(INPUT_POST, 'name');
+    $dateOfBirth=filter_input(INPUT_POST, 'date_of_birth');
+    $skill=filter_input(INPUT_POST, 'skill');
+    $availability=filter_input(INPUT_POST, 'availability');
+    $bloodGroup=filter_input(INPUT_POST, 'blood_group');
+    $cv=filter_input(INPUT_POST, 'cv');
+    $presentAdress=filter_input(INPUT_POST, 'present-adress');
+    $permanentAdress=filter_input(INPUT_POST, 'permanent_adress');
+    $fathersName=filter_input(INPUT_POST, 'fathers_name');
+    $mothersName=filter_input(INPUT_POST, 'mothers_name');
+    $maritalStatus=filter_input(INPUT_POST, 'marital_status');
+    $religion=filter_input(INPUT_POST, 'religion');
+    
+    $db=new Database("user_db");
+    $query="insert into employee_info values('$id','$name','$dateOfBirth','$skill','$availability','$bloodGroup','$religion')";
+    $db->update($query);
+    
+    $query2="insert into family_info values('$id','$fathersName','$mothersName','$maritalStatus')";
+    $db->update($query2);
+
+    $query3="insert into address values('$id','$presentAdress','$permanentAdress')";
+    $db->update($query3);    
 }
 
 ?>
@@ -127,177 +150,15 @@ if (isset($_POST['submit'])) {
             <p>Date of birth : </p>
             <input type="date" name="date_of_birth" id="date_of_birth">
             <p>Skill : </p>
-            <select name="skill" id="skill">
-                <option value="-1" selected disabled>Select Your Skill</option>
-                <option value="1">Accounting/Finance</option>
-                <option value="2">Bank/Non-Bank Fin. Institution</option>
-                <option value="3">Commercial/Supply Chain</option>
-                <option value="4">Education/Training</option>
-                <option value="5">Engineer/Architect</option>
-                <option value="6">Garments/ Textile</option>
-                <option value="7">General Management/Admin</option>
-                <option value="8">IT/Telecommunication</option>
-                <option value="9">Marketing/Sales</option>
-                <option value="10">Media/Advertisement/Event Mgt.</option>
-                <option value="11">Medical/Pharma</option>
-                <option value="12">NGO/Development</option>
-                <option value="13">Research/Consultancy</option>
-                <option value="14">Secretary/Receptionist</option>
-                <option value="15">Data Entry/Operator/BPO</option>
-                <option value="16">Customer Support/Call Centre</option>
-                <option value="17">HR/Org. Development</option>
-                <option value="18">Design/Creative</option>
-                <option value="19">Production/Operation</option>
-                <option value="20">Hospitality/ Travel/ Tourism</option>
-                <option value="21">Beauty Care/ Health & Fitness</option>
-                <option value="22">Law/ Legal</option>
-                <option value="23">Electrician/ Construction/ Repair</option>
-                <option value="24">Security/Support Service</option>
-                <option value="25">Driving/Motor Technician</option>
-                <option value="26">Agro (Plant/Animal/Fisheries)</option>
-            </select>
+            <input type="text" name="skill" id="skill" placeholder="Your skills">
+            
             <p>Availability : </p>
             <select name="availability" id="availability">
                 <option value="-1" disabled selected>Availability</option>
                 <option value="available">Available</option>
                 <option value="unavailable">Unavailable</option>
             </select>
-            <p>Present District : </p>
-            <select id="present_district" name="present_district" required>
-                <option value="-1" selected disabled>Select District</option>
-                <option value="1">Brahmanbaria</option>
-                <option value="2">Bagerhat</option>
-                <option value="3">Bandarban</option>
-                <option value="4">Barishal</option>
-                <option value="5">Bhola</option>
-                <option value="6">Bogura</option>
-                <option value="7">Barguna</option>
-                <option value="8">Chandpur</option>
-                <option value="9">Chapainawabganj</option>
-                <option value="10">Chattogram</option>
-                <option value="11">Chuadanga</option>
-                <option value="12">Cumilla</option>
-                <option value="13">Cox's Bazar</option>
-                <option value="14">Dhaka</option>
-                <option value="15">Dinajpur</option>
-                <option value="16">Faridpur</option>
-                <option value="17">Feni</option>
-                <option value="18">Gaibandha</option>
-                <option value="19">Gazipur</option>
-                <option value="20">Gopalganj</option>
-                <option value="21">Habiganj</option>
-                <option value="22">Jamalpur</option>
-                <option value="23">Jashore</option>
-                <option value="24">Jhalakathi</option>
-                <option value="25">Jhenaidah</option>
-                <option value="26">Joypurhat</option>
-                <option value="27">Khagrachhari</option>
-                <option value="28">Khulna</option>
-                <option value="29">Kishoreganj</option>
-                <option value="30">Kurigram</option>
-                <option value="31">Kushtia</option>
-                <option value="32">Lalmonirhat</option>
-                <option value="33">Laksmipur</option>
-                <option value="34">Madaripur</option>
-                <option value="35">Magura</option>
-                <option value="36">Manikganj</option>
-                <option value="37">Meherpur</option>
-                <option value="38">Moulvibazar</option>
-                <option value="39">Munshiganj</option>
-                <option value="40">Mymensingh</option>
-                <option value="41">Naogaon</option>
-                <option value="42">Narail</option>
-                <option value="43">Narayanganj</option>
-                <option value="44">Narsingdi</option>
-                <option value="45">Natore</option>
-                <option value="46">Netrokona</option>
-                <option value="47">Nilphamari</option>
-                <option value="48">Noakhali</option>
-                <option value="49">Pabna</option>
-                <option value="50">Panchagarh</option>
-                <option value="51">Patuakhali</option>
-                <option value="52">Pirojpur</option>
-                <option value="53">Rajbari</option>
-                <option value="54">Rajshahi</option>
-                <option value="55">Rangamati</option>
-                <option value="56">Rangpur</option>
-                <option value="57">Satkhira</option>
-                <option value="58">Shariatpur</option>
-                <option value="59">Sherpur</option>
-                <option value="60">Sirajganj</option>
-                <option value="61">Sunamganj</option>
-                <option value="62">Sylhet</option>
-                <option value="63">Tangail</option>
-                <option value="64">Thakurgaon</option>
-            </select>
-            <p>Permanent District : </p>
-            <select id="present_district" name="present_district" required>
-                <option value="-1" selected disabled>Select District</option>
-                <option value="1">Brahmanbaria</option>
-                <option value="2">Bagerhat</option>
-                <option value="3">Bandarban</option>
-                <option value="4">Barishal</option>
-                <option value="5">Bhola</option>
-                <option value="6">Bogura</option>
-                <option value="7">Barguna</option>
-                <option value="8">Chandpur</option>
-                <option value="9">Chapainawabganj</option>
-                <option value="10">Chattogram</option>
-                <option value="11">Chuadanga</option>
-                <option value="12">Cumilla</option>
-                <option value="13">Cox's Bazar</option>
-                <option value="14">Dhaka</option>
-                <option value="15">Dinajpur</option>
-                <option value="16">Faridpur</option>
-                <option value="17">Feni</option>
-                <option value="18">Gaibandha</option>
-                <option value="19">Gazipur</option>
-                <option value="20">Gopalganj</option>
-                <option value="21">Habiganj</option>
-                <option value="22">Jamalpur</option>
-                <option value="23">Jashore</option>
-                <option value="24">Jhalakathi</option>
-                <option value="25">Jhenaidah</option>
-                <option value="26">Joypurhat</option>
-                <option value="27">Khagrachhari</option>
-                <option value="28">Khulna</option>
-                <option value="29">Kishoreganj</option>
-                <option value="30">Kurigram</option>
-                <option value="31">Kushtia</option>
-                <option value="32">Lalmonirhat</option>
-                <option value="33">Laksmipur</option>
-                <option value="34">Madaripur</option>
-                <option value="35">Magura</option>
-                <option value="36">Manikganj</option>
-                <option value="37">Meherpur</option>
-                <option value="38">Moulvibazar</option>
-                <option value="39">Munshiganj</option>
-                <option value="40">Mymensingh</option>
-                <option value="41">Naogaon</option>
-                <option value="42">Narail</option>
-                <option value="43">Narayanganj</option>
-                <option value="44">Narsingdi</option>
-                <option value="45">Natore</option>
-                <option value="46">Netrokona</option>
-                <option value="47">Nilphamari</option>
-                <option value="48">Noakhali</option>
-                <option value="49">Pabna</option>
-                <option value="50">Panchagarh</option>
-                <option value="51">Patuakhali</option>
-                <option value="52">Pirojpur</option>
-                <option value="53">Rajbari</option>
-                <option value="54">Rajshahi</option>
-                <option value="55">Rangamati</option>
-                <option value="56">Rangpur</option>
-                <option value="57">Satkhira</option>
-                <option value="58">Shariatpur</option>
-                <option value="59">Sherpur</option>
-                <option value="60">Sirajganj</option>
-                <option value="61">Sunamganj</option>
-                <option value="62">Sylhet</option>
-                <option value="63">Tangail</option>
-                <option value="64">Thakurgaon</option>
-            </select>
+            
             <p>Blood Group : </p>
             <select name="blood_group" id="blood_group">
                 <option value="-1" selected disabled>Select Your Blood Group</option>
