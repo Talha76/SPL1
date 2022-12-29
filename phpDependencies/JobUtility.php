@@ -7,9 +7,9 @@ class JobUtility {
   public function getID() : int {
     try {
       $db = new Database('job_db');
-      $rs = new ResultSet($db->query("SELECT count(*) as total FROM job_info"));
+      $rs = new ResultSet($db->query("SELECT id FROM job_info ORDER BY id DESC LIMIT 1"));
       $rs->hasNext();
-      return $rs->get('total');
+      return $rs->get('id') + 1;
     } catch(Exception $e) {
       die("Error: " . $e->getMessage());
     }

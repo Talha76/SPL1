@@ -36,9 +36,9 @@ if (isset($_POST['submit'])) {
           $insert = "INSERT INTO userID VALUES('$id', '$email', '$password', '$userType')";
           $db->update($insert);
           if($userType == 'employee') {
-            $location = 'index.php';
+            $location = 'employee_profile_edit.php';
           } elseif($userType == 'employer') {
-            $location = 'index_employers.php';
+            $location = 'employer_profile_edit.php';
           }
           header('location: ../home/' . $location);
         }

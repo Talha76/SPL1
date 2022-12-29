@@ -4,17 +4,22 @@ include_once '../phpDependencies/config.php';
 include_once '../phpDependencies/Person.php';
 include_once '../phpDependencies/Job.php';
 
+if(isset($_SESSION['mail-sent'])) {
+  $message = "Mail sent successfully";
+}
+
 if(isset($_GET['job_id'])) {
-  $jobID = $_GET['job_id'];
+  $jobID = filter_input(INPUT_GET, 'job_id');
   $job = new Job($jobID);
 }
 
 if(isset($_SESSION['id'])) {
   $id = $_SESSION['id'];
   $person = new Person($id);
-  if($person->getUserType() == 'employee') {
+  $userType = $person->getUserType();
+  if($userType == 'employee') {
     $button = '<div class="apply">
-                   <input type="submit" name="edit" id="edit" value="Apply" class="apply">
+                   <input type="submit" name="apply" id="apply" value="Apply" class="apply">
                </div>';
     $location = "index.php";
   } else {
@@ -37,6 +42,31 @@ if(isset($_POST['delete'])) {
   $sql = "DELETE FROM job_info WHERE id = $jobID";
   $db->update($sql);
   header('Location: index_employers.php');
+}
+
+if(isset($_POST['apply'])) {
+  $id = $_SESSION['id'];
+  $fileName = $_FILES['cv']['name'];
+  $fileTmpName = $_FILES['cv']['tmp_name'];
+  $fileSize = $_FILES['cv']['size'];
+  $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+  $jobID = filter_input(INPUT_GET, 'job_id');
+
+  if($fileExt != 'pdf') {
+    $error = "File type not supported";
+  } else {
+    if($fileSize > 10000000) {
+      $error = "File is too large";
+    } else {
+      $uploadPath = './uploads/' . $id . '.pdf';
+      if(move_uploaded_file($fileTmpName, $uploadPath)) {
+        $message = "Upload Successful";
+        header('Location: ../loginAndRegistration/send_mail.php?job_id=' . $jobID);
+      } else {
+        $error = "File could not be uploaded";
+      }
+    }
+  }
 }
 
 ?>
@@ -155,6 +185,15 @@ if(isset($_POST['delete'])) {
 <!--job info starts -->
 <div class="post-job">
     <h1>Job</h1>
+    <?php
+
+    if(isset($error)) {
+      echo '<p style="color: red">' . $error . '</p>';
+    } if(isset($message)) {
+      echo '<p style="color: green">' . $message . '</p>';
+    }
+
+    ?>
 </div>
 <div class="job-info">
     <h1><?php echo $job->getName(); ?></h1>
@@ -166,30 +205,37 @@ if(isset($_POST['delete'])) {
     <p>Contact Email : <?php echo $job->getEmail(); ?></p><br>
     <p>Telephone : <?php echo $job->getPhone(); ?></p>
 </div>
-<div class="detailed-info">
-    <div class="detaile-info-title">
-        <h2> Detailed Information </h2>
-    </div>
-    <div class="eduation-requirements">
-        <h2>Education Requirements</h2>
-        <p><?php echo $job->getEducationRequirements(); ?></p>
-    </div>
-    <div class="experience-requirements">
-        <h2>Experience Requirements</h2>
-        <p><?php echo $job->getExperienceRequirements(); ?></p>
-    </div>
-    <div class="job-location">
-        <h2>Job Requirements</h2>
-        <p>Job Requirements - output</p>
-    </div>
-</div>
+<form action="" method="POST" enctype="multipart/form-data">
+  <div class="detailed-info">
+      <div class="detaile-info-title">
+          <h2> Detailed Information </h2>
+      </div>
+      <div class="eduation-requirements">
+          <h2>Education Requirements</h2>
+          <p><?php echo $job->getEducationRequirements(); ?></p>
+      </div>
+      <div class="experience-requirements">
+          <h2>Experience Requirements</h2>
+          <p><?php echo $job->getExperienceRequirements(); ?></p>
+      </div>
+      <?php
 
-<br>
-<br>
+      if($userType == 'employee') {
+        echo '<div class="experience-requirements">
+                <h2>Upload Your CV</h2>
+                <br>
+                <input type="file" name="cv" id="cv" accept=".pdf">
+              </div>';
+      }
 
-<form action="" method="POST">
+      ?>
+  </div>
+
+  <br>
+  <br>
+
   <div class="job-apply">
-      <?php echo $button; ?>
+    <?php echo $button; ?>
   </div>
   
 </form>

@@ -1,6 +1,17 @@
 <?php
 
 include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+  $id = $_SESSION['id'];
+  $person = new Person($id);
+  $userType = $person->getUserType();
+}
+
+if(isset($_POST['submit'])) {
+  header('Location: employee_profile_edit.php');
+}
 
 ?>
 
@@ -116,45 +127,49 @@ include_once '../phpDependencies/config.php';
   <!-- navbar ends -->
 
     <!-- employee info starts -->
-    <form action="employee_profile_edit.php" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <h1 class="employee">Employee</h1>
         <div class="basic-info">
             <br>
-            <p>Name : </p>
-            <p>Date of birth : </p>
-            <p>Skill : </p>
-            <p>Availability : </p>
-            <p>Present District : </p>
-            <p>Permanent District : </p>
-            <p>Blood Group : </p>
-            <p>Upload Picture : </p>
+            <p>Name : <?php echo $person->getName(); ?></p><br>
+            <p>Date of birth : <?php echo $person->getDateOfBirth(); ?></p><br>
+            <p>Skill : <?php echo $person->getSkill(); ?></p><br>
+            <p>Availability : <?php echo $person->getAvailability(); ?></p><br>
+            <p>Blood Group : <?php echo $person->getBloodGroup(); ?></p><br>
         </div>
         <div class="detailed-info">
             <div class="detailed-info-title">
                 <h2> Detailed Information </h2>
             </div>
-            <div class="present-adress">
-                <p>Present Adress : </p>
+            <div class="present-address">
+                <p>Present address : </p>
                 <br>
+                <?php echo $person->getPresentAddress(); ?>
             </div>
-            <div class="permanent-adress">
-                <p>Permanent Adress : </p>
+            <div class="permanent-address">
+                <p>Permanent address : </p>
                 <br>
+                <?php echo $person->getPermanentAddress(); ?>
             </div>
             <div class="father-info">
                 <p>Father's Name : </p>
                 <br>
+                <?php echo $person->getFathersName(); ?>
             </div>
             <div class="mother-info">
                 <p>Mother's Name : </p>
+                <br>
+                <?php echo $person->getMothersName(); ?>
             </div>
             <div class="marital-status">
                 <p>Marital Status : </p>
                 <br>
+                <?php echo $person->getMaritalStatus(); ?>
             </div>
             <div class="religion">
                 <p>Religion : </p>
                 <br>
+                <?php echo $person->getReligion(); ?>
             </div>
         </div>
         <br>

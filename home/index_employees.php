@@ -6,7 +6,7 @@ include_once '../phpDependencies/JobUtility.php';
 
 $job = new JobUtility();
 
-if(isset($_SESSION['id'])) {
+if (isset($_SESSION['id'])) {
   $id = $_SESSION['id'];
   $person = new Person($id);
   $link = '<a href="employee_profile.php">' . $id . '</a>
@@ -16,9 +16,9 @@ if(isset($_SESSION['id'])) {
            <a href="../loginAndRegistration/register.php">Sign up</a>';
 }
 
-if(isset($_POST['search'])) {
+if (isset($_POST['search'])) {
   $searchWord = filter_input(INPUT_POST, 'search-input');
-  die($searchWord);
+  header('Location: search_result_page.php?search=' . $searchWord);
 }
 
 ?>
@@ -48,7 +48,7 @@ if(isset($_POST['search'])) {
     <!-- navbar-1 starts although its name is navbar-->
     <nav class="navbar">
       <div class="navbar-menu">
-        <a href="#jobs">Jobs</a>
+        <a href="search_result_page.php?search=">Jobs</a>
         <a href="#myjobs">Myjobs</a>
         <a href="#elearning">E-learning</a>
         <a href="#tender"></a>
@@ -68,20 +68,20 @@ if(isset($_POST['search'])) {
           echo $link;
 
           ?>
-          </div>
-          <div class="career-resources-dropdown">
-              <select class="career-resource" id="career-resource">
-                  <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
-                  <option value="Career-Guidline"> <a href="https://www.bdjobs.com/career/careerguide/">Career Guideline</a></option>
-                  <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
-                  <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
-                  <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
-                  <option value="Articles"> <a href="#">Articles</a></option>
-              </select>
-          </div>
-          <div class="contact-us">
-              <a href="./contact_us.php">Contact Us</a>
-          </div>
+        </div>
+        <div class="career-resources-dropdown">
+          <select class="career-resource" id="career-resource">
+            <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
+            <option value="Career-Guidline"> <a href="https://www.bdjobs.com/career/careerguide/">Career Guideline</a></option>
+            <option value="Interview-Tips"> <a href="#">Interview Tips</a></option>
+            <option value="Resume-writing-tips"> <a href="#">Resume writing tips</a></option>
+            <option value="Skill-development tips"> <a href="#">Skill development tips</a></option>
+            <option value="Articles"> <a href="#">Articles</a></option>
+          </select>
+        </div>
+        <div class="contact-us">
+          <a href="./contact_us.php">Contact Us</a>
+        </div>
       </div>
 
 
@@ -93,7 +93,7 @@ if(isset($_POST['search'])) {
     <nav class="navbar2">
       <h2 class="navbar-logo"> <a href="#">Kaajkormo.com</a></h2>
 
-      
+
       <div class="nb-class2">
         <div class="facebook">
           <a href="#"><i class=""></i></a>
@@ -119,7 +119,7 @@ if(isset($_POST['search'])) {
 
   <!--header starts-->
   <header>
-    
+
     <h1 class="header-title">
       FIND YOUR <br> <span>PERFECT JOB</span><br>EASILY
     </h1>
@@ -128,14 +128,14 @@ if(isset($_POST['search'])) {
 
   <!--searchbar starts-->
   <form action="" method="POST">
-  <div class="search-wrapper">
-    <div class="search-box">
-      <div class="search-card">
-        <input class="search-input" type="search" name="search-input" id="search-input" placeholder="Job title or keywords">
-        <button class="search-button" name="search" id="search">Search</button>
+    <div class="search-wrapper">
+      <div class="search-box">
+        <div class="search-card">
+          <input class="search-input" type="search" name="search-input" id="search-input" placeholder="Job title or keywords">
+          <button class="search-button" name="search" id="search">Search</button>
+        </div>
       </div>
     </div>
-  </div>
   </form>
   <!-- searchbar ends -->
 
@@ -157,7 +157,7 @@ if(isset($_POST['search'])) {
             <a href="#lj">LIVE JOBS</a>
           </div>
           <div class="num-of-lj">
-              <h2><?php echo $job->getLiveJobs(); ?></h2>
+            <h2><?php echo $job->getLiveJobs(); ?></h2>
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@ if(isset($_POST['search'])) {
             <a href="#">COMPANIES</a>
           </div>
           <div class="num-of-comp">
-              <h2><?php echo $job->getCompanyCount(); ?></h2>
+            <h2><?php echo $job->getCompanyCount(); ?></h2>
           </div>
         </div>
       </div>
@@ -199,7 +199,7 @@ if(isset($_POST['search'])) {
             <a href="#">NEW JOBS</a>
           </div>
           <div class="num-of-nj">
-              <h2><?php echo $job->getLiveJobs(); ?></h2>
+            <h2><?php echo $job->getLiveJobs(); ?></h2>
           </div>
         </div>
       </div>
@@ -224,32 +224,25 @@ if(isset($_POST['search'])) {
 
     <!-- row1 starts -->
     <div class="row1">
-
-      <!-- container-1 of row1 starts -->
-      <div class="bsh-container">
-        <div class="bsh-heading">
-          <a href="#">Bangladesh Specialized Hospital Ltd.</a>
-        </div>
-      </div>
       <!-- container-1 of row1 ends -->
 
 
       <!-- container-2 of row1 starts -->
-      <div class="akijgroup">
-        <div class="akij-heading">
-          <a href="#akij">Akij Group Ltd.</a>
-        </div>
-      </div>
-      <!-- container-2 of row1 ends -->
+      <?php
 
-      <!-- container-3 of row1 starts -->
-      <div class="asset-container">
-        
-        <div class="asset-heading">
-          <a href="#asset">Asset Developments & Holdings Ltd. </a>
-        </div>
-      </div>
-      <!-- container-3 of row1 ends -->
+      $db = new Database('job_db');
+      $rs = new ResultSet($db->query("SELECT * FROM job_info ORDER BY id DESC LIMIT 3"));
+      while ($rs->hasNext()) {
+        echo '<div class="akijgroup">
+                <div class="akij-heading">
+                  <a href="job_profile.php?job_id=' . $rs->get('id') . '">' . $rs->get('company') . '</a>
+                  <p>' . $rs->get('name') . '</p>
+                  <p>Salary: ' . $rs->get('salary') . '</p>
+                </div>
+              </div>';
+      }
+
+      ?>
 
     </div>
     <!-- row1 ends -->
@@ -259,33 +252,21 @@ if(isset($_POST['search'])) {
     <!-- row2 starts -->
     <div class="row2">
 
-      <!-- container-1 of row2 starts -->
-      <div class="nsu-container">
-        
-        <div class="nsu-heading">
-          <a href="#">North South University (NSU)</a>
-        </div>
-      </div>
-      <!-- container-1 of row2 ends -->
+      <?php
 
+      $db = new Database('job_db');
+      $rs = new ResultSet($db->query("SELECT * FROM job_info ORDER BY id DESC LIMIT 3, 6"));
+      while ($rs->hasNext()) {
+        echo '<div class="akijgroup">
+          <div class="akij-heading">
+            <a href="job_profile.php?job_id=' . $rs->get('id') . '">' . $rs->get('company') . '</a>
+            <p>' . $rs->get('name') . '</p>
+            <p>Salary: ' . $rs->get('salary') . '</p>
+          </div>
+        </div>';
+      }
 
-      <!-- container-2 of row2 starts -->
-      <div class="brac-container">
-        
-        <div class="brac-heading">
-          <a href="#brac">Brac</a>
-        </div>
-      </div>
-      <!-- container-2 of row2 ends -->
-
-      <!-- container-3 of row2 starts -->
-      <div class="british-council-container">
-       
-        <div class="british-council-heading">
-          <a href="#british-council">British Council</a>
-        </div>
-      </div>
-      <!-- container-3 of row2 ends -->
+      ?>
 
     </div>
     <!-- row2 ends -->

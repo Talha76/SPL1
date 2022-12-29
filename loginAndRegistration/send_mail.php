@@ -2,27 +2,60 @@
 
 include_once '../phpDependencies/config.php';
 include_once '../phpDependencies/Person.php';
+include_once '../phpDependencies/Job.php';
+include_once '../phpDependencies/smtp.php';
 
-$id = $_SESSION['id'];
-$person = new Person($id);
-$userType = $person->getUserType();
+if(isset($_GET['job_id'])) {
+  $jobID = $_GET['job_id'];
+  $job = new Job($jobID);
+} else {
+  die("Error: No job ID specified");
+}
 
-if(isset($_POST['submit'])) {
-  header('Location: employer_profile_edit.php');
+if(isset($_SESSION['id'])) {
+  $id = $_SESSION['id'];
+  $person = new Person($id);
+  $userType = $person->getUserType();
+} else {
+  die("Error: No user ID specified");
+}
+
+try {
+  $mail = new Mailer();
+  $mail->setSender($person->getEmail());
+  $mail->setRecipient($job->getEmail());
+
+  $subject = "Application for your posted job";
+  $body = "Sir, I became interested in the job offer posted by your compnay. Here is my attached CV.<br>
+           Your's sincerely<br>" . $person->getName() . "</br>";
+  $altBody = "Sir, I became interested in the job offer posted by your compnay. Here is my attached CV.
+           Your's sincerely" . $person->getName();
+  $mail->setSubject($subject);
+  $mail->setBody($body);
+  $mail->setAltBody($altBody);
+  
+  $cvPath = "../home/uploads/" . $id . ".pdf";
+  $mail->addAttachment($cvPath);
+
+  $mail->send();
+  $_SESSION['mail-sent'] = true;
+  header('Location: ../home/job_profile.php?job_id=' . $jobID );
+} catch (Exception $e) {
+  die("Error: " . $e->getMessage());
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<title>KaajKormo - Employee-info</title>
+<title>KaajKormo - Job-info</title>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/employer_profile_style.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../home/css/job_profile_style.css">
+    <link rel="stylesheet" href="../home/css/style.css">
     <meta charset="UTS-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-sclae=1.0">
@@ -99,7 +132,7 @@ if(isset($_POST['submit'])) {
 
     <!--navbar2 starts-->
     <nav class="navbar2">
-      <h2 class="navbar-logo"> <a href="./index_employers.php">Kaajkormo.com</a></h2>
+      <h2 class="navbar-logo"><?php echo '<a href="' . $location . '">Kaajkormo.com</a> '; ?></h2>
 
       
       <div class="nb-class2">
@@ -124,78 +157,63 @@ if(isset($_POST['submit'])) {
   </nav>
   <!-- navbar ends -->
 
-    <!-- employee info starts -->
-    <form action="" method="post" enctype="multipart/form-data">
-        <h1 class="employer">Employer</h1>
-        <div class="basic-info">
-            <br>
-            <p>Name : <?php echo $person->getName(); ?></p><br>
-            <p>Email : <?php echo $person->getEmail(); ?></p><br>
-            <p>Availability : <?php echo $person->getAvailability(); ?></p><br>
-            <p>Religion : <?php echo $person->getReligion(); ?></p><br>
-        </div>
-        <br>
-        <div class="employee-edit">
-          <div class="submit">
-            <input type="submit" name="submit" id="submit" value="Edit Your Profile" class="submit">
-          </div>
-        </div>
-    </form>
-    <!-- footer starts -->
-    <div class="footer">
-
-        <!-- about us starts -->
-        <div class="about-us">
-            <div class="heading-about-us">
-                <h2>ABOUT US</h2>
-            </div>
-            <div class="links">
-                <a href="about_us.php">About Kaajkormo</a>
-                <a href="terms_and_conditions.php">Terms & conditions</a>
-                <a href="#">Our Services</a>
-                <a href="privacy_policy.php">Privacy Policy</a>
-                <a href="#">Feedback</a>
-                <a href="#">Contact us</a>
-            </div>
-        </div>
-        <!-- about us ends -->
-
-        <!-- job seekers starts -->
-        <div class="Job-Seekers">
-            <div class="heading-job-seekers">
-                <h2>JOB SEEKERS</h2>
-            </div>
-            <div class="links-of-jobseekers">
-                <a href="../loginAndRegistration/register.php">Create Account</a>
-                <a href="#">Career Guideline</a>
-                <a href="#">Resume Templates</a>
-                <a href="#">Myb Rating</a>
-                <a href="#">FAQ</a>
-            </div>
-        </div>
-        <!-- job seekers ends -->
 
 
-        <!-- EMPLOYERS starts -->
-        <div class="Job-Seekers">
-            <div class="heading-job-seekers">
-                <h2>EMPLOYERS</h2>
-            </div>
-            <div class="links-of-jobseekers">
-                <a href="../loginAndRegistration/register.php">Create Account</a>
-                <a href="#">Post a job</a>
-                <a href="#">Service</a>
-                <a href="#">My/Company's Rating</a>
-                <a href="#">FAQ</a>
-            </div>
+
+<!-- footer starts -->
+<div class="footer">
+
+    <!-- about us starts -->
+    <div class="about-us">
+        <div class="heading-about-us">
+            <h2>ABOUT US</h2>
         </div>
-        <!-- EMPLOYERS ends -->
+        <div class="links">
+            <a href="about_us.php">About Kaajkormo</a>
+            <a href="terms_and_conditions.php">Terms & conditions</a>
+            <a href="#">Our Services</a>
+            <a href="privacy_policy.php">Privacy Policy</a>
+            <a href="#">Feedback</a>
+            <a href="#">Contact us</a>
+        </div>
     </div>
-    <!-- footer ends -->
-    <div class="hotline">
+    <!-- about us ends -->
 
-        <h2><span>Hot Line:</span>1068944</h2>
+    <!-- job seekers starts -->
+    <div class="Job-Seekers">
+        <div class="heading-job-seekers">
+            <h2>JOB SEEKERS</h2>
+        </div>
+        <div class="links-of-jobseekers">
+            <a href="../loginAndRegistration/register.php">Create Account</a>
+            <a href="#">Career Guideline</a>
+            <a href="#">Resume Templates</a>
+            <a href="#">Myb Rating</a>
+            <a href="#">FAQ</a>
+        </div>
     </div>
+    <!-- job seekers ends -->
+
+
+    <!-- EMPLOYERS starts -->
+    <div class="Job-Seekers">
+        <div class="heading-job-seekers">
+            <h2>EMPLOYERS</h2>
+        </div>
+        <div class="links-of-jobseekers">
+            <a href="../loginAndRegistration/register.php">Create Account</a>
+            <a href="#">Post a job</a>
+            <a href="#">Service</a>
+            <a href="#">My/Company's Rating</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+    <!-- EMPLOYERS ends -->
+</div>
+<!-- footer ends -->
+<div class="hotline">
+
+    <h2><span>Hot Line:</span>1068944</h2>
+</div>
 </body>
-
 </html>

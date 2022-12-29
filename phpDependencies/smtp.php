@@ -15,7 +15,7 @@ class Mailer {
   public function __construct() {
     try {
       $this->mailer = new PHPMailer(TRUE);
-      $this->mailer->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+      // $this->mailer->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
       $this->mailer->isSMTP();                                            //Send using SMTP
       $this->mailer->SMTPAuth   = true;                                   //Enable SMTP authentication
       $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
@@ -112,6 +112,14 @@ class Mailer {
   public function send() {
     try {
       $this->mailer->send();
+    } catch(Exception $e) {
+      die("Error: ". $e->getMessage());
+    }
+  }
+
+  public function addAttachment(string $path) {
+    try {
+      $this->mailer->addAttachment($path);
     } catch(Exception $e) {
       die("Error: ". $e->getMessage());
     }

@@ -34,9 +34,9 @@ if(isset($_POST['submit'])) {
     } if(!empty($salary)) {
       $db->update("UPDATE job_info SET salary = $salary WHERE id = $jobID");
     } if(strlen($educationRequirements)) {
-      $db->update("UPDATE job_info SET education_equirements = '$educationRequirements' WHERE id = $jobID");
+      $db->update("UPDATE job_info SET education_requirements = '$educationRequirements' WHERE id = $jobID");
     } if(strlen($experienceRequirements)) {
-      $db->update("UPDATE job_info SET experience_equirements = '$experienceRequirements' WHERE id = $jobID");
+      $db->update("UPDATE job_info SET experience_requirements = '$experienceRequirements' WHERE id = $jobID");
     } if(strlen($email)) {
       $db->update("UPDATE job_info SET email = '$email' WHERE id = $jobID");
     } if(strlen($phone)) {
@@ -48,7 +48,7 @@ if(isset($_POST['submit'])) {
     $jobID = $job->getId();
     $id = $_SESSION['id'];
 
-    $query="insert into job_info values($jobID, '$id', '$jobName', '$jobType', '$jobRank', $salary, '$company', '$location', '$educationRequirement', '$experienceRequirement', '$email', '$phone')";
+    $query="insert into job_info values($jobID, '$id', '$jobName', '$jobType', '$jobRank', $salary, '$company', '$location', '$educationRequirements', '$experienceRequirements', '$email', '$phone')";
     $db->update($query);
     $message = "Job Posted Successfully";
   }

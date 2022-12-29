@@ -131,6 +131,126 @@ class Person {
       die("Error: " . $e->getMessage());
     }
   }
+
+  public function getDateOfBirth() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT date_of_birth FROM user_info WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('date_of_birth');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
+
+  public function getSkill() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT skill FROM user_info WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('skill');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
+
+  public function getBloodGroup() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT blood_group FROM user_info WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('blood_group');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
+
+  public function getPresentAddress() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT present_address FROM address WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('present_address');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
+
+  public function getPermanentAddress() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT permanent_address FROM address WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('permanent_address');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
+
+  public function getFathersName() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT fathers_name FROM family_info WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('fathers_name');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
+
+  public function getMothersName() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT mothers_name FROM family_info WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('mothers_name');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
+
+  public function getMaritalStatus() : string {
+    try {
+      $db = new Database('user_db');
+      $sql = "SELECT marital_status FROM family_info WHERE id = '$this->id'";
+      $rs = new ResultSet($db->query($sql));
+      if($rs->hasNext()) {
+        return $rs->get('marital_status');
+      } else {
+        throw new Exception("User not found with this id.");
+      }
+    } catch(Exception $e) {
+      die("Error: " . $e->getMessage());
+    }
+  }
 }
 
 ?>

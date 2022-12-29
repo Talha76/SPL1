@@ -1,3 +1,20 @@
+<?php
+
+include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $person = new Person($id);
+    $userType = $person->getUserType();
+}
+
+if(isset($_POST['search'])) {
+    header('Location: search_result_page.php?search=' . $_POST['search-bar']);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>KaajKormo - Search Reuslts</title>
@@ -111,132 +128,48 @@
 
     <h1 class="search-page-healine">Search results ... </h1>
     <!-- search-bar starts -->
-    <div class="search-bars">
-        <div class="search-bar-main">
-            <input type="text" name="search-bar" id="search-bar" class="search-bar">
-            
-            <input type="submit" name="search" id="search" class="search" value="Search">
+    <form action="" method="POST">
+        <div class="search-bars">
+            <div class="search-bar-main">
+                <input type="search" name="search-bar" id="search-bar" class="search-bar">
+                
+                <input type="submit" name="search" id="search" class="search" value="Search">
+            </div>
         </div>
-        <div class="filters">
-            <select name="filter" id="filter" class="filter">
-                <option value="salary">Salary</option>
-                <option value="rating">Rating</option>
-                <option value="age">Age</option>
-                <option value="time">Time</option>
-            </select>
-    
-            <select name="place" id="place" class="place">
-                <option value="rangpur">Rangpur</option>
-                <option value="dhaka">Dhaka</option>
-                <option value="chattagram">Chattagram</option>
-                <option value="khulna">Khulna</option>
-                <option value="barishal">Barishal</option>
-                <option value="rajshahi">Rajshahi</option>
-                <option value="mymenshing">Mymenshing</option>
-                <option value="sylhet">Sylhet</option>
-            </select>
-        </div>
-    </div>
+    </form>
     <div class="search-results">
-        <div class="result1">
-            <div class="image">
-                <img src="" alt="">
-            </div>
-            <div class="details">
-                <h4>Software Engineering</h4>
-                <p>Company : <a href="job_profile.html"> SWE Google</a></p>
-                <p>Salary : 69000 Tk/Month</p>
-                <p>Duration : 8 hours</p>
-                <p>Rating : 5 Stars</p>
-                <p>Quality Required : CSS, HTML, PHP, JAVASCRIPT </p>
-            </div>
-        </div>
-        <div class="result2">
-            <div class="image">
-                <img src="" alt="">
-            </div>
-            <div class="details">
-                <h4>Software Engineering</h4>
-                <p>Company : <a href="job_profile.html"> SWE Google</a></p>
-                <p>Salary : 69000 Tk/Month</p>
-                <p>Duration : 8 hours</p>
-                <p>Rating : 5 Stars</p>
-                <p>Quality Required : CSS, HTML, PHP, JAVASCRIPT </p>
-            </div>
-        </div>
-        <div class="result3">
-            <div class="image">
-                <img src="" alt="">
-            </div>
-            <div class="details">
-                <h4>Software Engineering</h4>
-                <p>Company : <a href="job_profile.html"> SWE Google</a></p>
-                <p>Salary : 69000 Tk/Month</p>
-                <p>Duration : 8 hours</p>
-                <p>Rating : 5 Stars</p>
-                <p>Quality Required : CSS, HTML, PHP, JAVASCRIPT </p>
-            </div>
-        </div>
-        <div class="result4">
-            <div class="image">
-                <img src="" alt="">
-            </div>
-            <div class="details">
-                <h4>Software Engineering</h4>
-                <p>Company : <a href="job_profile.html"> SWE Google</a></p>
-                <p>Salary : 69000 Tk/Month</p>
-                <p>Duration : 8 hours</p>
-                <p>Rating : 5 Stars</p>
-                <p>Quality Required : CSS, HTML, PHP, JAVASCRIPT </p>
-            </div>
-        </div>
-        <div class="result5">
-            <div class="image">
-                <img src="" alt="">
-            </div>
-            <div class="details">
-                <h4>Software Engineering</h4>
-                <p>Company : <a href="job_profile.html"> SWE Google</a></p>
-                <p>Salary : 69000 Tk/Month</p>
-                <p>Duration : 8 hours</p>
-                <p>Rating : 5 Stars</p>
-                <p>Quality Required : CSS, HTML, PHP, JAVASCRIPT </p>
-            </div>
-        </div>
-        <div class="result6">
-            <div class="image">
-                <img src="" alt="">
-            </div>
-            <div class="details">
-                <h4>Software Engineering</h4>
-                <p>Company : <a href="job_profile.html"> SWE Google</a></p>
-                <p>Salary : 69000 Tk/Month</p>
-                <p>Duration : 8 hours</p>
-                <p>Rating : 5 Stars</p>
-                <p>Quality Required : CSS, HTML, PHP, JAVASCRIPT </p>
-            </div>
-        </div>
-        <div class="result7">
-            <div class="image">
-                <img src="" alt="">
-            </div>
-            <div class="details">
-                <h4>Software Engineering</h4>
-                <p>Company : <a href="job_profile.html"> SWE Google</a></p>
-                <p>Salary : 69000 Tk/Month</p>
-                <p>Duration : 8 hours</p>
-                <p>Rating : 5 Stars</p>
-                <p>Quality Required : CSS, HTML, PHP, JAVASCRIPT </p>
-            </div>
-        </div>
-    </div>
-    <div class="page-jump">
-        <input type="submit" name="start" id="start" class="start" value="Start">
-        <input type="submit" name="previous" id="previous" class="previous" value="Previous">
-        <input type="text" name="page-no" id="page-no" class="page-no" placeholder="Present page no.">
-        <input type="submit" name="go-page" id="go-page" class="go-page" value="Go">
-        <input type="submit" name="next" id="next" class="next" value="Next">
-        <input type="submit" name="end" id="end" class="end" value="End">
+        <?php
+
+        $search = filter_input(INPUT_GET, 'search');
+        $db = new Database('job_db');
+        $sql = "SELECT * FROM job_info WHERE name LIKE '%$search%' ORDER BY id DESC";
+        $rs = new ResultSet($db->query($sql));
+        $cnt = 0;
+        while($rs->hasNext() && $cnt < 10) {
+            $cnt++;
+            echo '<div class="result">
+                      <div class="details">
+                          <h4><a href="job_profile.php?job_id=' . $rs->get('id') . '">' . $rs->get('name') . '</a></h4>
+                          <p>Company : ' . $rs->get('company') . '</p>
+                          <p>Salary : ' . $rs->get('salary') . ' BDT/Month</p>
+                      </div>
+                  </div>';
+        }
+
+        $sql = "SELECT * FROM job_info WHERE company LIKE '$company' ORDER BY id DESC";
+        $rs = new ResultSet($db->query($sql));
+        while($rs->hasNext() && $cnt < 10) {
+            $cnt++;
+            echo '<div class="result">
+                      <div class="details">
+                          <h4><a href="job_profile.php?job_id=' . $rs->get('id') . '">' . $rs->get('name') . '</a></h4>
+                          <p>Company : ' . $rs->get('company') . '</p>
+                          <p>Salary : ' . $rs->get('salary') . ' BDT/Month</p>
+                      </div>
+                  </div>';
+        }
+
+        ?>
     </div>
     <div class="footer">
 
@@ -292,3 +225,6 @@
 
     <h2><span>Hot Line:</span>1068944</h2>
 </div>
+
+</body>
+</html>

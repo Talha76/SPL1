@@ -1,31 +1,66 @@
 <?php
 
 include_once '../phpDependencies/config.php';
+include_once '../phpDependencies/Person.php';
+
+if(isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $person = new Person($id);
+    $userType = $person->getUserType();
+}
 
 if (isset($_POST['submit'])) {
-    $id = $_SESSION['id'];
     $name=filter_input(INPUT_POST, 'name');
     $dateOfBirth=filter_input(INPUT_POST, 'date_of_birth');
     $skill=filter_input(INPUT_POST, 'skill');
     $availability=filter_input(INPUT_POST, 'availability');
     $bloodGroup=filter_input(INPUT_POST, 'blood_group');
-    $cv=filter_input(INPUT_POST, 'cv');
-    $presentAdress=filter_input(INPUT_POST, 'present-adress');
-    $permanentAdress=filter_input(INPUT_POST, 'permanent_adress');
+    $presentAddress=filter_input(INPUT_POST, 'present_address');
+    $permanentAddress=filter_input(INPUT_POST, 'permanent_address');
     $fathersName=filter_input(INPUT_POST, 'fathers_name');
     $mothersName=filter_input(INPUT_POST, 'mothers_name');
     $maritalStatus=filter_input(INPUT_POST, 'marital_status');
     $religion=filter_input(INPUT_POST, 'religion');
     
     $db=new Database("user_db");
-    $query="insert into employee_info values('$id','$name','$dateOfBirth','$skill','$availability','$bloodGroup','$religion')";
+
+    $rs = new ResultSet($db->query("SELECT * FROM user_info WHERE id = '$id'"));
+    if($rs->hasNext()) {
+        if(strlen($name)) {
+            $db->update("UPDATE user_info SET name = '$name' WHERE id = '$id'");
+        } if(strlen($dateOfBirth)) {
+            $db->update("UPDATE user_info SET date_of_birth = '$dateOfBirth' WHERE id = '$id'");
+        } if(strlen($skill)) {
+            $db->update("UPDATE user_info SET skill = '$skill' WHERE id = '$id'");
+        } if(strlen($availability)) {
+            $db->update("UPDATE user_info SET availability = '$availability' WHERE id = '$id'");
+        } if(strlen($bloodGroup)) {
+            $db->update("UPDATE user_info SET blood_group = '$bloodGroup' WHERE id = '$id'");
+        } if(strlen($presentAddress)) {
+            $db->update("UPDATE address SET present_address = '$presentAddress' WHERE id = '$id'");
+        } if(strlen($permanentAddress)) {
+            $db->update("UPDATE address SET present_address = '$permanentAddress' WHERE id = '$id'");
+        } if(strlen($fathersName)) {
+            $db->update("UPDATE family_info SET fathers_name = '$fathersName' WHERE id = '$id'");
+        } if(strlen($mothersName)) {
+            $db->update("UPDATE family_info SET mothers_name = '$mothersName' WHERE id = '$id'");
+        } if(strlen($maritalStatus)) {
+            $db->update("UPDATE family_info SET marital_status = '$maritalStatus' WHERE id = '$id'");
+        } if(strlen($religion)) {
+            $db->update("UPDATE user_info SET religion = '$religion' WHERE id = '$id'");
+        }
+        header('Location: index_employees.php');
+    }
+
+    $query="insert into user_info values('$id','$name','$dateOfBirth','$skill','$availability','$bloodGroup','$religion')";
     $db->update($query);
     
     $query2="insert into family_info values('$id','$fathersName','$mothersName','$maritalStatus')";
     $db->update($query2);
 
-    $query3="insert into address values('$id','$presentAdress','$permanentAdress')";
-    $db->update($query3);    
+    $query3="insert into address values('$id','$presentAddress','$permanentAddress')";
+    $db->update($query3);
+    header('Location: index_employees.php');
 }
 
 ?>
@@ -178,15 +213,15 @@ if (isset($_POST['submit'])) {
             <div class="detailed-info-title">
                 <h2> Detailed Information </h2>
             </div>
-            <div class="present-adress">
-                <p>Present Adress : </p>
+            <div class="present-address">
+                <p>Present address : </p>
                 <br>
-                <input class="present-adress" type="text" name="present_adress" id="present_address" placeholder="present-adress">
+                <input class="present-address" type="text" name="present_address" id="present_address" placeholder="present-address">
             </div>
-            <div class="permanent-adress">
-                <p>Permanent Adress : </p>
+            <div class="permanent-address">
+                <p>Permanent address : </p>
                 <br>
-                <input class="permanent-adress" type="text" name="permanent_adress" id="permanent_address" placeholder="permanent-adress">
+                <input class="permanent-address" type="text" name="permanent_address" id="permanent_address" placeholder="permanent-address">
             </div>
             <div class="father-info">
                 <p>Father's Name : </p>
