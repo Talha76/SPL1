@@ -171,9 +171,7 @@ try {
         <div class="links">
             <a href="about_us.php">About Kaajkormo</a>
             <a href="terms_and_conditions.php">Terms & conditions</a>
-            <a href="#">Our Services</a>
             <a href="privacy_policy.php">Privacy Policy</a>
-            <a href="#">Feedback</a>
             <a href="#">Contact us</a>
         </div>
     </div>
@@ -186,10 +184,6 @@ try {
         </div>
         <div class="links-of-jobseekers">
             <a href="../loginAndRegistration/register.php">Create Account</a>
-            <a href="#">Career Guideline</a>
-            <a href="#">Resume Templates</a>
-            <a href="#">Myb Rating</a>
-            <a href="#">FAQ</a>
         </div>
     </div>
     <!-- job seekers ends -->
@@ -202,10 +196,6 @@ try {
         </div>
         <div class="links-of-jobseekers">
             <a href="../loginAndRegistration/register.php">Create Account</a>
-            <a href="#">Post a job</a>
-            <a href="#">Service</a>
-            <a href="#">My/Company's Rating</a>
-            <a href="#">FAQ</a>
         </div>
     </div>
     <!-- EMPLOYERS ends -->
