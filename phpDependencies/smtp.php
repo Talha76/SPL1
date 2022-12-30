@@ -32,7 +32,7 @@ class Mailer {
       $this->mailer->Host = 'smtp-relay.sendinblue.com';
 
       $smtpCredentialsDB = new Database('smtp_credentials');
-      $resultSet = $smtpCredentialsDB->query("SELECT * FROM smtp_credentials");
+      $resultSet = $smtpCredentialsDB->query("SELECT * FROM smtp_credentials WHERE email = 'nocija8530@dentaltz.com'");
       if($resultSet->num_rows == 0) {
         throw new Exception("SMTP Credentials doesn't exist");
       }

@@ -87,25 +87,7 @@ if (isset($_POST['submit'])) {
 
 
       <div class="nb-class1">
-        <div class="sign-in">
-          <?php
-
-          if (isset($_SESSION['id'])) {
-            $html = '';
-            if($userType == 'employee') {
-              $html = $html . '<a href="employee_profile.php">';
-            } elseif($userType == 'employer') {
-              $html = $html . '<a href="employer_profile.php">';
-            }
-            echo $html . $_SESSION['id'] . '</a>
-                  <a href="../loginAndRegistration/logout.php">Logout</a>';
-          } else {
-            echo '<a href="../loginAndRegistration/login.php">Sign in</a>
-                  <a href="../loginAndRegistration/register.php">Sign up</a>';
-          }
-
-          ?>
-          </div>
+        
           <div class="career-resources-dropdown">
               <select class="career-resource" id="career-resource">
                   <option value="Career-Advice"><label for="Career-Advice">Career Advice</label></option>
