@@ -50,7 +50,7 @@ if (isset($_POST['search'])) {
       <div class="navbar-menu">
         <a href="search_result_page.php?search=">Jobs</a>
         <a href="#myjobs">Myjobs</a>
-        <a href="#elearning">E-learning</a>
+        
         <a href="#tender"></a>
         <a href="#employers"></a>
       </div>

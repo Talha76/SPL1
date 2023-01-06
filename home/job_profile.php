@@ -102,11 +102,7 @@ if(isset($_POST['apply'])) {
     <!-- navbar-1 starts although its name is navbar-->
     <nav class="navbar">
       <div class="navbar-menu">
-        <a href="#jobs">Jobs</a>
-        <a href="#myjobs">Myjobs</a>
-        <a href="#elearning">E-learning</a>
-        <a href="#tender"></a>
-        <a href="#employers"></a>
+        <a href="index_employers.php">Myjobs</a>
       </div>
       <div class="menu-toggle">
         <span class="bar"></span>

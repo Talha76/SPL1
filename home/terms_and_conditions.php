@@ -50,9 +50,9 @@ if(isset($_SESSION['id'])) {
     <!-- navbar-1 starts although its name is navbar-->
     <nav class="navbar">
       <div class="navbar-menu">
-        <a href="#jobs">Jobs</a>
+        <a href="../home/search_result_page.php?search=">Jobs</a>
         <a href="#myjobs">Myjobs</a>
-        <a href="#elearning">E-learning</a>
+        
         <a href="#tender"></a>
         <a href="#employers"></a>
       </div>
